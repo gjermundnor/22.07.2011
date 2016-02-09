@@ -1,0 +1,27 @@
+/* Mats - Hannah - Gjermund */
+
+/*
+Farger:
+Bakgrunn: #16182e Mørk blå/lilla
+*/
+body{
+    background-color: #16182e;
+    color: #FFF;
+}
+#container{
+    width: 1024px;
+    height: auto;
+    margin: 0 auto;
+    overflow: auto;
+    box-sizing: border-box;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+#mainSection{
+    height: 31600px;
+
+    background-image: url('../images/lines.png');
+    background-size: 1100px;
+    background-position: top center;
+    background-repeat: no-repeat;
+}

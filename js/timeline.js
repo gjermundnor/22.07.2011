@@ -12,6 +12,6 @@ var TIMELINEAPP = {
 
     init: function(){
 
-    }; // END init
+    }, // END init
 
 }; // END TIMELINEAPP
