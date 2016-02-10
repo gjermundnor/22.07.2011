@@ -17,10 +17,22 @@ body{
     padding-left: 15px;
     padding-right: 15px;
 }
-#mainSection{
-    height: 31600px;
+/*
+Firefox takler ikke bilder over en viss lengde.
+Derfor er bildet delt i 2 og lagt i hver sin seksjon
+*/
+#mainHalfTopSection{
+    height: 21971px;
 
-    background-image: url('../images/lines.png');
+    background-image: url('../images/half-top-line.png');
+    background-size: 1100px;
+    background-position: top center;
+    background-repeat: no-repeat;
+}
+#mainHalfBottomSection{
+    height: 21975px;
+
+    background-image: url('../images/half-bottom-line.png');
     background-size: 1100px;
     background-position: top center;
     background-repeat: no-repeat;
