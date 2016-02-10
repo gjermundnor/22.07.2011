@@ -19,21 +19,13 @@ body{
 }
 /*
 Firefox takler ikke bilder over en viss lengde.
-Derfor er bildet delt i 2 og lagt i hver sin seksjon
+Derfor er bildet delt i 2 og lagt etterhverandre
 */
-#mainHalfTopSection{
-    height: 21971px;
+#mainSection{
+    height: 42302px;
 
-    background-image: url('../images/half-top-line.png');
+    background-image: url('../images/half-top-line.png'), url('../images/half-bottom-line.png');
     background-size: 1100px;
-    background-position: top center;
-    background-repeat: no-repeat;
-}
-#mainHalfBottomSection{
-    height: 21975px;
-
-    background-image: url('../images/half-bottom-line.png');
-    background-size: 1100px;
-    background-position: top center;
+    background-position: top center, bottom center;
     background-repeat: no-repeat;
 }
