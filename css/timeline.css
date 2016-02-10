@@ -3,6 +3,12 @@
 /*
 Farger:
 Bakgrunn: #16182e Mørk blå/lilla
+Redsel: #00924c Grønn
+Panikk: #535738 Brun
+Forvirring: #00a19a Lysblå
+Usikkerhet: #0073ad Blå
+Trygghet: #523f7b Lilla
+Håp: #FFF hvit
 */
 body{
     background-color: #16182e;
@@ -30,6 +36,11 @@ body{
     padding-left: 15px;
     padding-right: 15px;
 }
+
+header{
+    height: 500px;
+}
+
 /*
 Firefox takler ikke bilder over en viss lengde.
 Derfor er bildet delt i 2 og lagt etterhverandre
