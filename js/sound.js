@@ -3,15 +3,14 @@ $(document).ready(function(){
     var volumeControlBtn = $("#volumeControlBtn");
     var rainSound = $("#rainSound");
 
-    var setEvents = function(){
-        $("#volumeControlBtn").on("click", function(){       
-            rainSound.decreaseVolume();
-        });
-    };/*--end setEvents*/
+    $("#rainSound").prop("volume", 0.2);
+    
+    $("#volumeControlBtn").click(function(){    
+        decreaseVolume();
+    });
 
-    var decreaseVolume = function(){
-            alert();     
-            rainSound.volume = 0.2;
+    var decreaseVolume = function(){    
+        $("#rainSound").prop("volume", 0.6);
     };
 
 });
