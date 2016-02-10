@@ -15,27 +15,28 @@ var TIMELINEAPP = {
     }, // END init
 
     clockEvent: function(){
-          var scrollValue = 100;
+          var scrollValue = 464.9; // Må legge til høyden fra toppen til der tiden skal begynne
           var houres = 15;
-          var minutes = 50;
+          var minutes = 34;
           var zero = '';
 
           $(window).bind('scroll', function() {
-            var scrollOffset = $(window).scrollTop();
+            var scrollOffset = $(window).scrollTop(); // Avstand fra toppen
+
             if( scrollOffset > scrollValue){
               minutes++;
               if( minutes > 59){ minutes = 0; houres++; }
               checkZero(minutes);
               printClock(houres, zero, minutes);
 
-              scrollValue += 100;
-            }else if( scrollOffset < (scrollValue - 100) ){
+              scrollValue += 464.9; // 42302 / 91 //// Høyde delt på minutter
+            }else if( scrollOffset < (scrollValue - 464.9) ){
               minutes--;
               if( minutes < 0){ minutes = 59; houres--; }
               checkZero(minutes);
               printClock(houres, zero, minutes);
-              scrollValue -= 100;
-            }
+              scrollValue -= 464.9;
+            } // END bind scroll event
 
           }); // END scroll
 
