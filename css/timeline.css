@@ -37,6 +37,7 @@ body{
     padding-right: 15px;
 }
 
+
 header{
     height: 500px;
 }
@@ -54,3 +55,30 @@ Derfor er bildet delt i 2 og lagt etterhverandre
     background-repeat: no-repeat;
 
 }
+#dot1{background-color: #00924c }
+#dot2{background-color: #535738}
+#dot3{background-color: #00a19a}
+#dot4{background-color: #0073ad}
+#dot5{background-color: #523f7b}
+#dot6{background-color: #FFF}
+
+
+
+#dotSection{
+    position: fixed;
+    top: 15%;
+    left: 95%;
+    transform: translate(-30%, -40%);
+}
+.dot{
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-bottom: 15px;
+}
+.lockIcon{
+    width: 30px;
+    height: 30px;
+    left: -10px;
+    position: relative;
+    }
