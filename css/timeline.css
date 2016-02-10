@@ -7,6 +7,19 @@ Bakgrunn: #16182e Mørk blå/lilla
 body{
     background-color: #16182e;
     color: #FFF;
+    font-family: bitterRegular;
+}
+@font-face {
+    font-family: bitterRegular;
+    src: url('../fonts/Bitter-Regular.otf');
+}
+@font-face {
+    font-family: bitterBold;
+    src: url('../fonts/Bitter-Bold.otf');
+}
+@font-face {
+    font-family: bitterItalic;
+    src: url('../fonts/Bitter-Italic.otf');
 }
 #container{
     width: 1024px;
