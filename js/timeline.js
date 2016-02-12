@@ -13,6 +13,13 @@ var TIMELINEAPP = {
     init: function(){
         TIMELINEAPP.clockEvent();
         TIMELINEAPP.outputMessages();
+
+        var clickEvent = function(){
+
+          $('#addNameBtn').click( TIMELINEAPP.questionOne );
+          $('#goNextBtn').click( TIMELINEAPP.questionTwo );
+
+        }();
     }, // END init
 
     clockEvent: function(){
@@ -55,6 +62,20 @@ var TIMELINEAPP = {
       var message2 = TIMELINEMODULE.getMessage(0).person;
       console.log(message);
       console.log(message2);
+    },
+    questionOne: function(){
+      $(this).parent().fadeOut(300, function(){
+
+        $('#checkSection').fadeIn();
+
+      });
+    },
+    questionTwo: function(){
+      $(this).parent().fadeOut(300, function(){
+
+        $('#infoBoxSection').fadeIn();
+
+      });
     }
 
 }; // END TIMELINEAPP
