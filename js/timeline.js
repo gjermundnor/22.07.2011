@@ -13,6 +13,7 @@ var TIMELINEAPP = {
     init: function(){
         TIMELINEAPP.clockEvent();
         TIMELINEAPP.outputMessages();
+        TIMELINEAPP.dragQuestion();
 
         var clickEvent = function(){
 
@@ -64,6 +65,8 @@ var TIMELINEAPP = {
       console.log(message2);
     },
     questionOne: function(){
+      var yourName = $('#inputNameField').val();
+      $('#yourName').text(yourName);
       $(this).parent().fadeOut(300, function(){
 
         $('#checkSection').fadeIn();
@@ -76,6 +79,32 @@ var TIMELINEAPP = {
         $('#infoBoxSection').fadeIn();
 
       });
+    },
+    dragQuestion: function(){
+      $('.drop').droppable({
+        tolerance: 'intersect',
+        drop: function(event, ui) {
+          var drop_p = $(this).offset();
+          var drag_p = ui.draggable.offset();
+          var left_end = drop_p.left - drag_p.left + 0;
+          var top_end = drop_p.top - drag_p.top + 0;
+          ui.draggable.animate({
+              top: '+=' + top_end,
+              left: '+=' + left_end
+          });
+          console.log('dragged ' + ui.draggable.attr('id') + ' onto ' + $(this).find('input').val());
+        }
+      });
+
+      $('#yourName').draggable({
+          revert: 'invalid',
+          scroll: false,
+          stack: "#yourName",
+      });
+
+      function dropped(){
+        alert( 'Du valgte: ' + 1 );
+      }
     }
 
 }; // END TIMELINEAPP

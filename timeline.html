@@ -46,11 +46,21 @@
 
             <section id="checkSection" class="question">
                 <h3 id="questionTitle">Hvor var du da bomben smalt 22. Juli?</p>
-                <input id="regjeringskvartalCheck" type="checkbox" name="regjeringskvartalet">På Regjeringskvartalet<br>
-                <input id="utoyaCheck" type="checkbox" name="utøya">På Utøya<br>
-                <input id="hjemmeCheck" type="checkbox" name="hjemme">Hjemme<br>
-                <input id="utlandCheck" type="checkbox" name="utlandet">I utlandet<br>
-                <input id="goNextBtn" class="nextQuestion" type="button" value="Gå videre">
+                <div id="yourName">Ditt navn</div>
+                <br><br>
+                <div class="questionOptions">
+                    <div class="option">Utøya</div>
+                    <label class="drop"><input type="checkbox" class="hide" value="1"></label>​
+                </div>
+                <div class="questionOptions">
+                    <div class="option">Regjeringskvartalet</div>
+                    <label class="drop"><input type="checkbox" class="hide" value="2"></label>​
+                </div>
+                <div class="questionOptions">
+                    <div class="option">Annet</div>
+                    <label class="drop"><input type="checkbox" class="hide" value="3"></label>​
+                </div>
+
            </section>
 
            <section id="introSection">
@@ -99,7 +109,7 @@
 
 <!-- Javascript library -->
 <script src="js/jquery-1.11.3.js"></script><!-- jQuery -->
-<script src="js/jquery-ui.js"></script><!-- Module pattern -->
+<script src="http://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script><!-- Module pattern -->
 <script src="js/timelineModule.js"></script><!-- Module pattern -->
 <script src="js/timeline.js"></script><!-- Custom js/app script -->
 <script src="js/sound.js"></script><!-- Custom js/app script -->
