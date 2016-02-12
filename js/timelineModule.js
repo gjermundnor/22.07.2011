@@ -4,12 +4,20 @@ var TIMELINEMODULE = (function(){
 
     // JSON-object-liste
     var messageListJSON = { "messages" : [
-        {"message": "xxxx"},
-        {"message": "xxyxyxyxyx"}
+        {
+            "event": "Dette skjedde",
+            "message": "medlingern her",
+            "person": "- Lise "
+        },
+        {
+            "event": "",
+            "message": "MEdlign heeer",
+            "person": "- Andreas "
+        }
     ]};
 
-    var getMessage = function(index){
-        return messageListJSON.messages[index].message;
+    var getMessage = function(x){
+        return messageListJSON.messages[x];
     };
 
     return{

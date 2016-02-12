@@ -12,6 +12,7 @@ var TIMELINEAPP = {
 
     init: function(){
         TIMELINEAPP.clockEvent();
+        TIMELINEAPP.outputMessages();
     }, // END init
 
     clockEvent: function(){
@@ -48,6 +49,12 @@ var TIMELINEAPP = {
             if(minutes < 10) zero = '0';
             else zero = '';
           }
-    }
+    },
+    outputMessages: function(){
+      var message = TIMELINEMODULE.getMessage(0).message;
+      var message2 = TIMELINEMODULE.getMessage(0).person;
+      console.log(message);
+      console.log(message2);
+    },
 
 }; // END TIMELINEAPP
