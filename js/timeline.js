@@ -55,6 +55,6 @@ var TIMELINEAPP = {
       var message2 = TIMELINEMODULE.getMessage(0).person;
       console.log(message);
       console.log(message2);
-    },
+    }
 
 }; // END TIMELINEAPP
