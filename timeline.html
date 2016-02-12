@@ -36,6 +36,7 @@
 </div><!-- END fixedElements -->
 
     <div id="container">
+<<<<<<< HEAD
         <header>
         </header>
 
@@ -60,23 +61,44 @@ Den lille øya blir denne ettermiddagen fylt til randen av store følelser. Denn
        </section>
         
         <section id="infoBoxSection">
+=======
+        <header id="questionWrap">
+
+            <section id="inputSection" class="question">
+                   <input id="inputNameField" placeholder="Ditt navn" type="text" autofocus>
+                   <input id="addNameBtn" class="nextQuestion" type="button" value="Legg til">
+            </section>
+
+            <section id="checkSection" class="question">
+                <h3 id="questionTitle">Hvor var du da bomben smalt 22. Juli?</p>
+                <input id="regjeringskvartalCheck" type="checkbox" name="regjeringskvartalet">På Regjeringskvartalet<br>
+                <input id="utoyaCheck" type="checkbox" name="utøya">På Utøya<br>
+                <input id="hjemmeCheck" type="checkbox" name="hjemme">Hjemme<br>
+                <input id="utlandCheck" type="checkbox" name="utlandet">I utlandet<br>
+                <input id="goNextBtn" class="nextQuestion" type="button" value="Gå videre">
+           </section>
+
+           <section id="infoBoxSection">
+>>>>>>> 5eaaabbe781326e711c39a2ac3d778bd6a59de65
             <div id="infoBox">
                 <h2>info</h2>
                 <p>Scroll nedover tidslinjen og opplev hendelsesforløpets følelseskaos. Klokken representerer tid og grafen med fargekodene representerer følelser. Når den lille sirkelen til høyre for midtfeltet begynner å lyse er den klikkbar, og inneholder personlige fortellinger og beskjeder tilknyttet til tidsperioden innenfor feltet. Følelsene er feflektert fra midten av siden og blir sterkere jo lengre ut de kommer. Midtfeltet som har Utøyas form avgenser spekteret. Treffer linjene ytterst på øya er følelsene på det sterkeste.</p>
                 <img id="closeInfoBoxBtn" src="images/pil_venstre.png" role=button>
-            </div>
-        </section><!-- END infoBoxSection-->
+                </div>
+            </section><!-- END infoBoxSection-->
+
+       </header>
 
         <section id="volumeSection">
             <button id="volumeControlBtn">Increase</button>
             <button id="volumeControlTwoBtn">Inecrease more</button>
-           
+
             <audio id="rainSound" control autoplay>
                 <source src="audio/butterfly.mp3" type="audio/mpeg">
             </audio>
-            
+
         </section><!-- END volumeSection-->
-            
+
         <section id="buttonsSection">
             <img id="toTopBtn" src="images/pil_opp.png" role="button">
             <img id="infoBtn" src="images/info.png" role="button">
