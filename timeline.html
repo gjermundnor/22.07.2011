@@ -7,12 +7,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <link rel="stylesheet" type="text/css" href="css/timeline.css">
+    <link rel="stylesheet" type="text/css" href="css/jquery-ui.css">
 
     <title>22.07.2011</title>
 </head>
 
 <body>
 
+<div id="fixedElements">
+    <div id="clockWrap">
+        <div id="title">22.07.2011, Utøya</div>
+        <div id="clock">15:50</div>
+    </div>
 
     <div id="dotSection">
 
@@ -27,32 +33,83 @@
         <div id="dot5" class="dot"></div>
         <h3 id="dot5xt"></h3>
         <div id="dot6" class="dot"></div>
+<<<<<<< HEAD
         <h3 id="dot6Txt"></h3>
         <img src="images/l%C3%A5s_lukket.png" id="lockDots" class="lockIcon">
+=======
+        <img id="lockDots" src="images/l%C3%A5s_lukket.png" class="lockIcon">
+>>>>>>> e9e22dc9cf982893584012c232d14ceeccc138d8
 
     </div>
 
+    <div id="showTxtBtn"></div>
+</div><!-- END fixedElements -->
 
     <div id="container">
-        <header>
-            <h1>22.07.2011</h1>
-            <h3>Jeg fikser prikkene!</h3>
-            <p>Test test</p>
-        </header>
+
+        <header id="questionWrap">
+
+            <section id="inputSection" class="question">
+                   <input id="inputNameField" placeholder="Ditt navn" type="text" autofocus>
+                   <input id="addNameBtn" class="nextQuestion" type="button" value="Legg til">
+            </section>
+
+            <section id="checkSection" class="question">
+                <h3 id="questionTitle">Hvor var du da bomben smalt 22. Juli?</p>
+                <div id="yourName">Ditt navn</div>
+                <br><br>
+                <div class="questionOptions">
+                    <div class="option">Utøya</div>
+                    <label class="drop"><input type="checkbox" class="hide" value="1"></label>​
+                </div>
+                <div class="questionOptions">
+                    <div class="option">Regjeringskvartalet</div>
+                    <label class="drop"><input type="checkbox" class="hide" value="2"></label>​
+                </div>
+                <div class="questionOptions">
+                    <div class="option">Annet</div>
+                    <label class="drop"><input type="checkbox" class="hide" value="3"></label>​
+                </div>
+
+           </section>
+
+           <section id="introSection">
+               <p>Utøya, 22.juli 2011 Den lille øya blir denne ettermiddagen fylt til randen av store følelser. Denne tidslinjen er en tolkning av vår research og handler om i hvilken grad de største følelsene var tilstede i løpet av kvelden. Gjennom å bevege deg nedover tidslinjen går du i dypet av øya og kjenner på følelseskaoset som farget øya rød.</p>
+           </section>
+
+           <section id="infoBoxSection">
+
+            <div id="infoBox">
+                <h2>info</h2>
+                <p>Scroll nedover tidslinjen og opplev hendelsesforløpets følelseskaos. Klokken representerer tid og grafen med fargekodene representerer følelser. Når den lille sirkelen til høyre for midtfeltet begynner å lyse er den klikkbar, og inneholder personlige fortellinger og beskjeder tilknyttet til tidsperioden innenfor feltet. Følelsene er feflektert fra midten av siden og blir sterkere jo lengre ut de kommer. Midtfeltet som har Utøyas form avgenser spekteret. Treffer linjene ytterst på øya er følelsene på det sterkeste.</p>
+                <img id="closeInfoBoxBtn" src="images/pil_venstre.png" role=button>
+                </div>
+            </section><!-- END infoBoxSection-->
+
+
+       </header>
 
         <section id="volumeSection">
-            <button id="volumeControlBtn">Mute</button>
-            
+            <button id="volumeControlBtn">Increase</button>
+            <button id="volumeControlTwoBtn">Inecrease more</button>
+
             <audio id="rainSound" control autoplay>
                 <source src="audio/butterfly.mp3" type="audio/mpeg">
-                </audio>
-            
-        </section>
+            </audio>
+
+        </section><!-- END volumeSection-->
+
+        <section id="buttonsSection">
+            <img id="toTopBtn" src="images/pil_opp.png" role="button">
+            <img id="infoBtn" src="images/info.png" role="button">
+            <img id="volumeBtn" src="images/lyd.png" role="button">
+        </section><!-- END buttonsSection-->
 
         <section id="mainSection">
 
+
         </section>
-        
+
         <footer>
 
         </footer>
@@ -62,6 +119,7 @@
 
 <!-- Javascript library -->
 <script src="js/jquery-1.11.3.js"></script><!-- jQuery -->
+<script src="http://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script><!-- Module pattern -->
 <script src="js/timelineModule.js"></script><!-- Module pattern -->
 <script src="js/timeline.js"></script><!-- Custom js/app script -->
 <script src="js/sound.js"></script><!-- Custom js/app script -->
