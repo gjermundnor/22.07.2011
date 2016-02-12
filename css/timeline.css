@@ -48,11 +48,11 @@ Derfor er bildet delt i 2 og lagt etterhverandre
 #mainSection{
     height: 42302px;
 
-    background-image: url('../images/half-top-line.png'), url('../images/half-bottom-line.png');
-    background-size: 1100px;
-    background-position: top center, bottom center;
+    background-image: url('../images/half-top-line.png'), url('../images/half-bottom-line.png'), url('../images/island-blue.png');
+    background-size: 1100px, 1100px, 500px;
+    background-position: top center, bottom center, center center;
     background-repeat: no-repeat;
-
+    background-attachment: scroll, scroll, fixed;
 }
 #dot1{background-color: #00924c}
 #dot2{background-color: #535738}
@@ -60,7 +60,6 @@ Derfor er bildet delt i 2 og lagt etterhverandre
 #dot4{background-color: #0073ad}
 #dot5{background-color: #523f7b}
 #dot6{background-color: #FFF}
-
 #dotSection{
     position: fixed;
     top: 30px;
@@ -78,6 +77,15 @@ Derfor er bildet delt i 2 og lagt etterhverandre
     left: -10px;
     position: relative;
 }
+#showTxtBtn{
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    position: fixed;
+    top: 450px;
+    right: 30px;
+    background-color: #21243B;
+}
 #clockWrap{
     position: fixed;
     left: 30px;
@@ -86,21 +94,18 @@ Derfor er bildet delt i 2 og lagt etterhverandre
 #clock{
     font-size: 3em;
 }
-
-#inputSection, #checkSection, #infoBoxSection{
+#inputSection, #checkSection, #infoBoxSection, #introSection{
     display: none;
 }
-
 #closeInfoBoxBtn, #toTopBtn, #infoBtn, #volumeBtn{
     width: 40px;
 }
-
 #volumeBtn{
     padding-bottom: 7px;
     padding-left: 10px;
 }
-
 #buttonsSection{
     position: fixed;
     bottom: 50px;
+    left: 30px;
 }
