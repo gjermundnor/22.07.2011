@@ -13,12 +13,15 @@ var TIMELINEAPP = {
     init: function(){
         TIMELINEAPP.clockEvent();
         TIMELINEAPP.outputMessages();
-
+        TIMELINEAPP.scrollToTop();
+        
         var clickEvent = function(){
-
-          $('#addNameBtn').click( TIMELINEAPP.questionOne );
-          $('#goNextBtn').click( TIMELINEAPP.questionTwo );
-
+            
+            $('#addNameBtn').click( TIMELINEAPP.questionOne );
+            $('#goNextBtn').click( TIMELINEAPP.questionTwo );
+            $("#toTopBtn").click( TIMELINEAPP.scrollToTop );
+            $("#infoBtn").click( TIMELINEAPP.showInfoBox);
+            $("#closeInfoBoxBtn").click( TIMELINEAPP.closeInfoBox);
         }();
     }, // END init
 
@@ -76,6 +79,32 @@ var TIMELINEAPP = {
         $('#infoBoxSection').fadeIn();
 
       });
+    },
+    scrollToTop: function(){
+    $(window).scroll(function() {
+        if ($(window).scrollTop() > 300) {
+            $("#toTopBtn")
+                .animate({"opacity": "1"});
+        } else {
+            $("#toTopBtn").animate({"opacity": "0"});
+        }
+    });
+    $("#toTopBtn").click(function(){
+        $("html, body").animate(
+            {
+                scrollTop: 0
+            }, 700);
+        return false;
+    }); 
+    },
+    showInfoBox: function(){
+        $("#infoBoxSection")
+            .animate({"display": "inline"})
+            .fadeIn("slow");
+    },
+    closeInfoBox: function(){
+        $("#infoBoxSection")
+            .animate({"display": "none"})
+            .fadeOut("slow");
     }
-
 }; // END TIMELINEAPP
