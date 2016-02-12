@@ -158,7 +158,7 @@ var TIMELINEAPP = {
     questionThree: function(){
       $(this).parent().fadeOut(300, function(){
 
-        $('#infoBoxSection').fadeIn();
+        $('#introSection').fadeIn();
         $(window).scroll(function() {
           scroll();
         });
