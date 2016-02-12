@@ -82,9 +82,11 @@ Derfor er bildet delt i 2 og lagt etterhverandre
     left: -10px;
     position: relative;
 }
-#clock{
+#clockWrap{
     position: fixed;
     left: 30px;
-    top: 15%;
+    top: 30px;
+}
+#clock{
     font-size: 3em;
 }
