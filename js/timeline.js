@@ -26,8 +26,11 @@ var TIMELINEAPP = {
         TIMELINEAPP.clockEvent();
         TIMELINEAPP.outputMessages();
         TIMELINEAPP.scrollToTop();
+        TIMELINEAPP.dragQuestion();
         
-        var setElements = function () {
+        var TA = TIMELINEAPP;
+        
+        var setElements = function() {
             TA.$dot1 = $("#dot1");
             TA.$dot2 = $("#dot2");
             TA.$dot3 = $("#dot3");
@@ -50,13 +53,10 @@ var TIMELINEAPP = {
             $("#toTopBtn").click( TIMELINEAPP.scrollToTop );
             $("#infoBtn").click( TIMELINEAPP.showInfoBox);
             $("#closeInfoBoxBtn").click( TIMELINEAPP.closeInfoBox);
-            
-        TIMELINEAPP.dragQuestion();
-        };//END clickEvent
-        
-        var TA = TIMELINEAPP;
 
-        var setEvents = function () {
+        }();//END clickEvent
+ 
+        var setEvents = function() {
             TA.$dot1.mouseover(TA.dot1Animate);
             TA.$dot2.mouseover(TA.dot2Animate);
             TA.$dot3.mouseover(TA.dot3Animate);
@@ -65,7 +65,6 @@ var TIMELINEAPP = {
             TA.$dot6.mouseover(TA.dot6Animate);
 
         }();//END setEvents
-
 
     }, // END init
 
