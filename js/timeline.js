@@ -22,9 +22,15 @@ var TIMELINEAPP = {
     $dot5Txt: null,
     $dot6Txt: null,
 
-<<<<<<< HEAD
+    init: function(){
+        TIMELINEAPP.clockEvent();
+        TIMELINEAPP.outputMessages();
+        TIMELINEAPP.dragQuestion();
 
-    init: function () {
+
+        $(window).scroll(function() {
+
+        });
 
         var TA = TIMELINEAPP;
 
@@ -50,18 +56,7 @@ var TIMELINEAPP = {
             TA.$dot5.mouseover(TA.dot5Animate);
             TA.$dot6.mouseover(TA.dot6Animate);
 
-
         }(); //End setEvents
-=======
-    init: function(){
-        TIMELINEAPP.clockEvent();
-        TIMELINEAPP.outputMessages();
-        TIMELINEAPP.dragQuestion();
->>>>>>> e9e22dc9cf982893584012c232d14ceeccc138d8
-
-        $(window).scroll(function() {
-
-        });
 
         var clickEvent = function(){
 
@@ -72,24 +67,23 @@ var TIMELINEAPP = {
         }();
     }, // END init
 
-<<<<<<< HEAD
     dot1Animate: function () {
-        
+
         TIMELINEAPP.$dot1Txt.html("Tekst");
 
     },
     dot2Animate: function () {
-        
+
         TIMELINEAPP.$dot2Txt.html("Tekst");
 
     },
     dot3Animate: function () {
-        
+
          TIMELINEAPP.$dot3Txt.html("Tekst");
 
     },
     dot4Animate: function () {
-        
+
           TIMELINEAPP.$dot4Txt.html("Tekst");
 
     },
@@ -98,12 +92,11 @@ var TIMELINEAPP = {
 
     },
     dot6Animate: function () {
-        
+
         TIMELINEAPP.$dot6Txt.html("Tekst");
 
-    }
+    },
 
-=======
     clockEvent: function(){
           var scrollValue = 464.9; // Må legge til høyden fra toppen til der tiden skal begynne
           var houres = 15;
@@ -198,6 +191,5 @@ var TIMELINEAPP = {
         alert( 'Du valgte: ' + 1 );
       }
     }
->>>>>>> e9e22dc9cf982893584012c232d14ceeccc138d8
 
 }; // END TIMELINEAPP
