@@ -66,9 +66,8 @@ Derfor er bildet delt i 2 og lagt etterhverandre
 
 #dotSection{
     position: fixed;
-    top: 15%;
-    left: 95%;
-    transform: translate(-30%, -40%);
+    top: 30px;
+    right: 30px;
 }
 .dot{
     width: 10px;
