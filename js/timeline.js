@@ -15,10 +15,15 @@ var TIMELINEAPP = {
         TIMELINEAPP.outputMessages();
         TIMELINEAPP.dragQuestion();
 
+        $(window).scroll(function() {
+
+        });
+
         var clickEvent = function(){
 
           $('#addNameBtn').click( TIMELINEAPP.questionOne );
           $('#goNextBtn').click( TIMELINEAPP.questionTwo );
+          $('#goNextInfoBtn').click( TIMELINEAPP.questionThree );
 
         }();
     }, // END init
@@ -61,8 +66,6 @@ var TIMELINEAPP = {
     outputMessages: function(){
       var message = TIMELINEMODULE.getMessage(0).message;
       var message2 = TIMELINEMODULE.getMessage(0).person;
-      console.log(message);
-      console.log(message2);
     },
     questionOne: function(){
       var yourName = $('#inputNameField').val();
@@ -76,7 +79,20 @@ var TIMELINEAPP = {
     questionTwo: function(){
       $(this).parent().fadeOut(300, function(){
 
+        $('#introSection').fadeIn();
+        $(window).scroll(function() {
+          scroll();
+        });
+
+      });
+    },
+    questionThree: function(){
+      $(this).parent().fadeOut(300, function(){
+
         $('#infoBoxSection').fadeIn();
+        $(window).scroll(function() {
+          scroll();
+        });
 
       });
     },
