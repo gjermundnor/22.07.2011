@@ -36,11 +36,9 @@ body{
     padding-left: 15px;
     padding-right: 15px;
 }
-
 header{
     height: 500px;
 }
-
 /*
 Firefox takler ikke bilder over en viss lengde.
 Derfor er bildet delt i 2 og lagt etterhverandre
@@ -49,7 +47,7 @@ Derfor er bildet delt i 2 og lagt etterhverandre
     height: 42302px;
 
     background-image: url('../images/half-top-line.png'), url('../images/half-bottom-line.png'), url('../images/island-blue.png');
-    background-size: 1100px, 1100px, 500px;
+    background-size: 1100px, 1100px, 570px;
     background-position: top center, bottom center, center center;
     background-repeat: no-repeat;
     background-attachment: scroll, scroll, fixed;
@@ -78,13 +76,13 @@ Derfor er bildet delt i 2 og lagt etterhverandre
     position: relative;
 }
 #showTxtBtn{
-    width: 25px;
-    height: 25px;
+    width: 15px;
+    height: 15px;
     border-radius: 50%;
     position: fixed;
-    top: 450px;
-    right: 30px;
-    background-color: #21243B;
+    top: 300px;
+    right: 45px;
+    background-color: #FFF;
 }
 #clockWrap{
     position: fixed;
@@ -96,6 +94,24 @@ Derfor er bildet delt i 2 og lagt etterhverandre
 }
 #inputSection, #checkSection, #infoBoxSection, #introSection{
     display: none;
+}
+#infoBoxSection{
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    position: fixed;
+    background-color: #16182e;    
+}
+#infoBox{
+    margin: auto;
+    padding-top: 100px;
+    padding-left: 40px;
+    width: 500px;
+    height: auto;
+}
+#infoBoxTitle, #infoBoxText{
+    
 }
 #questionWrap{
     position: relative;
@@ -126,6 +142,10 @@ Derfor er bildet delt i 2 og lagt etterhverandre
 }
 #closeInfoBoxBtn, #toTopBtn, #infoBtn, #volumeBtn{
     width: 40px;
+    cursor: pointer;
+}
+#toTopBtn{
+    opacity: 0;
 }
 #volumeBtn{
     padding-bottom: 7px;

@@ -25,15 +25,8 @@ var TIMELINEAPP = {
     init: function(){
         TIMELINEAPP.clockEvent();
         TIMELINEAPP.outputMessages();
-        TIMELINEAPP.dragQuestion();
-
-
-        $(window).scroll(function() {
-
-        });
-
-        var TA = TIMELINEAPP;
-
+        TIMELINEAPP.scrollToTop();
+        
         var setElements = function () {
             TA.$dot1 = $("#dot1");
             TA.$dot2 = $("#dot2");
@@ -48,6 +41,21 @@ var TIMELINEAPP = {
             TA.$dot1Txt = $("#dot5Txt");
             TA.$dot1Txt = $("#dot6Txt");
         }();
+
+        var clickEvent = function(){
+            
+            $('#addNameBtn').click( TIMELINEAPP.questionOne );
+            $('#goNextBtn').click( TIMELINEAPP.questionTwo );
+            $('#goNextInfoBtn').click( TIMELINEAPP.questionThree );
+            $("#toTopBtn").click( TIMELINEAPP.scrollToTop );
+            $("#infoBtn").click( TIMELINEAPP.showInfoBox);
+            $("#closeInfoBoxBtn").click( TIMELINEAPP.closeInfoBox);
+            
+        TIMELINEAPP.dragQuestion();
+        };//END clickEvent
+        
+        var TA = TIMELINEAPP;
+
         var setEvents = function () {
             TA.$dot1.mouseover(TA.dot1Animate);
             TA.$dot2.mouseover(TA.dot2Animate);
@@ -56,15 +64,9 @@ var TIMELINEAPP = {
             TA.$dot5.mouseover(TA.dot5Animate);
             TA.$dot6.mouseover(TA.dot6Animate);
 
-        }(); //End setEvents
+        }();//END setEvents
 
-        var clickEvent = function(){
 
-          $('#addNameBtn').click( TIMELINEAPP.questionOne );
-          $('#goNextBtn').click( TIMELINEAPP.questionTwo );
-          $('#goNextInfoBtn').click( TIMELINEAPP.questionThree );
-
-        }();
     }, // END init
 
     dot1Animate: function () {
@@ -186,10 +188,36 @@ var TIMELINEAPP = {
           scroll: false,
           stack: "#yourName",
       });
+    },
+    scrollToTop: function(){
+    $(window).scroll(function() {
+        if ($(window).scrollTop() > 300) {
+            $("#toTopBtn")
+                .animate({"opacity": "1"});
+        } else {
+            $("#toTopBtn").animate({"opacity": "0"});
+        }
+    });
+    $("#toTopBtn").click(function(){
+        $("html, body").animate(
+            {
+                scrollTop: 0
+            }, 700);
+        return false;
+    }); 
+    },
+    showInfoBox: function(){
+        $("#infoBoxSection")
+            .animate({"display": "inline"})
+            .fadeIn("slow");
+    },
+    closeInfoBox: function(){
+        $("#infoBoxSection")
+            .animate({"display": "none"})
+            .fadeOut("slow");
 
       function dropped(){
         alert( 'Du valgte: ' + 1 );
       }
     }
-
 }; // END TIMELINEAPP
