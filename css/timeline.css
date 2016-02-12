@@ -37,7 +37,6 @@ body{
     padding-right: 15px;
 }
 
-
 header{
     height: 500px;
 }
@@ -55,14 +54,12 @@ Derfor er bildet delt i 2 og lagt etterhverandre
     background-repeat: no-repeat;
 
 }
-#dot1{background-color: #00924c }
+#dot1{background-color: #00924c}
 #dot2{background-color: #535738}
 #dot3{background-color: #00a19a}
 #dot4{background-color: #0073ad}
 #dot5{background-color: #523f7b}
 #dot6{background-color: #FFF}
-
-
 
 #dotSection{
     position: fixed;
@@ -89,4 +86,22 @@ Derfor er bildet delt i 2 og lagt etterhverandre
 }
 #clock{
     font-size: 3em;
+}
+
+#inputSection, #checkSection, #infoBoxSection{
+    display: none;
+}
+
+#closeInfoBoxBtn, #toTopBtn, #infoBtn, #volumeBtn{
+    width: 40px;
+}
+
+#volumeBtn{
+    padding-bottom: 7px;
+    padding-left: 10px;
+}
+
+#buttonsSection{
+    position: fixed;
+    bottom: 50px;
 }
