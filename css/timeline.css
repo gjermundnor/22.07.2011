@@ -81,4 +81,10 @@ Derfor er bildet delt i 2 og lagt etterhverandre
     height: 30px;
     left: -10px;
     position: relative;
-    }
+}
+#clock{
+    position: fixed;
+    left: 30px;
+    top: 15%;
+    font-size: 3em;
+}
