@@ -20,16 +20,12 @@ var TIMELINEAPP = {
     init: function(){
         TIMELINEAPP.clockEvent();
         TIMELINEAPP.outputMessages();
+        TIMELINEAPP.scrollToTop();
         TIMELINEAPP.dragQuestion();
-
-
-        $(window).scroll(function() {
-
-        });
-
+        
         var TA = TIMELINEAPP;
-
-        var setElements = function () {
+        
+        var setElements = function() {
             TA.$dot1 = $("#dot1");
             TA.$dot2 = $("#dot2");
             TA.$dot3 = $("#dot3");
@@ -39,6 +35,7 @@ var TIMELINEAPP = {
             TA.$text = $(".text");
             
         }();
+<<<<<<< HEAD
         var setEvents = function () {
 
             TIMELINEAPP.dotAnimate();
@@ -47,11 +44,18 @@ var TIMELINEAPP = {
 
         var clickEvent = function(){
             
-          $('#addNameBtn').click( TIMELINEAPP.questionOne );
-          $('#goNextBtn').click( TIMELINEAPP.questionTwo );
-          $('#goNextInfoBtn').click( TIMELINEAPP.questionThree );
+            $('#addNameBtn').click( TIMELINEAPP.questionOne );
+            $('#goNextBtn').click( TIMELINEAPP.questionTwo );
+            $('#goNextInfoBtn').click( TIMELINEAPP.questionThree );
+            $("#toTopBtn").click( TIMELINEAPP.scrollToTop );
+            $("#infoBtn").click( TIMELINEAPP.showInfoBox);
+            $(".closeBoxBtn").click(function(){
+                TIMELINEAPP.closeIntro();
+                TIMELINEAPP.closeInfoBox();
+            }); 
 
-        }();
+        }();//END clickEvent
+ 
     }, // END init
 
     dotAnimate: function () {
@@ -131,7 +135,7 @@ var TIMELINEAPP = {
     questionThree: function(){
       $(this).parent().fadeOut(300, function(){
 
-        $('#infoBoxSection').fadeIn();
+        $('#introSection').fadeIn();
         $(window).scroll(function() {
           scroll();
         });
@@ -159,10 +163,42 @@ var TIMELINEAPP = {
           scroll: false,
           stack: "#yourName",
       });
-
-      function dropped(){
-        alert( 'Du valgte: ' + 1 );
-      }
+    },
+    scrollToTop: function(){
+    $(window).scroll(function() {
+        if ($(window).scrollTop() > 300) {
+            $("#toTopBtn")
+                .animate({"opacity": "1"});
+        } else {
+            $("#toTopBtn").animate({"opacity": "0"});
+        }
+    });
+    $("#toTopBtn").click(function(){
+        $("html, body").animate(
+            {
+                scrollTop: 0
+            }, 700);
+        return false;
+    }); 
+    },
+    showInfoBox: function(){
+        $("#infoBoxSection")
+            .animate({"display": "inline"})
+            .fadeIn("slow");
+    },
+    closeInfoBox: function(){
+        $("#infoBoxSection")
+            .animate({"display": "none"})
+            .fadeOut("slow");
+      },
+    showIntro: function(){
+        $("#introSection")
+            .animate({"display": "inline"})
+            .fadeIn("slow");
+    },
+    closeIntro: function(){
+        $("#introSection")
+            .animate({"display": "none"})
+            .fadeOut("slow");
     }
-
 }; // END TIMELINEAPP
