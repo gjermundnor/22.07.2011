@@ -159,13 +159,19 @@ Derfor er bildet delt i 2 og lagt etterhverandre
 #closeBoxBtn, #toTopBtn, #infoBtn, #volumeBtn{
     width: 40px;
     cursor: pointer;
+    position: relative;
+}
+#closeBoxBtn, #toTopBtn, #infoBtn{
+    height: 40px;
+    cursor: pointer;
+    position: relative;
 }
 #toTopBtn{
-    opacity: 0;
+    opacity: 1;
 }
 #volumeBtn{
+    height: 25px;
     padding-bottom: 7px;
-    padding-left: 10px;
 }
 #buttonsSection{
     position: fixed;

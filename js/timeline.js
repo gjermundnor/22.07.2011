@@ -59,6 +59,7 @@ var TIMELINEAPP = {
 
     }, // END init
 
+
     dotAnimate: function () {
 
         $(".dot").hover(function(){
@@ -73,7 +74,6 @@ var TIMELINEAPP = {
                .animate({"opacity": "0"});
         });
     },
-
 
     clockEvent: function(){
           var scrollValue = 464.9; // Må legge til høyden fra toppen til der tiden skal begynne
@@ -159,8 +159,14 @@ var TIMELINEAPP = {
       });
     },
     scrollToTop: function(){
-    $(window).scroll(function() {
-        if ($(window).scrollTop() > 300) {
+        $("#toTopBtn").button(
+            {
+                icons: {primary: "ui-icon-caret-1-n"}
+            }
+        ); 
+    $(window).scroll(function() {   
+    
+        if ($(window).scrollTop() > 0) {
             $("#toTopBtn")
                 .animate({"opacity": "1"});
         } else {
@@ -168,13 +174,13 @@ var TIMELINEAPP = {
         }
     });
     $("#toTopBtn").click(function(){
-        $("html, body").animate(
-            {
-                scrollTop: 0
-            }, 700);
-        return false;
-    });
-    },
+            $("html, body").animate(
+                {
+                    scrollTop: 0
+                }, 700);
+            return false;
+        });
+    },//--END scrollToTop
     /*showIntro: function(){
         $("#introSection")
             .animate({"display": "inline"})
