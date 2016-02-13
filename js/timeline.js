@@ -59,6 +59,7 @@ var TIMELINEAPP = {
 
     }, // END init
 
+
     dotAnimate: function () {
 
         $(".dot").hover(function(){
@@ -73,7 +74,6 @@ var TIMELINEAPP = {
                .animate({"opacity": "0"});
         });
     },
-
 
     clockEvent: function(){
           var scrollValue = 464.9; // Må legge til høyden fra toppen til der tiden skal begynne
@@ -135,7 +135,7 @@ var TIMELINEAPP = {
       $('#questionWrap').fadeOut(300);
       $('#introSection').fadeOut(300);
       $("html, body").animate({ scrollTop: 0}, 700);
-      TIMELINEAPP.ending();
+      //TIMELINEAPP.ending();
     },
     dragQuestion: function(){
       $('.drop').droppable({
@@ -163,8 +163,12 @@ var TIMELINEAPP = {
     scrollToTop: function(){
       $(window).scroll(function() {
         if ($(window).scrollTop() > 300) {
-            $("#toTopBtn")
-                .animate({"opacity": "1"});
+          $("#toTopBtn").button(
+              {
+                  icons: {primary: "ui-icon-caret-1-n"}
+              }
+          );
+          $("#toTopBtn").animate({"opacity": "1"});
         } else {
             $("#toTopBtn").animate({"opacity": "0"});
         }
