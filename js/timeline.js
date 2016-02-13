@@ -7,7 +7,7 @@ $(document).ready(function () {
 var TIMELINEAPP = {
 
     // Globale variabler
-    locationChoice: 0,
+    locationChoice: '0',
     username: '',
 
     //HTML-objects
@@ -25,7 +25,6 @@ var TIMELINEAPP = {
         TIMELINEAPP.scrollToTop();
         TIMELINEAPP.dragQuestion();
         TIMELINEAPP.colorIsland();
-        TIMELINEAPP.ending();
 
         var TA = TIMELINEAPP;
 
@@ -54,6 +53,7 @@ var TIMELINEAPP = {
             $("#toTopBtn").click( TIMELINEAPP.scrollToTop );
             $("#infoBtn").click( TIMELINEAPP.showInfoBox );
             $("#closeBoxBtn").click( TIMELINEAPP.closeInfoBox );
+            $('#newStart').click( TIMELINEAPP.newStart );
 
         }();//END clickEvent
 
@@ -133,7 +133,9 @@ var TIMELINEAPP = {
     },
     questionThree: function(){
       $('#questionWrap').fadeOut(300);
+      $('#introSection').fadeOut(300);
       $("html, body").animate({ scrollTop: 0}, 700);
+      TIMELINEAPP.ending();
     },
     dragQuestion: function(){
       $('.drop').droppable({
@@ -159,21 +161,20 @@ var TIMELINEAPP = {
       });
     },
     scrollToTop: function(){
-    $(window).scroll(function() {
+      $(window).scroll(function() {
         if ($(window).scrollTop() > 300) {
             $("#toTopBtn")
                 .animate({"opacity": "1"});
         } else {
             $("#toTopBtn").animate({"opacity": "0"});
         }
-    });
-    $("#toTopBtn").click(function(){
-        $("html, body").animate(
-            {
-                scrollTop: 0
-            }, 700);
-        return false;
-    });
+      });
+      $("#toTopBtn").click(function(){
+          TIMELINEAPP.scrollTop();
+      });
+    },
+    scrollTop: function(){
+      $("html, body").animate({ scrollTop: 0 }, 700);
     },
     /*showIntro: function(){
         $("#introSection")
@@ -215,9 +216,29 @@ var TIMELINEAPP = {
       });
     },
     ending: function(){
-      $(window).scroll(function() {
-        topOffset = $(window).scrollTop();
-        if( topOffset > 1000) console.log(username + ' : ' + locationChoice);
-      });
+      $('#endSection').fadeIn();
+      $('#endSectionText').append(
+        "<h1>Hei " + username + ", du har nå fått et innblikk i hvordan menneskene på Utøya opplevde sitasjonen, den 22. juli 2011.</h1>"
+        );
+      if(locationChoice == 'annet'){
+        $('#endSectionText').append(
+        "<h3>Heldigvis var du et " + locationChoice + " sted og ble ikke direkte berørt av hendelsen.</h3>"
+        );
+      }else{
+        $('#endSectionText').append(
+        "<h3>Siden du befant deg på " + locationChoice + " denne dagen, håper vi du ikke ble fysisk skadet og at hverdagen din går som normalt.</h3>"
+        );
+      }
+      /*
+        Hei Rolando, du har nå fått et innblikk i hvordan menneskene på Utøya opplevde sitasjonen, den 22. juli 2011.
+
+          Heldigvis var du et "annet" sted og ble ikke direkte berørt av hendelsen.
+
+          Siden du befant deg på utøya/regjeringskvartalet denne dagen
+          håper vi du ikke ble fysisk skadet og at hverdagen din går som normalt.
+      */
+    },
+    newStart: function(){
+      location.reload(true)
     }
 }; // END TIMELINEAPP

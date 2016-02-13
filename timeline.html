@@ -82,15 +82,15 @@
                 <br><br>
                 <div class="questionOptions">
                     <div class="option">Utøya</div>
-                    <label class="drop"><input type="checkbox" class="hide" value="1"></label>
+                    <label class="drop"><input type="checkbox" class="hide" value="utøya"></label>
                 </div>
                 <div class="questionOptions">
                     <div class="option">Regjeringskvartalet</div>
-                    <label class="drop"><input type="checkbox" class="hide" value="2"></label>
+                    <label class="drop"><input type="checkbox" class="hide" value="regjeringskvartalet"></label>
                 </div>
                 <div class="questionOptions">
                     <div class="option">Annet</div>
-                    <label class="drop"><input type="checkbox" class="hide" value="3"></label>
+                    <label class="drop"><input type="checkbox" class="hide" value="annet"></label>
                 </div>
 
                 <input id="goNextInfoBtn" class="nextQuestion" type="button" value="Gå videre">
@@ -112,7 +112,7 @@
                 <div id="closeBoxBtn" role=button>X</div>
             </div><!-- END container -->
         </section><!-- END infoBoxSection-->
-        
+
     <div class="container">
 
         <section id="volumeSection">
@@ -134,13 +134,16 @@
         <section id="mainSection">
             <img class="island" id="blueIsland" src="images/island-blue.png" alt="">
             <img class="island" id="redIsland" src="images/island-red.png" alt="">
-            <img src="images/half-top-line.png" alt="Toppen av linjene">
-            <img src="images/half-bottom-line.png" alt="Toppen av linjene">
+            <img class="lines" src="images/half-top-line.png" alt="Toppen av linjene">
+            <img class="lines" src="images/half-bottom-line.png" alt="Toppen av linjene">
 
         </section>
 
-        <footer>
-
+        <footer id="endSection">
+            <div class="container">
+                <div id="endSectionText"></div>
+                <input id="newStart" class="nextQuestion" type="button" value="Start på nytt">
+            </div>
         </footer>
 
     </div><!-- END container -->

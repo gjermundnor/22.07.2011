@@ -41,13 +41,8 @@ Firefox takler ikke bilder over en viss lengde.
 Derfor er bildet delt i 2 og lagt etterhverandre
 */
 #mainSection{
-    /*height: 42302px;
-
-    background-image: url('../images/half-top-line.png'), url('../images/half-bottom-line.png'), url('../images/island-blue.png');
-    background-size: 1100px, 1100px, 570px;
-    background-position: top center, bottom center, center center;
-    background-repeat: no-repeat;
-    background-attachment: scroll, scroll, fixed;*/
+    text-align: center;
+    margin-bottom: 400px;
 }
 #dot1{background-color: #00924c;}
 #dot2{background-color: #535738;}
@@ -217,4 +212,24 @@ Derfor er bildet delt i 2 og lagt etterhverandre
 }
 #redIsland{
     opacity: 0;
+}
+.lines{
+    width: 900px;
+}
+#endSection{
+    position: fixed;
+    z-index: 900;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #16182e;
+    display: none;
+    text-align: center;
+    height: 100%
+}
+#endSection .container{
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
 }
