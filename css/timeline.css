@@ -41,13 +41,13 @@ Firefox takler ikke bilder over en viss lengde.
 Derfor er bildet delt i 2 og lagt etterhverandre
 */
 #mainSection{
-    height: 42302px;
+    /*height: 42302px;
 
     background-image: url('../images/half-top-line.png'), url('../images/half-bottom-line.png'), url('../images/island-blue.png');
     background-size: 1100px, 1100px, 570px;
     background-position: top center, bottom center, center center;
     background-repeat: no-repeat;
-    background-attachment: scroll, scroll, fixed;
+    background-attachment: scroll, scroll, fixed;*/
 }
 #dot1{background-color: #00924c;}
 #dot2{background-color: #535738;}
@@ -144,6 +144,9 @@ Derfor er bildet delt i 2 og lagt etterhverandre
     border-radius: 4px;
     color: white;
 }
+#questionWrap .nextQuestion, #yourName{
+    cursor: pointer;
+}
 #questionWrap input:focus{
     outline: none;
 }
@@ -202,3 +205,16 @@ Derfor er bildet delt i 2 og lagt etterhverandre
     display: none;
 }
 /* END dragable */
+.island{
+    width: 800px;
+    margin: auto;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: -1;
+}
+#redIsland{
+    opacity: 0;
+}

@@ -7,6 +7,8 @@ $(document).ready(function () {
 var TIMELINEAPP = {
 
     // Globale variabler
+    locationChoice: 0,
+    username: '',
 
     //HTML-objects
     $dot1: null,
@@ -22,6 +24,8 @@ var TIMELINEAPP = {
         TIMELINEAPP.outputMessages();
         TIMELINEAPP.scrollToTop();
         TIMELINEAPP.dragQuestion();
+        TIMELINEAPP.colorIsland();
+        TIMELINEAPP.ending();
 
         var TA = TIMELINEAPP;
 
@@ -33,6 +37,7 @@ var TIMELINEAPP = {
             TA.$dot5 = $("#dot5");
             TA.$dot6 = $("#dot6");
             TA.$text = $(".text");
+
         }();//END setElements
 
         var setEvents = function () {
@@ -112,6 +117,7 @@ var TIMELINEAPP = {
     questionOne: function(){
       var yourName = $('#inputNameField').val();
       $('#yourName').text(yourName);
+      username = yourName;
       $(this).parent().fadeOut(300, function(){
 
         $('#checkSection').fadeIn();
@@ -127,6 +133,7 @@ var TIMELINEAPP = {
     },
     questionThree: function(){
       $('#questionWrap').fadeOut(300);
+      $("html, body").animate({ scrollTop: 0}, 700);
     },
     dragQuestion: function(){
       $('.drop').droppable({
@@ -140,7 +147,8 @@ var TIMELINEAPP = {
               top: '+=' + top_end,
               left: '+=' + left_end
           });
-          console.log('dragged ' + ui.draggable.attr('id') + ' onto ' + $(this).find('input').val());
+          //console.log('dragged ' + ui.draggable.attr('id') + ' onto ' + $(this).find('input').val());
+          locationChoice = $(this).find('input').val();
         }
       });
 
@@ -186,5 +194,30 @@ var TIMELINEAPP = {
         $("#infoBoxSection")
             .animate({"display": "none"})
             .fadeOut("slow");
-      }
+    },
+    colorIsland: function(){
+      var bodyHeight = $('body').height();
+      var topOffset = $(window).scrollTop();
+      var persentage = 0;
+      var scrollValue = 700;
+
+      $(window).scroll(function() {
+          topOffset = $(window).scrollTop();
+          persentage = (topOffset / bodyHeight);
+
+          if( scrollValue < topOffset){
+            $('#redIsland').css('opacity', persentage);
+            scrollValue += 700;
+          }else if(topOffset < (scrollValue - 700) ){
+            $('#redIsland').css('opacity', persentage);
+            scrollValue -= 700;
+          }
+      });
+    },
+    ending: function(){
+      $(window).scroll(function() {
+        topOffset = $(window).scrollTop();
+        if( topOffset > 1000) console.log(username + ' : ' + locationChoice);
+      });
+    }
 }; // END TIMELINEAPP
