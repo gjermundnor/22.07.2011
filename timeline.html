@@ -67,9 +67,8 @@
     <div id="showTxtBtn"></div>
 </div><!-- END fixedElements -->
 
-    <div id="container">
-
-        <header id="questionWrap">
+    <header id="questionWrap">
+        <div class="container">
 
             <section id="inputSection" class="question">
                    <input id="inputNameField" placeholder="Ditt navn" type="text" autofocus>
@@ -96,29 +95,28 @@
                 <input id="goNextInfoBtn" class="nextQuestion" type="button" value="Gå videre">
            </section>
 
-           <section id="introSection">
-<<<<<<< HEAD
+           <section id="introSection" class="text-box">
+
                <p>Utøya, 22.juli 2011<br>
                Den lille øya blir denne ettermiddagen fylt til randen av store følelser. Denne tidslinjen er en tolkning av vår research og handler om i hvilken grad de største følelsene var tilstede i løpet av kvelden. Gjennom å bevege deg nedover tidslinjen går du i dypet av øya og kjenner på følelseskaoset som farget øya rød.</p>
                <input id="startBtn" class="nextQuestion" type="button" value="Start reisen">
-=======
-               <div id="introBox">
-                   <h2>Utøya, 22. Juli 2011</h2>
-                   <p>Den lille øya blir denne ettermiddagen fylt til randen av store følelser. Denne tidslinjen er en tolkning av vår research og handler om i hvilken grad de største følelsene var tilstede i løpet av kvelden. Gjennom å bevege deg nedover tidslinjen går du i dypet av øya og kjenner på følelseskaoset som farget øya rød.</p>
-                   <img class="closeBoxBtn" src="images/pil_venstre.png" role=button>
-               </div>
->>>>>>> 0b2d3702561eb618b19fd61aa3f994e12e535a0c
+
            </section>
 
-       </header>
+        </div><!-- END container -->
+   </header>
 
         <section id="infoBoxSection">
-            <div id="infoBox">
-                <h2 id="infoBoxTitle">Info</h2>
-                <p id="infoBoxText">Scroll nedover tidslinjen og opplev hendelsesforløpets følelseskaos. Klokken representerer tid og grafen med fargekodene representerer følelser. Når den lille sirkelen til høyre for midtfeltet begynner å lyse er den klikkbar, og inneholder personlige fortellinger og beskjeder tilknyttet til tidsperioden innenfor feltet. Følelsene er feflektert fra midten av siden og blir sterkere jo lengre ut de kommer. Midtfeltet som har Utøyas form avgenser spekteret. Treffer linjene ytterst på øya er følelsene på det sterkeste.</p>
-                <img class="closeBoxBtn" src="images/pil_venstre.png" role=button>
+            <div class="container">
+                <div id="infoBox">
+                    <h2 id="infoBoxTitle">Info</h2>
+                    <p id="infoBoxText">Scroll nedover tidslinjen og opplev hendelsesforløpets følelseskaos. Klokken representerer tid og grafen med fargekodene representerer følelser. Når den lille sirkelen til høyre for midtfeltet begynner å lyse er den klikkbar, og inneholder personlige fortellinger og beskjeder tilknyttet til tidsperioden innenfor feltet. Følelsene er feflektert fra midten av siden og blir sterkere jo lengre ut de kommer. Midtfeltet som har Utøyas form avgenser spekteret. Treffer linjene ytterst på øya er følelsene på det sterkeste.</p>
+                    <img class="closeBoxBtn" src="images/pil_venstre.png" role=button>
                 </div>
             </section><!-- END infoBoxSection-->
+        </div><!-- END container -->
+
+    <div class="container">
 
         <section id="volumeSection">
             <button id="volumeControlBtn">Increase</button>
@@ -145,8 +143,7 @@
 
         </footer>
 
-    </div>
-    <!-- END container -->
+    </div><!-- END container -->
 
 <!-- Javascript library -->
 <script src="js/jquery-1.11.3.js"></script><!-- jQuery -->
