@@ -52,7 +52,10 @@ var TIMELINEAPP = {
             $('#goNextInfoBtn').click( TIMELINEAPP.questionThree );
             $("#toTopBtn").click( TIMELINEAPP.scrollToTop );
             $("#infoBtn").click( TIMELINEAPP.showInfoBox);
-            $("#closeInfoBoxBtn").click( TIMELINEAPP.closeInfoBox);
+            $(".closeBoxBtn").click(function(){
+                TIMELINEAPP.closeIntro();
+                TIMELINEAPP.closeInfoBox();
+            }); 
 
         }();//END clickEvent
  
@@ -214,9 +217,15 @@ var TIMELINEAPP = {
         $("#infoBoxSection")
             .animate({"display": "none"})
             .fadeOut("slow");
-
-      function dropped(){
-        alert( 'Du valgte: ' + 1 );
-      }
+      },
+    showIntro: function(){
+        $("#introSection")
+            .animate({"display": "inline"})
+            .fadeIn("slow");
+    },
+    closeIntro: function(){
+        $("#introSection")
+            .animate({"display": "none"})
+            .fadeOut("slow");
     }
 }; // END TIMELINEAPP

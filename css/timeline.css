@@ -95,23 +95,21 @@ Derfor er bildet delt i 2 og lagt etterhverandre
 #inputSection, #checkSection, #infoBoxSection, #introSection{
     display: none;
 }
-#infoBoxSection{
+#infoBoxSection, #introSection{
     top: 0;
     bottom: 0;
     right: 0;
     left: 0;
     position: fixed;
-    background-color: #16182e;    
+    background-color: #16182e;  
 }
-#infoBox{
+#infoBox, #introBox{
     margin: auto;
     padding-top: 100px;
     padding-left: 40px;
     width: 500px;
     height: auto;
-}
-#infoBoxTitle, #infoBoxText{
-    
+    line-height: 2.5em;
 }
 #questionWrap{
     position: relative;
@@ -132,15 +130,12 @@ Derfor er bildet delt i 2 og lagt etterhverandre
 #inputSection{
     display: block;
 }
-#introSection{
-    line-height: 2.5em;
-}
-#inputSection, #checkSection, #introSection{
+#inputSection, #checkSection{
     position: relative;
     top: 50%;
     transform: translateY(-50%);
 }
-#closeInfoBoxBtn, #toTopBtn, #infoBtn, #volumeBtn{
+.closeBoxBtn, #toTopBtn, #infoBtn, #volumeBtn{
     width: 40px;
     cursor: pointer;
 }
@@ -157,7 +152,7 @@ Derfor er bildet delt i 2 og lagt etterhverandre
     left: 30px;
 }
 /* Draggable */
-#yourName {
+#yourName{
     width: calc( 290px - 20px );
     padding: 10px;
     text-align: center;
