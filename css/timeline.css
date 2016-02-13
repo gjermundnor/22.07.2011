@@ -132,7 +132,6 @@ Derfor er bildet delt i 2 og lagt etterhverandre
 }
 #questionWrap{
     position: fixed;
-    display: none;
     z-index: 900;
     left: 0;
     right: 0;
