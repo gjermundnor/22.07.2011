@@ -22,6 +22,7 @@ var TIMELINEAPP = {
         TIMELINEAPP.outputMessages();
         TIMELINEAPP.scrollToTop();
         TIMELINEAPP.dragQuestion();
+        TIMELINEAPP.colorIsland();
 
         var TA = TIMELINEAPP;
 
@@ -33,7 +34,7 @@ var TIMELINEAPP = {
             TA.$dot5 = $("#dot5");
             TA.$dot6 = $("#dot6");
             TA.$text = $(".text");
-            
+
         }();
 
         var setEvents = function () {
@@ -191,5 +192,24 @@ var TIMELINEAPP = {
         $("#introSection")
             .animate({"display": "none"})
             .fadeOut("slow");
+    },
+    colorIsland: function(){
+      var bodyHeight = $('body').height();
+      var topOffset = $(window).scrollTop();
+      var persentage = 0;
+      var scrollValue = 700;
+
+      $(window).scroll(function() {
+          topOffset = $(window).scrollTop();
+          persentage = (topOffset / bodyHeight);
+
+          if( scrollValue < topOffset){
+            $('#redIsland').css('opacity', persentage);
+            scrollValue += 700;
+          }else if(topOffset < (scrollValue - 700) ){
+            $('#redIsland').css('opacity', persentage);
+            scrollValue -= 700;
+          }
+      });
     }
 }; // END TIMELINEAPP
