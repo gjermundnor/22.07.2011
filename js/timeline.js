@@ -27,9 +27,9 @@ var TIMELINEAPP = {
         TIMELINEAPP.outputMessages();
         TIMELINEAPP.scrollToTop();
         TIMELINEAPP.dragQuestion();
-        
+
         var TA = TIMELINEAPP;
-        
+
         var setElements = function() {
             TA.$dot1 = $("#dot1");
             TA.$dot2 = $("#dot2");
@@ -46,19 +46,20 @@ var TIMELINEAPP = {
         }();
 
         var clickEvent = function(){
-            
+
             $('#addNameBtn').click( TIMELINEAPP.questionOne );
-            $('#goNextBtn').click( TIMELINEAPP.questionTwo );
-            $('#goNextInfoBtn').click( TIMELINEAPP.questionThree );
+            $('#goNextInfoBtn').click( TIMELINEAPP.questionTwo );
+            $('#startBtn').click( TIMELINEAPP.questionThree );
+
             $("#toTopBtn").click( TIMELINEAPP.scrollToTop );
             $("#infoBtn").click( TIMELINEAPP.showInfoBox);
             $(".closeBoxBtn").click(function(){
                 TIMELINEAPP.closeIntro();
                 TIMELINEAPP.closeInfoBox();
-            }); 
+            });
 
         }();//END clickEvent
- 
+
         var setEvents = function() {
             TA.$dot1.mouseover(TA.dot1Animate);
             TA.$dot2.mouseover(TA.dot2Animate);
@@ -153,21 +154,11 @@ var TIMELINEAPP = {
       $(this).parent().fadeOut(300, function(){
 
         $('#introSection').fadeIn();
-        $(window).scroll(function() {
-          scroll();
-        });
 
       });
     },
     questionThree: function(){
-      $(this).parent().fadeOut(300, function(){
-
-        $('#introSection').fadeIn();
-        $(window).scroll(function() {
-          scroll();
-        });
-
-      });
+      $('#questionWrap').fadeOut(300);
     },
     dragQuestion: function(){
       $('.drop').droppable({
@@ -206,7 +197,7 @@ var TIMELINEAPP = {
                 scrollTop: 0
             }, 700);
         return false;
-    }); 
+    });
     },
     showInfoBox: function(){
         $("#infoBoxSection")

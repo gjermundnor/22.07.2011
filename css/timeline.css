@@ -27,7 +27,7 @@ body{
     font-family: bitterItalic;
     src: url('../fonts/Bitter-Italic.otf');
 }
-#container{
+.container{
     width: 1024px;
     height: auto;
     margin: 0 auto;
@@ -35,9 +35,6 @@ body{
     box-sizing: border-box;
     padding-left: 15px;
     padding-right: 15px;
-}
-header{
-    height: 500px;
 }
 /*
 Firefox takler ikke bilder over en viss lengde.
@@ -95,7 +92,7 @@ Derfor er bildet delt i 2 og lagt etterhverandre
 #inputSection, #checkSection, #infoBoxSection, #introSection{
     display: none;
 }
-#infoBoxSection, #introSection{
+#infoBoxSection{
     top: 0;
     bottom: 0;
     right: 0;
@@ -112,11 +109,19 @@ Derfor er bildet delt i 2 og lagt etterhverandre
 }
 #questionWrap{
     position: fixed;
+    z-index: 900;
     left: 0;
     right: 0;
     bottom: 0;
     top: 0;
+    height: 100%;
+    background-color: #16182e;
     text-align: center;
+}
+#questionWrap .container{
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
 }
 #questionWrap input{
     padding: 10px 20px;
@@ -133,8 +138,6 @@ Derfor er bildet delt i 2 og lagt etterhverandre
 }
 #inputSection, #checkSection{
     position: relative;
-    top: 50%;
-    transform: translateY(-50%);
 }
 .closeBoxBtn, #toTopBtn, #infoBtn, #volumeBtn{
     width: 40px;
