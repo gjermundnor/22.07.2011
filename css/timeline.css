@@ -92,8 +92,9 @@ Derfor er bildet delt i 2 og lagt etterhverandre
 .lockIcon{
     width: 30px;
     height: 30px;
-    left: -10px;
-    position: relative;
+    top: 205px;
+    right: 20px;
+    position: fixed;
 }
 #showTxtBtn{
     width: 15px;
@@ -101,7 +102,7 @@ Derfor er bildet delt i 2 og lagt etterhverandre
     border-radius: 50%;
     position: fixed;
     top: 300px;
-    right: 45px;
+    right: 30px;
     background-color: #FFF;
 }
 #clockWrap{
@@ -115,28 +116,18 @@ Derfor er bildet delt i 2 og lagt etterhverandre
 #inputSection, #checkSection, #infoBoxSection, #introSection{
     display: none;
 }
-#infoBoxSection{
-    top: 0;
-    bottom: 0;
-    right: 0;
-    left: 0;
-    position: fixed;
-    background-color: #16182e;
-}
-#infoBox, #introBox{
-    margin: auto;
-    padding-top: 100px;
-    padding-left: 40px;
-    width: 500px;
-    height: auto;
+#infoTitle{
+    padding-top: 150px;
 }
 #questionWrap{
+    top: 0;
+}
+#questionWrap, #infoBoxSection{
     position: fixed;
     z-index: 900;
     left: 0;
     right: 0;
     bottom: 0;
-    top: 0;
     height: 100%;
     background-color: #16182e;
     text-align: center;
@@ -162,7 +153,7 @@ Derfor er bildet delt i 2 og lagt etterhverandre
 #inputSection, #checkSection{
     position: relative;
 }
-.closeBoxBtn, #toTopBtn, #infoBtn, #volumeBtn{
+#closeBoxBtn, #toTopBtn, #infoBtn, #volumeBtn{
     width: 40px;
     cursor: pointer;
 }

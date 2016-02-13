@@ -33,27 +33,22 @@ var TIMELINEAPP = {
             TA.$dot5 = $("#dot5");
             TA.$dot6 = $("#dot6");
             TA.$text = $(".text");
-            
-        }();
+        }();//END setElements
 
         var setEvents = function () {
 
             TIMELINEAPP.dotAnimate();
 
-        }(); //End setEvents
+        }();//END setEvents
 
         var clickEvent = function(){
 
             $('#addNameBtn').click( TIMELINEAPP.questionOne );
             $('#goNextInfoBtn').click( TIMELINEAPP.questionTwo );
             $('#startBtn').click( TIMELINEAPP.questionThree );
-
             $("#toTopBtn").click( TIMELINEAPP.scrollToTop );
-            $("#infoBtn").click( TIMELINEAPP.showInfoBox);
-            $(".closeBoxBtn").click(function(){
-                TIMELINEAPP.closeIntro();
-                TIMELINEAPP.closeInfoBox();
-            });
+            $("#infoBtn").click( TIMELINEAPP.showInfoBox );
+            $("#closeBoxBtn").click( TIMELINEAPP.closeInfoBox );
 
         }();//END clickEvent
 
@@ -172,6 +167,16 @@ var TIMELINEAPP = {
         return false;
     });
     },
+    /*showIntro: function(){
+        $("#introSection")
+            .animate({"display": "inline"})
+            .fadeIn("slow");
+    },
+    closeIntro: function(){
+        $("#introSection")
+            .animate({"display": "none"})
+            .fadeOut("slow");
+    }*/
     showInfoBox: function(){
         $("#infoBoxSection")
             .animate({"display": "inline"})
@@ -181,15 +186,5 @@ var TIMELINEAPP = {
         $("#infoBoxSection")
             .animate({"display": "none"})
             .fadeOut("slow");
-      },
-    showIntro: function(){
-        $("#introSection")
-            .animate({"display": "inline"})
-            .fadeIn("slow");
-    },
-    closeIntro: function(){
-        $("#introSection")
-            .animate({"display": "none"})
-            .fadeOut("slow");
-    }
+      }
 }; // END TIMELINEAPP
