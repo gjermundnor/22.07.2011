@@ -191,25 +191,11 @@ var TIMELINEAPP = {
     scrollTop: function(){
       $("html, body").animate({ scrollTop: 0 }, 700);
     },
-    /*showIntro: function(){
-        $("#introSection")
-            .animate({"display": "inline"})
-            .fadeIn("slow");
-    },
-    closeIntro: function(){
-        $("#introSection")
-            .animate({"display": "none"})
-            .fadeOut("slow");
-    }*/
     showInfoBox: function(){
-        $("#infoBoxSection")
-            .animate({"display": "inline"})
-            .fadeIn("slow");
+        $("#infoBoxSection").fadeIn(300);
     },
     closeInfoBox: function(){
-        $("#infoBoxSection")
-            .animate({"display": "none"})
-            .fadeOut("slow");
+        $("#infoBoxSection").fadeOut(300);
     },
     colorIsland: function(){
       var TA = TIMELINEAPP;
