@@ -9,6 +9,8 @@ var TIMELINEAPP = {
     // Globale variabler
     locationChoice: '0',
     username: '',
+    scrollOffset: 0,
+    islandScrollValue: 700,
 
     //HTML-objects
     $dot1: null,
@@ -18,13 +20,9 @@ var TIMELINEAPP = {
     $dot5: null,
     $dot6: null,
     $text: null,
+    $bodyHeight: null,
 
     init: function(){
-        TIMELINEAPP.clockEvent();
-        TIMELINEAPP.outputMessages();
-        TIMELINEAPP.scrollToTop();
-        TIMELINEAPP.dragQuestion();
-        TIMELINEAPP.colorIsland();
 
         var TA = TIMELINEAPP;
 
@@ -36,8 +34,16 @@ var TIMELINEAPP = {
             TA.$dot5 = $("#dot5");
             TA.$dot6 = $("#dot6");
             TA.$text = $(".text");
+            TA.$bodyHeight = $('body').height();
 
         }();//END setElements
+
+        TIMELINEAPP.checkOffset();
+        TIMELINEAPP.clockEvent();
+        TIMELINEAPP.outputMessages();
+        TIMELINEAPP.scrollTopOnClick();
+        TIMELINEAPP.dragQuestion();
+        TIMELINEAPP.colorIsland();
 
         var setEvents = function () {
 
@@ -58,6 +64,14 @@ var TIMELINEAPP = {
         }();//END clickEvent
 
     }, // END init
+    checkOffset: function(){
+      $(window).scroll(function(){
+        TIMELINEAPP.scrollOffset = $(window).scrollTop();
+
+        TIMELINEAPP.scrollTopOnClick();
+        TIMELINEAPP.colorIsland();
+      }); // END scroll
+    },
 
 
     dotAnimate: function () {
@@ -118,24 +132,23 @@ var TIMELINEAPP = {
       var yourName = $('#inputNameField').val();
       $('#yourName').text(yourName);
       username = yourName;
-      $(this).parent().fadeOut(300, function(){
-
-        $('#checkSection').fadeIn();
-
-      });
+      var that = $(this);
+      TIMELINEAPP.fadeInOutNextQuestion(that);
     },
     questionTwo: function(){
-      $(this).parent().fadeOut(300, function(){
-
-        $('#introSection').fadeIn();
-
-      });
+      var that = $(this);
+      TIMELINEAPP.fadeInOutNextQuestion(that);
     },
     questionThree: function(){
       $('#questionWrap').fadeOut(300);
       $('#introSection').fadeOut(300);
       $("html, body").animate({ scrollTop: 0}, 700);
       //TIMELINEAPP.ending();
+    },
+    fadeInOutNextQuestion: function(that){
+      that.parent().fadeOut(300, function(){
+        $(this).next().fadeIn();
+      });
     },
     dragQuestion: function(){
       $('.drop').droppable({
@@ -160,19 +173,17 @@ var TIMELINEAPP = {
           stack: "#yourName",
       });
     },
-    scrollToTop: function(){
-      $(window).scroll(function() {
-        if ($(window).scrollTop() > 300) {
-          $("#toTopBtn").button(
-              {
-                  icons: {primary: "ui-icon-caret-1-n"}
-              }
-          );
-          $("#toTopBtn").animate({"opacity": "1"});
-        } else {
-            $("#toTopBtn").animate({"opacity": "0"});
-        }
-      });
+    scrollTopOnClick: function(){
+      if (TIMELINEAPP.scrollOffset > 300) {
+        $("#toTopBtn").button(
+            {
+                icons: {primary: "ui-icon-caret-1-n"}
+            }
+        );
+        $("#toTopBtn").animate({"opacity": "1"});
+      } else {
+          $("#toTopBtn").animate({"opacity": "0"});
+      }
       $("#toTopBtn").click(function(){
           TIMELINEAPP.scrollTop();
       });
@@ -201,23 +212,16 @@ var TIMELINEAPP = {
             .fadeOut("slow");
     },
     colorIsland: function(){
-      var bodyHeight = $('body').height();
-      var topOffset = $(window).scrollTop();
-      var persentage = 0;
-      var scrollValue = 700;
+      var TA = TIMELINEAPP;
+      var persentage = (TA.scrollOffset / TA.$bodyHeight);
 
-      $(window).scroll(function() {
-          topOffset = $(window).scrollTop();
-          persentage = (topOffset / bodyHeight);
-
-          if( scrollValue < topOffset){
-            $('#redIsland').css('opacity', persentage);
-            scrollValue += 700;
-          }else if(topOffset < (scrollValue - 700) ){
-            $('#redIsland').css('opacity', persentage);
-            scrollValue -= 700;
-          }
-      });
+      if( TA.islandScrollValue < TA.scrollOffset){
+        $('#redIsland').css('opacity', persentage);
+        TA.islandScrollValue += 700;
+      }else if(TA.scrollOffset < (TA.islandScrollValue - 700) ){
+        $('#redIsland').css('opacity', persentage);
+        TA.islandScrollValue -= 700;
+      }
     },
     ending: function(){
       $('#endSection').fadeIn();
@@ -233,14 +237,6 @@ var TIMELINEAPP = {
         "<h3>Siden du befant deg på " + locationChoice + " denne dagen, håper vi du ikke ble fysisk skadet og at hverdagen din går som normalt.</h3>"
         );
       }
-      /*
-        Hei Rolando, du har nå fått et innblikk i hvordan menneskene på Utøya opplevde sitasjonen, den 22. juli 2011.
-
-          Heldigvis var du et "annet" sted og ble ikke direkte berørt av hendelsen.
-
-          Siden du befant deg på utøya/regjeringskvartalet denne dagen
-          håper vi du ikke ble fysisk skadet og at hverdagen din går som normalt.
-      */
     },
     newStart: function(){
       location.reload(true)
