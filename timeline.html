@@ -8,6 +8,7 @@
     <meta name="description" content="">
     <link rel="stylesheet" type="text/css" href="css/timeline.css">
     <link rel="stylesheet" type="text/css" href="css/jquery-ui.css">
+    <link rel="stylesheet" type="text/css" href="css/jquery-ui.theme.min.css">
 
     <title>22.07.2011</title>
 </head>
@@ -109,7 +110,7 @@
             <div class="container">
                     <h2 id="infoTitle">Info</h2>
                     <p>Scroll nedover tidslinjen og opplev hendelsesforløpets følelseskaos. Klokken representerer tid og grafen med fargekodene representerer følelser. Når den lille sirkelen til høyre for midtfeltet begynner å lyse er den klikkbar, og inneholder personlige fortellinger og beskjeder tilknyttet til tidsperioden innenfor feltet. Følelsene er feflektert fra midten av siden og blir sterkere jo lengre ut de kommer. Midtfeltet som har Utøyas form avgenser spekteret. Treffer linjene ytterst på øya er følelsene på det sterkeste.</p>
-                <div id="closeBoxBtn" role=button>X</div>
+                <img src="images/closeIcon.png.png" id="closeBoxBtn" role="button">
             </div><!-- END container -->
         </section><!-- END infoBoxSection-->
 
@@ -121,14 +122,14 @@
             <button id="volumeControlTwoBtn">Inecrease more</button>
         -->
 
-            <audio id="rainSound" control autoplay>
+            <audio id="rainSound" control autoplay onloadstart="this.volume=0.1">
                 <source src="audio/butterfly.mp3" type="audio/mpeg">
             </audio>
 
         </section><!-- END volumeSection-->
 
         <section id="buttonsSection">
-            <div id="toTopBtn" role="button"></div>
+            <img id="toTopBtn" src="images/upArrow.png" role="button">
             <img id="infoBtn" src="images/info.png" role="button">
             <img id="volumeBtn" src="images/lyd.png" role="button">
         </section><!-- END buttonsSection-->
