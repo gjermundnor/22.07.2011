@@ -175,10 +175,10 @@ var TIMELINEAPP = {
       });
     },
     scrollTopOnClick: function(){
-      if (TIMELINEAPP.scrollOffset > 500) {
-        $("#toTopBtn").stop().animate({"opacity": "1"});
+      if (TIMELINEAPP.scrollOffset > 4000) {
+        $("#toTopBtn").stop().css({"opacity": "1", "pointer-events": "auto"});
       } else {
-          $("#toTopBtn").stop().animate({"opacity": "0"});
+          $("#toTopBtn").stop().css({"opacity": "0", "pointer-events": "none"});
       }
     },
     scrollTop: function(){
