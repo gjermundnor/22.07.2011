@@ -100,6 +100,32 @@ Derfor er bildet delt i 2 og lagt etterhverandre
     top: 300px;
     right: 25px;
     background-color: #FFF;
+    cursor: pointer;
+    animation-duration: 600ms;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-timing-function: linear;
+}
+@keyframes lightUp{
+    0%{
+        -webkit-box-shadow: 0 0 20px #FFF;
+    }
+    100%{
+        -webkit-box-shadow: 0 0 2px #FFF;
+    }
+}
+#messagesWrap{
+    position: fixed;
+    top: 50%;
+    left: 0;
+    right: 0;
+    text-align: center;
+    transform: translateY(-50%);
+}
+#messagesWrap #messages{
+    height: auto;
+    width: 600px;
+    margin: auto;
 }
 #clockWrap{
     position: fixed;

@@ -13,7 +13,7 @@ var TIMELINEMODULE = (function(){
         {
             //16:04
             "event": "",
-            "message": "«Vi er jo på en øde øy... Vi er trygge, vi!»",
+            "message": "«Vi er jo på Utøya - en øde øy... Vi er trygge, vi!»",
             "person": ""
         },
         {

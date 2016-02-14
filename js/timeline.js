@@ -72,6 +72,7 @@ var TIMELINEAPP = {
         TIMELINEAPP.rainSound();
         TIMELINEAPP.colorIsland();
         TIMELINEAPP.setTimer();
+        TIMELINEAPP.showMessages();
       }); // END scroll
     },
 
@@ -200,6 +201,44 @@ var TIMELINEAPP = {
       }else if(TA.scrollOffset < (TA.islandScrollValue - 700) ){
         $('#redIsland').css('opacity', persentage);
         TA.islandScrollValue -= 700;
+      }
+    },
+    showMessages: function(){
+      var clock = $('#clock').html();
+
+      if( clock == '15:59' || clock == '16:00' || clock == '16:01' ) lightUp(0);
+      else if( clock == '16:03' || clock == '16:04' || clock == '16:05' ) lightUp(1);
+      else if( clock == '16:29' || clock == '16:30' || clock == '16:31' ) lightUp(2);
+      else if( clock == '16:55' || clock == '16:56' || clock == '16:57' ) lightUp(3);
+      else removeEffects();
+
+      function lightUp(x){
+        $('#showTxtBtn').css({'pointer-events': 'auto', 'animation-name': 'lightUp'});
+
+        var clicked = false;
+        $('#showTxtBtn').on('click', function(){
+          if(clicked){
+            $('#messages').text("");
+            clicked = false;
+          } else{
+            setText(x);
+            clicked = true;
+          }
+
+        });
+      }
+      function removeEffects(){
+        $('#messages').text("");
+        $('#showTxtBtn').removeAttr('style');
+        $('#showTxtBtn').css('pointer-events', 'none');
+      }
+
+      function setText(x){
+        $('#messages')
+          .text("")
+          .append('<h2>' + TIMELINEMODULE.getMessage(x).event + '</h2>')
+          .append('<h3>' + TIMELINEMODULE.getMessage(x).message + '</h3>')
+          .append('<h4>' + TIMELINEMODULE.getMessage(x).person + '</h4>')
       }
     },
     // if(15:49 || 15:50 || 15:51) lightBulb(1);
