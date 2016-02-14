@@ -45,7 +45,7 @@ var TIMELINEAPP = {
         TIMELINEAPP.colorIsland();
         TIMELINEAPP.scrollTopOnClick();
         TIMELINEAPP.rainSound();
-        
+
         var setEvents = function () {
 
             TIMELINEAPP.dotAnimate();
@@ -202,6 +202,14 @@ var TIMELINEAPP = {
         TA.islandScrollValue -= 700;
       }
     },
+    // if(15:49 || 15:50 || 15:51) lightBulb(1);
+    // if(16:02 || 16:03 || 16:04) lightBulb(2);
+
+    /* function: lightbulb(x){
+        // Fire css animation
+        // On click, .text(getMessage(x));
+    }
+    */
     ending: function(){
       $('#endSection').fadeIn();
       $('#endSectionText').append(
