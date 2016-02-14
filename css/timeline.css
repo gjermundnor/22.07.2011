@@ -65,8 +65,8 @@ Derfor er bildet delt i 2 og lagt etterhverandre
 }
 .dot{
     float: right;
-    width: 10px;
-    height: 10px;
+    width: 15px;
+    height: 15px;
     margin-top: 5px;
     border-radius: 50%;
     cursor: pointer;
@@ -86,6 +86,7 @@ Derfor er bildet delt i 2 og lagt etterhverandre
     margin-bottom: 15px;
 }*/
 .lockIcon{
+    margin-right: 1px;
     width: 30px;
     height: 30px;
     top: 205px;
@@ -93,12 +94,12 @@ Derfor er bildet delt i 2 og lagt etterhverandre
     position: fixed;
 }
 #showTxtBtn{
-    width: 15px;
-    height: 15px;
+    width: 25px;
+    height: 25px;
     border-radius: 50%;
     position: fixed;
     top: 300px;
-    right: 30px;
+    right: 25px;
     background-color: #FFF;
 }
 #clockWrap{
