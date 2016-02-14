@@ -39,7 +39,6 @@ var TIMELINEAPP = {
         }();//END setElements
 
         TIMELINEAPP.checkOffset();
-        TIMELINEAPP.clockEvent();
         TIMELINEAPP.outputMessages();
         TIMELINEAPP.scrollTopOnClick();
         TIMELINEAPP.dragQuestion();
@@ -72,6 +71,7 @@ var TIMELINEAPP = {
         TIMELINEAPP.scrollTopOnClick();
         TIMELINEAPP.rainSound();
         TIMELINEAPP.colorIsland();
+        TIMELINEAPP.setTimer();
       }); // END scroll
     },
 
@@ -98,41 +98,32 @@ var TIMELINEAPP = {
                .animate({"opacity": "0"});
         });
     },
+    setTimer: function(){
+      var TA = TIMELINEAPP;
+      var startHoure = 15, startMinute = 50; // Starttid
+      var endHoure = 19, endMinute = 20; // Sluttid
+      var currentHoure = 0, currentMinute = 0; // Tid på gitt punkt
+      var minutesTotal = 210; // Totalt antall minuttermellom start og slutt
+      var startPixel = 6288, endPixel = 34717; // Start og sluttpunkt
+      var pixelAmount = endPixel - startPixel; // Antall piklser mellom start og slutt
+      var scrollOffset = TA.scrollOffset - startPixel;
 
-    clockEvent: function(){
-          var scrollValue = 464.9; // Må legge til høyden fra toppen til der tiden skal begynne
-          var houres = 15;
-          var minutes = 34;
-          var zero = '';
+      var scrollPercent = (scrollOffset / pixelAmount).toFixed(3); // Hvor mange prosent som er scrollet
+      var totalMinutesScrolled = (scrollPercent * minutesTotal).toFixed(0); // Antall minutter scrollet, basert på prosent
+      var houresScrolled = Math.floor(totalMinutesScrolled / 60); // Runder ned til nermeste heltall
+      var minutesScrolled = (totalMinutesScrolled - (60 * houresScrolled)); // Minuttene som er igjen
+      var minutesOverflow = startMinute + minutesScrolled - 60; // Finner om det er for mange minutter eller ikke
 
-          $(window).bind('scroll', function() {
-            var scrollOffset = $(window).scrollTop(); // Avstand fra toppen
+      if( minutesOverflow > 0) houresScrolled++; currentMinute = minutesOverflow; // Hvis positiv overflow, legg til en time
+      if( minutesOverflow < 0) currentMinute = startMinute + minutesScrolled; // Hvis negative, legg på antall minutter på starttiden
 
-            if( scrollOffset > scrollValue){
-              minutes++;
-              if( minutes > 59){ minutes = 0; houres++; }
-              checkZero(minutes);
-              printClock(houres, zero, minutes);
+      currentHoure = startHoure + houresScrolled;
 
-              scrollValue += 464.9; // 42302 / 91 //// Høyde delt på minutter
-            }else if( scrollOffset < (scrollValue - 464.9) ){
-              minutes--;
-              if( minutes < 0){ minutes = 59; houres--; }
-              checkZero(minutes);
-              printClock(houres, zero, minutes);
-              scrollValue -= 464.9;
-            } // END bind scroll event
+      if(currentMinute < 10) zero = '0'; // Sjekker om det skal legges til 0 eller ikke
+      else zero = '';
 
-          }); // END scroll
+      $('#clock').text(currentHoure + ':'+ zero + currentMinute); // Printer ut klokken
 
-          function printClock(houres, zero, minutes){
-            $('#clock').text(houres + ':'+ zero + minutes);
-          }
-
-          function checkZero(minutes){
-            if(minutes < 10) zero = '0';
-            else zero = '';
-          }
     },
     outputMessages: function(){
       var message = TIMELINEMODULE.getMessage(0).message;
