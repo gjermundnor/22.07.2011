@@ -1,16 +1,17 @@
-$(document).ready(function(){
+/*$(document).ready(function(){
     
     var volumeControlBtn = $("#volumeControlBtn");
     var rainSound = $("#rainSound");
-
-    rainSound.prop("volume", 0.2);
+    rainSound.prop("volume", 0.2)
     
-    volumeControlBtn.click(function(){    
-        rainSound.prop("volume", 0.6);
-    });
+    
 
-    volumeControlTwoBtn.click(function(){    
-        rainSound.prop("volume", 1);
-    });
-
+      if (TIMELINEAPP.scrollOffset > 100) {
+         rainSound.prop("volume", 0.6);
+      } else if (TIMELINEAPP.scrollOffset > 200) {
+          rainSound.prop("volume", 1);
+      } else {
+          rainSound.prop("volume", 0.2);
+      }
 });
+*/

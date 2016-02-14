@@ -44,7 +44,9 @@ var TIMELINEAPP = {
         TIMELINEAPP.scrollTopOnClick();
         TIMELINEAPP.dragQuestion();
         TIMELINEAPP.colorIsland();
-
+        TIMELINEAPP.scrollTopOnClick();
+        TIMELINEAPP.rainSound();
+        
         var setEvents = function () {
 
             TIMELINEAPP.dotAnimate();
@@ -56,7 +58,7 @@ var TIMELINEAPP = {
             $('#addNameBtn').click( TIMELINEAPP.questionOne );
             $('#goNextInfoBtn').click( TIMELINEAPP.questionTwo );
             $('#startBtn').click( TIMELINEAPP.questionThree );
-            $("#toTopBtn").click( TIMELINEAPP.scrollToTop );
+            $("#toTopBtn").click( TIMELINEAPP.scrollTop );
             $("#infoBtn").click( TIMELINEAPP.showInfoBox );
             $("#closeBoxBtn").click( TIMELINEAPP.closeInfoBox );
             $('#newStart').click( TIMELINEAPP.newStart );
@@ -67,13 +69,21 @@ var TIMELINEAPP = {
     checkOffset: function(){
       $(window).scroll(function(){
         TIMELINEAPP.scrollOffset = $(window).scrollTop();
-
         TIMELINEAPP.scrollTopOnClick();
+        TIMELINEAPP.rainSound();
         TIMELINEAPP.colorIsland();
       }); // END scroll
     },
 
-
+    rainSound: function(){
+        if (TIMELINEAPP.scrollOffset > 200) {
+            $("#rainSound").prop("volume", 0.9);
+        } else if (TIMELINEAPP.scrollOffset > 100) {
+            $("#rainSound").prop("volume", 0.5);
+        } else {
+            $("#rainSound").prop("volume", 0.1);
+        }
+    },
     dotAnimate: function () {
 
         $(".dot").hover(function(){
@@ -174,22 +184,14 @@ var TIMELINEAPP = {
       });
     },
     scrollTopOnClick: function(){
-      if (TIMELINEAPP.scrollOffset > 300) {
-        $("#toTopBtn").button(
-            {
-                icons: {primary: "ui-icon-caret-1-n"}
-            }
-        );
-        $("#toTopBtn").animate({"opacity": "1"});
+      if (TIMELINEAPP.scrollOffset > 500) {
+        $("#toTopBtn").stop().animate({"opacity": "1"});
       } else {
-          $("#toTopBtn").animate({"opacity": "0"});
+          $("#toTopBtn").stop().animate({"opacity": "0"});
       }
-      $("#toTopBtn").click(function(){
-          TIMELINEAPP.scrollTop();
-      });
     },
     scrollTop: function(){
-      $("html, body").animate({ scrollTop: 0 }, 700);
+        $("html, body").animate({scrollTop: 0}, 700);
     },
     showInfoBox: function(){
         $("#infoBoxSection").fadeIn(300);
