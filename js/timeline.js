@@ -114,7 +114,7 @@ var TIMELINEAPP = {
       var minutesScrolled = (totalMinutesScrolled - (60 * houresScrolled)); // Minuttene som er igjen
       var minutesOverflow = startMinute + minutesScrolled - 60; // Finner om det er for mange minutter eller ikke
 
-      if( minutesOverflow > 0) houresScrolled++; currentMinute = minutesOverflow; // Hvis positiv overflow, legg til en time
+      if( minutesOverflow >= 0) houresScrolled++; currentMinute = minutesOverflow; // Hvis positiv overflow, legg til en time
       if( minutesOverflow < 0) currentMinute = startMinute + minutesScrolled; // Hvis negative, legg på antall minutter på starttiden
 
       currentHoure = startHoure + houresScrolled;
