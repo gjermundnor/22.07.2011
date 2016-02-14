@@ -59,7 +59,7 @@ Derfor er bildet delt i 2 og lagt etterhverandre
     z-index: 1;
 }
 .dots{
-    margin-bottom: 10px;
+    margin-bottom: 15px;
     clear: both;
     overflow: auto;
 }
@@ -67,15 +67,14 @@ Derfor er bildet delt i 2 og lagt etterhverandre
     float: right;
     width: 15px;
     height: 15px;
-    margin-top: 5px;
     border-radius: 50%;
     cursor: pointer;
 }
 .text{
     float: left;
     text-align: right;
-    padding-right:15px;
-    font-size: 0.8;
+    padding-right: 15px;
+    font-size: 0.8em;
     opacity: 0;
 }
 /*
