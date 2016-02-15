@@ -1,4 +1,4 @@
-# 22.06.2011 - Webprosjekt 2016
+# 22.07.2011 - Webprosjekt 2016
 Westerdals skoleprosjekt i wbutvikling. Tema: 22. juli - Regjeringskvartalet og Utøya
 
 ### Git kommandoer i rekkefølge
