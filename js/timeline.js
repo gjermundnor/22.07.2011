@@ -75,28 +75,18 @@ var TIMELINEAPP = {
         TIMELINEAPP.showMessages();
       }); // END scroll
     },
-
-    rainSound: function(){
-        if (TIMELINEAPP.scrollOffset > 200) {
-            $("#rainSound").prop("volume", 0.9);
-        } else if (TIMELINEAPP.scrollOffset > 100) {
-            $("#rainSound").prop("volume", 0.5);
-        } else {
-            $("#rainSound").prop("volume", 0.1);
-        }
-    },
     dotAnimate: function () {
 
         $(".dot").hover(function(){
            $(this)
-               .siblings(".text")
+                .siblings(".text")
                 .stop()
-               .animate({"opacity": "1"});
+                .animate({"opacity": "1"});
         }, function(){
             $(this)
-               .siblings(".text")
+                .siblings(".text")
                 .stop()
-               .animate({"opacity": "0"});
+                .animate({"opacity": "0"});
         });
     },
     setTimer: function(){
@@ -202,6 +192,18 @@ var TIMELINEAPP = {
         $('#redIsland').css('opacity', persentage);
         TA.islandScrollValue -= 700;
       }
+    },
+    rainSound: function(){
+        var clock = $('#clock').html();
+        
+        if (clock >= "17:36") {
+            $("#rainSound").prop("volume", 0.0);
+            $("#waveSound").prop("volume", 0.3);
+        } else if (clock >= "17:21") {
+            $("#rainSound").prop("volume", 0.3);
+        } else {
+            $("#rainSound").prop("volume", 0.1);
+        }
     },
     showMessages: function(){
       var clock = $('#clock').html();
