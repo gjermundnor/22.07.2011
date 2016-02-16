@@ -13,6 +13,7 @@ var TIMELINEAPP = {
     islandScrollValue: 700,
     effects: true,
     locked: false,
+
     //HTML-objects
     $dot1: null,
     $dot2: null,
@@ -77,10 +78,12 @@ var TIMELINEAPP = {
       $(window).scroll(function(){
         TIMELINEAPP.scrollOffset = $(window).scrollTop();
         TIMELINEAPP.scrollTopOnClick();
-        TIMELINEAPP.soundEffects();
+        if( TIMELINEAPP.effects == true ) TIMELINEAPP.soundEffects();
         TIMELINEAPP.colorIsland();
         TIMELINEAPP.setTimer();
         TIMELINEAPP.showMessages();
+          
+          console.log( TIMELINEAPP.scrollOffset);
       }); // END scroll
     },
 
@@ -234,41 +237,57 @@ var TIMELINEAPP = {
     },
     soundEffects: function(){
         var clock = $('#clock').html();
-        //if(TIMELINEAPP.effects){
-            if (clock >= "15:36") {
-                $("#rainSound").animate({"volume": 0.0}, 100);
-                $("#waveSound").animate({"volume": 0.5}, 50);
-                $("#volume2Btn").animate({"opacity": 1}, 500);
-            } else if (clock >= "15:21") {
-                $("#rainSound").animate({"volume": 0.5}, 50);
-                $("#volume1Btn").animate({"opacity": 1}, 500);
-            } else {
-                $("#rainSound").animate({"volume": 0.1}, 50);
-                /*$("#volume1Btn").animate({"opacity": 0}, 500);
-                $("#volume2Btn").animate({"opacity": 0}, 500);*/
-            }
-        //}else{}
+        
+        if (TIMELINEAPP.scrollOffset >= 20588){ //17:36
+            $("#rainSound").prop({"volume": 0.0});
+            $("#waveSound").prop({"volume": 0.5});
+            $("#volume2Btn").css({"opacity": 1});
+        }else if (TIMELINEAPP.scrollOffset >= 18534){ //17:21
+            $("#rainSound").prop({"volume": 0.5});
+            $("#volume1Btn").css({"opacity": 1});
+        }else{
+            $("#waveSound").prop({"volume": 0});
+        }
     },
+    
+    
+    /* If scroll så så mye legg til en dott og øk lyt
+        if offset > 20000
+            skru på lyd x
+            skru av lyd y
+        if offset > 18000
+            skru opp lyd y
+            vis dott 2
+     Hvis klikk på knapp, skru av lyd og fjern dotter
+        Lyd y blir 0
+        bilde byttes ut
+        alle dotter forsvinner
+     hvis klikk på knapp, skru på lyd og legg til dotter
+    
+    */
+    
+    
     muteSounds: function(){
-        //TIMELINEAPP.effects == false;
+        TIMELINEAPP.effects = false;
         
         $("#volumeBtn").css({"display": "none"});
         $("#muteVolumeBtn").css({"display": "block"});
 
-        $("#volume1Btn").css({"opacity": 0});
-        $("#volume2Btn").css({"opacity": 0});
+        $("#volume1Btn").fadeOut(); //css({"opacity": 0});
+        $("#volume2Btn").fadeOut(); //css({"opacity": 0});
 
         $("#rainSound").prop({"volume": 0.0});
         $("#waveSound").prop({"volume": 0.0});
     },
     unmuteSounds: function(){
-       //TIMELINEAPP.effects == true; 
+        TIMELINEAPP.effects = true; 
         
         $("#volumeBtn").css({"display": "block"});
         $("#muteVolumeBtn").css({"display": "none"});
 
-        $("#volume1Btn").css({"opacity": 1});
-        $("#volume2Btn").css({"opacity": 1});
+        $("#volume1Btn").fadeIn(); //css({"opacity": 0});
+        $("#volume2Btn").fadeIn(); //css({"opacity": 0});
+
 
         $("#rainSound").prop({"volume": 0.1});
     },
