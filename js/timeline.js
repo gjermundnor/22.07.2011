@@ -127,20 +127,6 @@ var TIMELINEAPP = {
                    .animate({"opacity": "0"});
             });
         
-
-    dotAnimate: function () {
-
-        $(".dot").hover(function(){
-           $(this)
-                .siblings(".text")
-                .stop()
-                .animate({"opacity": "1"});
-        }, function(){
-            $(this)
-                .siblings(".text")
-                .stop()
-                .animate({"opacity": "0"});
-        });
     },
     setTimer: function(){
       var TA = TIMELINEAPP;
