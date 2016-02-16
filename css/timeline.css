@@ -91,7 +91,9 @@ Derfor er bildet delt i 2 og lagt etterhverandre
     top: 205px;
     right: 20px;
     position: fixed;
+    cursor: pointer;
 }
+
 #showTxtBtn{
     width: 25px;
     height: 25px;

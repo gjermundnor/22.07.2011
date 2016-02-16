@@ -12,7 +12,7 @@ var TIMELINEAPP = {
     scrollOffset: 0,
     islandScrollValue: 700,
     effects: true,
-
+    locked: false,
     //HTML-objects
     $dot1: null,
     $dot2: null,
@@ -21,6 +21,8 @@ var TIMELINEAPP = {
     $dot5: null,
     $dot6: null,
     $text: null,
+    $lockDots:null,
+    $openDots:null,
     $bodyHeight: null,
 
     init: function(){
@@ -35,6 +37,7 @@ var TIMELINEAPP = {
             TA.$dot5 = $("#dot5");
             TA.$dot6 = $("#dot6");
             TA.$text = $(".text");
+            TA.$lockDots = $("#lockDots");
             TA.$bodyHeight = $('body').height();
 
         }();//END setElements
@@ -49,7 +52,7 @@ var TIMELINEAPP = {
 
         var setEvents = function () {
 
-            TIMELINEAPP.dotAnimate();
+           TIMELINEAPP.dotAnimate();
 
         }();//END setEvents
 
@@ -62,8 +65,10 @@ var TIMELINEAPP = {
             $("#infoBtn").click( TIMELINEAPP.showInfoBox );
             $("#closeBoxBtn").click( TIMELINEAPP.closeInfoBox );
             $('#newStart').click( TIMELINEAPP.newStart );
+            $("#lockDots").click( TIMELINEAPP.openDots);
             $('#volumeBtn').click( TIMELINEAPP.muteSounds );
             $('#muteVolumeBtn').click( TIMELINEAPP.unmuteSounds );
+
 
         }();//END clickEvent
 
@@ -78,19 +83,50 @@ var TIMELINEAPP = {
         TIMELINEAPP.showMessages();
       }); // END scroll
     },
-    dotAnimate: function () {
 
-        $(".dot").hover(function(){
-           $(this)
-                .siblings(".text")
-                .stop()
-                .animate({"opacity": "1"});
-        }, function(){
-            $(this)
-                .siblings(".text")
-                .stop()
-                .animate({"opacity": "0"});
-        });
+    
+    openDots: function() {
+        
+        if(TIMELINEAPP.locked){  
+            $("#lockDots").attr("src", "images/l%C3%A5s_lukket.png");
+        
+            $(".text").css({"opacity": "0"});
+           TIMELINEAPP.locked = false;
+            $(".dots").css("pointer-events", "auto");
+        }else{ // False
+            $("#lockDots").attr("src", "images/l%C3%A5s_%C3%A5pen.png");
+        
+            $(".text").css({"opacity": "1"});
+           TIMELINEAPP.locked = true;
+            $(".dots").css("pointer-events", "none");
+        }
+       
+        
+        
+    },
+
+    rainSound: function(){
+        if (TIMELINEAPP.scrollOffset > 200) {
+            $("#rainSound").prop("volume", 0.9);
+        } else if (TIMELINEAPP.scrollOffset > 100) {
+            $("#rainSound").prop("volume", 0.5);
+        } else {
+            $("#rainSound").prop("volume", 0.1);
+        }
+    },
+    dotAnimate: function () {
+            $(".dot").hover(function(){
+               $(this)
+                   .siblings(".text")
+                    .stop()
+                   .animate({"opacity": "1"});
+            }, function(){
+                $(this)
+                   .siblings(".text")
+                    .stop()
+                   .animate({"opacity": "0"});
+            });
+        
     },
     setTimer: function(){
       var TA = TIMELINEAPP;
