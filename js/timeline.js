@@ -196,13 +196,13 @@ var TIMELINEAPP = {
     rainSound: function(){
         var clock = $('#clock').html();
         
-        if (clock >= "17:36") {
-            $("#rainSound").prop("volume", 0.0);
-            $("#waveSound").prop("volume", 0.3);
-        } else if (clock >= "17:21") {
-            $("#rainSound").prop("volume", 0.3);
+        if (clock >= "15:36") {
+            $("#rainSound").animate({"volume": 0.0}, 500);
+            $("#waveSound").animate({"volume": 0.5}, 500);
+        } else if (clock >= "15:21") {
+            $("#rainSound").animate({"volume": 0.5}, 500);
         } else {
-            $("#rainSound").prop("volume", 0.1);
+            $("#rainSound").animate({"volume": 0.1}, 500);
         }
     },
     showMessages: function(){
