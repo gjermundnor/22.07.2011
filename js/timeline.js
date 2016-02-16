@@ -11,6 +11,7 @@ var TIMELINEAPP = {
     username: '',
     scrollOffset: 0,
     islandScrollValue: 700,
+    effects: true,
 
     //HTML-objects
     $dot1: null,
@@ -197,38 +198,43 @@ var TIMELINEAPP = {
     },
     soundEffects: function(){
         var clock = $('#clock').html();
-        
-        if (clock >= "15:36") {
-            $("#rainSound").animate({"volume": 0.0}, 100);
-            $("#waveSound").animate({"volume": 0.5}, 50);
-            $("#volume2Btn").animate({"opacity": 1}, 500);
-        } else if (clock >= "15:21") {
-            $("#rainSound").animate({"volume": 0.9}, 50);
-            $("#volume1Btn").animate({"opacity": 1}, 500);
-        } else {
-            $("#rainSound").animate({"volume": 0.1}, 50);
-            /*$("#volume1Btn").animate({"opacity": 0}, 500);
-            $("#volume2Btn").animate({"opacity": 0}, 500);*/
-        }
+        //if(TIMELINEAPP.effects){
+            if (clock >= "15:36") {
+                $("#rainSound").animate({"volume": 0.0}, 100);
+                $("#waveSound").animate({"volume": 0.5}, 50);
+                $("#volume2Btn").animate({"opacity": 1}, 500);
+            } else if (clock >= "15:21") {
+                $("#rainSound").animate({"volume": 0.5}, 50);
+                $("#volume1Btn").animate({"opacity": 1}, 500);
+            } else {
+                $("#rainSound").animate({"volume": 0.1}, 50);
+                /*$("#volume1Btn").animate({"opacity": 0}, 500);
+                $("#volume2Btn").animate({"opacity": 0}, 500);*/
+            }
+        //}else{}
     },
     muteSounds: function(){
+        //TIMELINEAPP.effects == false;
+        
         $("#volumeBtn").css({"display": "none"});
         $("#muteVolumeBtn").css({"display": "block"});
-        
+
         $("#volume1Btn").css({"opacity": 0});
         $("#volume2Btn").css({"opacity": 0});
 
-        $("#rainSound").animate({"volume": 0.0}, 100);
-        $("#waveSound").animate({"volume": 0.0}, 100);
+        $("#rainSound").prop({"volume": 0.0});
+        $("#waveSound").prop({"volume": 0.0});
     },
     unmuteSounds: function(){
+       //TIMELINEAPP.effects == true; 
+        
         $("#volumeBtn").css({"display": "block"});
         $("#muteVolumeBtn").css({"display": "none"});
-        
+
         $("#volume1Btn").css({"opacity": 1});
         $("#volume2Btn").css({"opacity": 1});
 
-        $("#rainSound").animate({"volume": 0.1}, 100);
+        $("#rainSound").prop({"volume": 0.1});
     },
     showMessages: function(){
       var clock = $('#clock').html();

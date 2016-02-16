@@ -218,7 +218,7 @@ Derfor er bildet delt i 2 og lagt etterhverandre
     display: block;
 }
 #muteVolumeBtn{
-    width: 22px;
+    width: 24px;
     display: none;
 }
 #volumeBtn, #muteVolumeBtn{
