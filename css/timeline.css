@@ -110,11 +110,14 @@ Derfor er bildet delt i 2 og lagt etterhverandre
 }
 @keyframes lightUp{
     0%{
-        -webkit-box-shadow: 0 0 40px #FFF;
+        -webkit-box-shadow: 0 0 50px #FFF;
     }
     100%{
         -webkit-box-shadow: 0 0 2px #FFF;
     }
+}
+.text-box{
+    line-height: 2.5em;
 }
 #messagesWrap{
     position: fixed;
@@ -145,7 +148,7 @@ Derfor er bildet delt i 2 og lagt etterhverandre
 }
 #questionWrap{
     top: 0;
-    display: none;
+    display: block;
 }
 #questionWrap, #infoBoxSection{
     position: fixed;
@@ -220,7 +223,7 @@ Derfor er bildet delt i 2 og lagt etterhverandre
     display: block;
 }
 #muteVolumeBtn{
-    width: 22px;
+    width: 24px;
     display: none;
 }
 #volumeBtn, #muteVolumeBtn{

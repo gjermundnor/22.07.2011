@@ -11,6 +11,7 @@ var TIMELINEAPP = {
     username: '',
     scrollOffset: 0,
     islandScrollValue: 700,
+    effects: true,
     locked: false,
 
     //HTML-objects
@@ -77,32 +78,34 @@ var TIMELINEAPP = {
       $(window).scroll(function(){
         TIMELINEAPP.scrollOffset = $(window).scrollTop();
         TIMELINEAPP.scrollTopOnClick();
-        TIMELINEAPP.soundEffects();
+        if( TIMELINEAPP.effects == true ) TIMELINEAPP.soundEffects();
         TIMELINEAPP.colorIsland();
         TIMELINEAPP.setTimer();
         TIMELINEAPP.showMessages();
+
+          console.log( TIMELINEAPP.scrollOffset);
       }); // END scroll
     },
 
-    
+
     openDots: function() {
-        
-        if(TIMELINEAPP.locked){  
+
+        if(TIMELINEAPP.locked){
             $("#lockDots").attr("src", "images/l%C3%A5s_lukket.png");
-        
+
             $(".text").css({"opacity": "0"});
            TIMELINEAPP.locked = false;
             $(".dots").css("pointer-events", "auto");
         }else{ // False
             $("#lockDots").attr("src", "images/l%C3%A5s_%C3%A5pen.png");
-        
+
             $(".text").css({"opacity": "1"});
            TIMELINEAPP.locked = true;
             $(".dots").css("pointer-events", "none");
         }
-       
-        
-        
+
+
+
     },
 
     rainSound: function(){
@@ -126,7 +129,7 @@ var TIMELINEAPP = {
                     .stop()
                    .animate({"opacity": "0"});
             });
-        
+
     },
     setTimer: function(){
       var TA = TIMELINEAPP;
@@ -164,11 +167,11 @@ var TIMELINEAPP = {
       $('#yourName').text(yourName);
       username = yourName;
       var that = $(this);
-      TIMELINEAPP.fadeInOutNextQuestion(that);
+      if(yourName.length > 1) TIMELINEAPP.fadeInOutNextQuestion(that);
     },
     questionTwo: function(){
       var that = $(this);
-      TIMELINEAPP.fadeInOutNextQuestion(that);
+      if(TIMELINEAPP.locationChoice != '0') TIMELINEAPP.fadeInOutNextQuestion(that);
     },
     questionThree: function(){
       $('#questionWrap').fadeOut(300);
@@ -194,7 +197,7 @@ var TIMELINEAPP = {
               left: '+=' + left_end
           });
           //console.log('dragged ' + ui.draggable.attr('id') + ' onto ' + $(this).find('input').val());
-          locationChoice = $(this).find('input').val();
+          TIMELINEAPP.locationChoice = $(this).find('input').val();
         }
       });
 
@@ -234,44 +237,60 @@ var TIMELINEAPP = {
     },
     soundEffects: function(){
         var clock = $('#clock').html();
-        
-        if (clock >= "15:36") {
-            $("#rainSound").animate({"volume": 0.0}, 100);
-            $("#waveSound").animate({"volume": 0.5}, 50);
-            $("#volume2Btn").animate({"opacity": 1}, 500);
-        } else if (clock >= "15:21") {
-            $("#rainSound").animate({"volume": 0.9}, 50);
-            $("#volume1Btn").animate({"opacity": 1}, 500);
-        } else {
-            $("#rainSound").animate({"volume": 0.1}, 50);
-            /*$("#volume1Btn").animate({"opacity": 0}, 500);
-            $("#volume2Btn").animate({"opacity": 0}, 500);*/
+
+        if (TIMELINEAPP.scrollOffset >= 20588){ //17:36
+            $("#rainSound").prop({"volume": 0.0});
+            $("#waveSound").prop({"volume": 0.5});
+            $("#volume2Btn").css({"opacity": 1});
+        }else if (TIMELINEAPP.scrollOffset >= 18534){ //17:21
+            $("#rainSound").prop({"volume": 0.5});
+            $("#volume1Btn").css({"opacity": 1});
+        }else{
+            $("#waveSound").prop({"volume": 0});
         }
     },
+
+
+    /* If scroll så så mye legg til en dott og øk lyt
+        if offset > 20000
+            skru på lyd x
+            skru av lyd y
+        if offset > 18000
+            skru opp lyd y
+            vis dott 2
+     Hvis klikk på knapp, skru av lyd og fjern dotter
+        Lyd y blir 0
+        bilde byttes ut
+        alle dotter forsvinner
+     hvis klikk på knapp, skru på lyd og legg til dotter
+
+    */
+
+
     muteSounds: function(){
+        TIMELINEAPP.effects = false;
+
         $("#volumeBtn").css({"display": "none"});
         $("#muteVolumeBtn").css({"display": "block"});
-        
-        $("#volume1Btn").css({"opacity": 0});
-        $("#volume2Btn").css({"opacity": 0});
 
-        $("#rainSound").animate({"volume": 0.0}, 100);
-        $("#waveSound").animate({"volume": 0.0}, 100);
-        
-        TIMELINEAPP.effects = false;
-        
-        
+        $("#volume1Btn").fadeOut(); //css({"opacity": 0});
+        $("#volume2Btn").fadeOut(); //css({"opacity": 0});
+
+        $("#rainSound").prop({"volume": 0.0});
+        $("#waveSound").prop({"volume": 0.0});
+
     },
     unmuteSounds: function(){
+        TIMELINEAPP.effects = true;
+
         $("#volumeBtn").css({"display": "block"});
         $("#muteVolumeBtn").css({"display": "none"});
-        
-        $("#volume1Btn").css({"opacity": 1});
-        $("#volume2Btn").css({"opacity": 1});
 
-        $("#rainSound").animate({"volume": 0.1}, 100);
-        
-        TIMELINEAPP.effects = true;
+        $("#volume1Btn").fadeIn(); //css({"opacity": 0});
+        $("#volume2Btn").fadeIn(); //css({"opacity": 0});
+
+
+        $("#rainSound").prop({"volume": 0.1});
     },
     showMessages: function(){
       var clock = $('#clock').html();
