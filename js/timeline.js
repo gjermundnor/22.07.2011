@@ -82,30 +82,30 @@ var TIMELINEAPP = {
         TIMELINEAPP.colorIsland();
         TIMELINEAPP.setTimer();
         TIMELINEAPP.showMessages();
-          
+
           console.log( TIMELINEAPP.scrollOffset);
       }); // END scroll
     },
 
-    
+
     openDots: function() {
-        
-        if(TIMELINEAPP.locked){  
+
+        if(TIMELINEAPP.locked){
             $("#lockDots").attr("src", "images/l%C3%A5s_lukket.png");
-        
+
             $(".text").css({"opacity": "0"});
            TIMELINEAPP.locked = false;
             $(".dots").css("pointer-events", "auto");
         }else{ // False
             $("#lockDots").attr("src", "images/l%C3%A5s_%C3%A5pen.png");
-        
+
             $(".text").css({"opacity": "1"});
            TIMELINEAPP.locked = true;
             $(".dots").css("pointer-events", "none");
         }
-       
-        
-        
+
+
+
     },
 
     rainSound: function(){
@@ -129,7 +129,7 @@ var TIMELINEAPP = {
                     .stop()
                    .animate({"opacity": "0"});
             });
-        
+
     },
     setTimer: function(){
       var TA = TIMELINEAPP;
@@ -167,11 +167,11 @@ var TIMELINEAPP = {
       $('#yourName').text(yourName);
       username = yourName;
       var that = $(this);
-      TIMELINEAPP.fadeInOutNextQuestion(that);
+      if(yourName.length > 1) TIMELINEAPP.fadeInOutNextQuestion(that);
     },
     questionTwo: function(){
       var that = $(this);
-      TIMELINEAPP.fadeInOutNextQuestion(that);
+      if(TIMELINEAPP.locationChoice != '0') TIMELINEAPP.fadeInOutNextQuestion(that);
     },
     questionThree: function(){
       $('#questionWrap').fadeOut(300);
@@ -197,7 +197,7 @@ var TIMELINEAPP = {
               left: '+=' + left_end
           });
           //console.log('dragged ' + ui.draggable.attr('id') + ' onto ' + $(this).find('input').val());
-          locationChoice = $(this).find('input').val();
+          TIMELINEAPP.locationChoice = $(this).find('input').val();
         }
       });
 
@@ -237,7 +237,7 @@ var TIMELINEAPP = {
     },
     soundEffects: function(){
         var clock = $('#clock').html();
-        
+
         if (TIMELINEAPP.scrollOffset >= 20588){ //17:36
             $("#rainSound").prop({"volume": 0.0});
             $("#waveSound").prop({"volume": 0.5});
@@ -249,8 +249,8 @@ var TIMELINEAPP = {
             $("#waveSound").prop({"volume": 0});
         }
     },
-    
-    
+
+
     /* If scroll så så mye legg til en dott og øk lyt
         if offset > 20000
             skru på lyd x
@@ -263,13 +263,13 @@ var TIMELINEAPP = {
         bilde byttes ut
         alle dotter forsvinner
      hvis klikk på knapp, skru på lyd og legg til dotter
-    
+
     */
-    
-    
+
+
     muteSounds: function(){
         TIMELINEAPP.effects = false;
-        
+
         $("#volumeBtn").css({"display": "none"});
         $("#muteVolumeBtn").css({"display": "block"});
 
@@ -280,8 +280,8 @@ var TIMELINEAPP = {
         $("#waveSound").prop({"volume": 0.0});
     },
     unmuteSounds: function(){
-        TIMELINEAPP.effects = true; 
-        
+        TIMELINEAPP.effects = true;
+
         $("#volumeBtn").css({"display": "block"});
         $("#muteVolumeBtn").css({"display": "none"});
 
