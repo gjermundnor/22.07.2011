@@ -65,16 +65,102 @@ var TIMELINEMODULE = (function(){
             "person": "- SMS til Gry Larsen fra Eskil Pedersen (27), Auf leder"
         },
         {
-            "event": "",
-            "message": "«...det er skyting her! Jeg vet ikke om vi sees igjen...»",
-            "person": "- Telefon mellom mamma og Prableen Kaur (18)"
-        },
-        {
             //17:35
             "event": "Andre prøver å komme seg ned til det kalde vannet for å gjemme seg eller forsøke og svømme mot land",
             "message": "«Alle løper i forskjellige retninger. Vi løper opp skrenten og ned på Kjærlighetsstien. Etterhvert kommer han. Først hører jeg skudd komme nærmere, så skritt ved hodet mitt. Han skyter én etter én, og tref er meg i hodet. Alt blir svart.»",
             "person": "- Marte Fevang Smith (17)"
+        },
+        {
+            //17:37
+            "event": "",
+            "message": "«Folk gjemmer seg i alle sprekkene i berget langs kysten, nede ved vannet er det folk og bak store og små steiner er det folk. Det er fult av folk. Overalt. Når han kommer og begynner å skyte kan man høre at folk både hopper og detter ned. Noen landet i vannet, men de fleste landet rett på stein.»",
+            "person": "– Tonje Brenna (23)",
+        },
+        {
+            //17:42
+            "event": "",
+            "message": "«Mamma, si til politiet at de må skynte seg. Folk dør her!»",
+            "person": "SMS til mamma fra Julie bremnes (16)",
+        },
+        {
+            //17:43
+            "event": "",
+            "message": "«Politiet må sende helikopter!!!!!!»",
+            "person": "SMS til pappa fra Håvard Vederhus (21)",
+        },
+        {
+            //17:44
+            "event": "",
+            "message": "«Jeg hører han tar i dørhåndtaket, så krabber jeg litt unna døra og da smeller det. 2 skudd.»",
+            "person": "Even Kleppen (32)",
+        },
+        {
+            //17:45
+            "event": "",
+            "message": "«jeg sitter i skolestua! han har nettopp skutt 2 skudd utenifra, men ingen truffet. tror han har gått»",
+            "person": "SMS fra Aud Helen W. Øyen (23)",
+        },
+         {
+            //17:48
+            "event": "",
+            "message": "«Vi greide å ro båten Reiulf ut fra brygga ca 100 meter før han kom ned til brygga og skøyt direkte mot oss. Ingen ble truf et, så han ga opp og gikk tilbake mot øya»",
+            "person": "Eivind Rindal (23)",
+        },
+        {
+        //17:51
+            "event": "Politiet gir beskjed til de som kommer gjennom på telefon fra øya at de er på vei på alle mulige måter. Land, vann og luft.",
+            "message": "«Jeg hører at skuddene kommer nærmere. Jeg tenker det er nå eller aldri, nå må jeg bare svømme. Så la vi på svøm. Hele øya lyste opp i et oransje skjær så kom det skudd mot oss i vannet.»",
+            "person": "Mari Aaby West (25)",
+        },
+        {
+        //18:02
+            "event": "På norspissen av øya ved Bolsjevika og Stoltenberget blir 8 mennesker drept.",
+            "message": "",
+            "person": "",
+        },
+        {
+        
+        //18:04
+            "event": "Den første sivile båten har startet redningsarbeidet og plukker opp fler av de som har lagt ut på svøm",
+            "message": "",
+            "person": "",
+        },
+        {
+        
+        //18:09
+            "event": "",
+            "message": "«Vi som var rundt Pumpehuset var blitt enige om at det ikke lenger var lov å ringe til noen, bare sende meldinger – og bare hviske. Vi skulle ikke lage lyd.»",
+            "person": "– Prableen Kaur (18)",
+        },
+        {
+        
+        //18:11
+            "event": "",
+            "message": "«Etter en stund ser vi en mann som kommer ruslende bort fra siden. Da legger alle seg ned.Han stopper ved Pumpehuset og ser ned og sier “Hei, jeg er fra politiet. Jeg er her for å evakuere dere. Vi har en båt der borte.” Da en jente spør om han har legitimasjon begynner han å skyte.»",
+            "person": "– Dana Barzingi (21)",
+        },
+        {
+        
+        //18:14
+            "event": "",
+            "message": "«Så ble det stille. Jeg hørte bare vannet som traf steinene, og regndråper»",
+            "person": "– Prableen Kaur (18))",
+        },
+        {
+        
+        //18:27
+            "event": "På sørspissen er nå 5 drept og 5 hardt skadde.",
+            "message": "",
+            "person": "",
+        },
+        {
+        
+        //18:34
+            "event": "gjerningsmannen blir nå tatt, men ikke alle på øya vet det. og den neste timen er det mye usikkerhet og redsel fremdeles.",
+            "message": "",
+            "person": "",
         }
+        
     ]};
 
     var getMessage = function(x){

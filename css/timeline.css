@@ -110,7 +110,7 @@ Derfor er bildet delt i 2 og lagt etterhverandre
 }
 @keyframes lightUp{
     0%{
-        -webkit-box-shadow: 0 0 20px #FFF;
+        -webkit-box-shadow: 0 0 40px #FFF;
     }
     100%{
         -webkit-box-shadow: 0 0 2px #FFF;
@@ -187,7 +187,7 @@ Derfor er bildet delt i 2 og lagt etterhverandre
     bottom: 50px;
     left: 30px;
 }
-#closeBoxBtn, #infoBtn, #toTopBtn, #volumeBtn, #muteVolumeBtn, #volume1Btn, #volume2Btn{
+#infoBtn, #toTopBtn, #volumeBtn, #muteVolumeBtn, #volume1Btn, #volume2Btn{
     float: left;
 }
 #closeBoxBtn, #toTopBtn{

@@ -257,6 +257,10 @@ var TIMELINEAPP = {
 
         $("#rainSound").animate({"volume": 0.0}, 100);
         $("#waveSound").animate({"volume": 0.0}, 100);
+        
+        TIMELINEAPP.effects = false;
+        
+        
     },
     unmuteSounds: function(){
         $("#volumeBtn").css({"display": "block"});
@@ -266,6 +270,8 @@ var TIMELINEAPP = {
         $("#volume2Btn").css({"opacity": 1});
 
         $("#rainSound").animate({"volume": 0.1}, 100);
+        
+        TIMELINEAPP.effects = true;
     },
     showMessages: function(){
       var clock = $('#clock').html();
@@ -274,7 +280,29 @@ var TIMELINEAPP = {
       else if( clock == '16:03' || clock == '16:04' || clock == '16:05' ) lightUp(1);
       else if( clock == '16:29' || clock == '16:30' || clock == '16:31' ) lightUp(2);
       else if( clock == '16:55' || clock == '16:56' || clock == '16:57' ) lightUp(3);
-      else removeEffects();
+        else if( clock == '17:19' || clock == '17:20' || clock == '17:21' ) lightUp(4);
+        else if( clock == '17:23') lightUp(5);
+        else if( clock == '17:24') lightUp(6);
+        else if( clock == '17:25') lightUp(7);
+        else if( clock == '17:28') lightUp(8);
+        else if( clock == '17:32') lightUp(9);
+        else if( clock == '17:35') lightUp(10);
+        else if( clock == '17:37') lightUp(11);
+        else if( clock == '17:42') lightUp(12);
+        else if( clock == '17:43') lightUp(13);
+        else if( clock == '17:44') lightUp(14);
+        else if( clock == '17:45') lightUp(15);
+        else if( clock == '17:48') lightUp(16);
+        else if( clock == '17:51') lightUp(17);
+        else if( clock == '18:01' || clock == '18:02' || clock == '18:03' ) lightUp(18);
+        else if( clock == '18:04') lightUp(19);
+            else if( clock == '18:09') lightUp(20);
+         else if( clock == '18:11') lightUp(21);
+         else if( clock == '18:14') lightUp(22);
+        else if( clock == '18:25' || clock == '18:26' || clock == '18:27' ) lightUp(23);
+        else if( clock == '18:32' || clock == '18:33' || clock == '18:34' ) lightUp(24);
+        //else if( clock == '19:20') TIMELINEAPP.ending();
+        else removeEffects();
 
       function lightUp(x){
         $('#showTxtBtn').css({'pointer-events': 'auto', 'animation-name': 'lightUp'});
