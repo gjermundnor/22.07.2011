@@ -143,7 +143,7 @@ Derfor er bildet delt i 2 og lagt etterhverandre
 }
 #questionWrap{
     top: 0;
-    display: none;
+    display: block;
 }
 #questionWrap, #infoBoxSection{
     position: fixed;
