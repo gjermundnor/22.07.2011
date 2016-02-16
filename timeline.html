@@ -18,7 +18,7 @@
 <div id="fixedElements">
     <div id="clockWrap">
         <div id="title">22.07.2011, Utøya</div>
-        <div id="clock">15:50</div>
+        <div id="clock"></div>
     </div>
 
     <div id="messagesWrap">
@@ -125,12 +125,12 @@
     <div class="container">
 
         <section id="volumeSection">
-            <!--
-            <button id="volumeControlBtn">Increase</button>
-            <button id="volumeControlTwoBtn">Inecrease more</button>
-        -->
 
             <audio id="rainSound" control autoplay onloadstart="this.volume=0.1">
+                <source src="audio/rain.mp3" type="audio/mpeg">
+            </audio>
+
+            <audio id="waveSound" control autoplay onloadstart="this.volume=0">
                 <source src="audio/butterfly.mp3" type="audio/mpeg">
             </audio>
 
@@ -140,6 +140,9 @@
             <img id="toTopBtn" src="images/upArrow.png" role="button">
             <img id="infoBtn" src="images/info.png" role="button">
             <img id="volumeBtn" src="images/lyd.png" role="button">
+            <img id="muteVolumeBtn" src="images/lyd_0.png" role="button">
+            <div id="volume1Btn"></div>
+            <div id="volume2Btn"></div>
         </section><!-- END buttonsSection-->
 
         <section id="mainSection">

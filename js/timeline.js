@@ -48,7 +48,7 @@ var TIMELINEAPP = {
         TIMELINEAPP.dragQuestion();
         TIMELINEAPP.colorIsland();
         TIMELINEAPP.scrollTopOnClick();
-        TIMELINEAPP.rainSound();
+        TIMELINEAPP.soundEffects();
 
         var setEvents = function () {
 
@@ -66,8 +66,8 @@ var TIMELINEAPP = {
             $("#closeBoxBtn").click( TIMELINEAPP.closeInfoBox );
             $('#newStart').click( TIMELINEAPP.newStart );
             $("#lockDots").click( TIMELINEAPP.openDots);
-       
-            
+            $('#volumeBtn').click( TIMELINEAPP.muteSounds );
+            $('#muteVolumeBtn').click( TIMELINEAPP.unmuteSounds );
 
 
         }();//END clickEvent
@@ -77,12 +77,13 @@ var TIMELINEAPP = {
       $(window).scroll(function(){
         TIMELINEAPP.scrollOffset = $(window).scrollTop();
         TIMELINEAPP.scrollTopOnClick();
-        TIMELINEAPP.rainSound();
+        TIMELINEAPP.soundEffects();
         TIMELINEAPP.colorIsland();
         TIMELINEAPP.setTimer();
         TIMELINEAPP.showMessages();
       }); // END scroll
     },
+
     
     openDots: function() {
         
@@ -126,6 +127,20 @@ var TIMELINEAPP = {
                    .animate({"opacity": "0"});
             });
         
+
+    dotAnimate: function () {
+
+        $(".dot").hover(function(){
+           $(this)
+                .siblings(".text")
+                .stop()
+                .animate({"opacity": "1"});
+        }, function(){
+            $(this)
+                .siblings(".text")
+                .stop()
+                .animate({"opacity": "0"});
+        });
     },
     setTimer: function(){
       var TA = TIMELINEAPP;
@@ -230,6 +245,41 @@ var TIMELINEAPP = {
         $('#redIsland').css('opacity', persentage);
         TA.islandScrollValue -= 700;
       }
+    },
+    soundEffects: function(){
+        var clock = $('#clock').html();
+        
+        if (clock >= "15:36") {
+            $("#rainSound").animate({"volume": 0.0}, 100);
+            $("#waveSound").animate({"volume": 0.5}, 50);
+            $("#volume2Btn").animate({"opacity": 1}, 500);
+        } else if (clock >= "15:21") {
+            $("#rainSound").animate({"volume": 0.9}, 50);
+            $("#volume1Btn").animate({"opacity": 1}, 500);
+        } else {
+            $("#rainSound").animate({"volume": 0.1}, 50);
+            /*$("#volume1Btn").animate({"opacity": 0}, 500);
+            $("#volume2Btn").animate({"opacity": 0}, 500);*/
+        }
+    },
+    muteSounds: function(){
+        $("#volumeBtn").css({"display": "none"});
+        $("#muteVolumeBtn").css({"display": "block"});
+        
+        $("#volume1Btn").css({"opacity": 0});
+        $("#volume2Btn").css({"opacity": 0});
+
+        $("#rainSound").animate({"volume": 0.0}, 100);
+        $("#waveSound").animate({"volume": 0.0}, 100);
+    },
+    unmuteSounds: function(){
+        $("#volumeBtn").css({"display": "block"});
+        $("#muteVolumeBtn").css({"display": "none"});
+        
+        $("#volume1Btn").css({"opacity": 1});
+        $("#volume2Btn").css({"opacity": 1});
+
+        $("#rainSound").animate({"volume": 0.1}, 100);
     },
     showMessages: function(){
       var clock = $('#clock').html();
