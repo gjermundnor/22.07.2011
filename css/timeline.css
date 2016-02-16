@@ -91,7 +91,9 @@ Derfor er bildet delt i 2 og lagt etterhverandre
     top: 205px;
     right: 20px;
     position: fixed;
+    cursor: pointer;
 }
+
 #showTxtBtn{
     width: 25px;
     height: 25px;
@@ -179,12 +181,21 @@ Derfor er bildet delt i 2 og lagt etterhverandre
 #inputSection, #checkSection{
     position: relative;
 }
-#closeBoxBtn, #toTopBtn, #volumeBtn{
+/* Buttons */
+#buttonsSection{
+    position: fixed;
+    bottom: 50px;
+    left: 30px;
+}
+#closeBoxBtn, #infoBtn, #toTopBtn, #volumeBtn, #muteVolumeBtn, #volume1Btn, #volume2Btn{
+    float: left;
+}
+#closeBoxBtn, #toTopBtn{
     width: 40px;
     cursor: pointer;
     position: relative;
 }
-#closeBoxBtn, #toTopBtn, #infoBtn{
+#infoBtn, #volumeBtn{
     cursor: pointer;
     position: relative;
 }
@@ -199,20 +210,43 @@ Derfor er bildet delt i 2 og lagt etterhverandre
 #toTopBtn{
     cursor: pointer;
     position: relative;
-    margin-bottom: 7px;
-    height: 25px;
-    width: 25px;
+    margin-top: 10px;
+    height: 20px;
+    width: 20px;
     opacity: 0;
 }
 #volumeBtn{
+    width: 15px;
+    display: block;
+}
+#muteVolumeBtn{
+    width: 24px;
+    display: none;
+}
+#volumeBtn, #muteVolumeBtn{
     height: 25px;
-    padding-bottom: 7px;
+    margin-top: 8px;
 }
-#buttonsSection{
-    position: fixed;
-    bottom: 50px;
-    left: 30px;
+#volumeBtn, #muteVolumeBtn, #volume1Btn{
+    margin-right: 1px;
 }
+#volume1Btn, #volume2Btn{
+    border-radius: 50%;
+    background-color: #adb2c9;
+    position: relative;
+    opacity: 0;
+}
+#volume1Btn{
+    width: 7px;
+    height: 7px;
+    margin-top: 16px;
+}
+#volume2Btn{
+    width: 10px;
+    height: 10px;
+    margin-top: 15px;
+}
+/* END buttons*/
 /* Draggable */
 #yourName{
     width: calc( 290px - 20px );

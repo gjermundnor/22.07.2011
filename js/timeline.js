@@ -11,6 +11,8 @@ var TIMELINEAPP = {
     username: '',
     scrollOffset: 0,
     islandScrollValue: 700,
+    effects: true,
+    locked: false,
 
     //HTML-objects
     $dot1: null,
@@ -20,6 +22,8 @@ var TIMELINEAPP = {
     $dot5: null,
     $dot6: null,
     $text: null,
+    $lockDots:null,
+    $openDots:null,
     $bodyHeight: null,
 
     init: function(){
@@ -34,6 +38,7 @@ var TIMELINEAPP = {
             TA.$dot5 = $("#dot5");
             TA.$dot6 = $("#dot6");
             TA.$text = $(".text");
+            TA.$lockDots = $("#lockDots");
             TA.$bodyHeight = $('body').height();
 
         }();//END setElements
@@ -44,11 +49,11 @@ var TIMELINEAPP = {
         TIMELINEAPP.dragQuestion();
         TIMELINEAPP.colorIsland();
         TIMELINEAPP.scrollTopOnClick();
-        TIMELINEAPP.rainSound();
+        TIMELINEAPP.soundEffects();
 
         var setEvents = function () {
 
-            TIMELINEAPP.dotAnimate();
+           TIMELINEAPP.dotAnimate();
 
         }();//END setEvents
 
@@ -61,6 +66,10 @@ var TIMELINEAPP = {
             $("#infoBtn").click( TIMELINEAPP.showInfoBox );
             $("#closeBoxBtn").click( TIMELINEAPP.closeInfoBox );
             $('#newStart').click( TIMELINEAPP.newStart );
+            $("#lockDots").click( TIMELINEAPP.openDots);
+            $('#volumeBtn').click( TIMELINEAPP.muteSounds );
+            $('#muteVolumeBtn').click( TIMELINEAPP.unmuteSounds );
+
 
         }();//END clickEvent
 
@@ -69,25 +78,58 @@ var TIMELINEAPP = {
       $(window).scroll(function(){
         TIMELINEAPP.scrollOffset = $(window).scrollTop();
         TIMELINEAPP.scrollTopOnClick();
-        TIMELINEAPP.rainSound();
+        if( TIMELINEAPP.effects == true ) TIMELINEAPP.soundEffects();
         TIMELINEAPP.colorIsland();
         TIMELINEAPP.setTimer();
         TIMELINEAPP.showMessages();
+          
+          console.log( TIMELINEAPP.scrollOffset);
       }); // END scroll
     },
-    dotAnimate: function () {
 
-        $(".dot").hover(function(){
-           $(this)
-                .siblings(".text")
-                .stop()
-                .animate({"opacity": "1"});
-        }, function(){
-            $(this)
-                .siblings(".text")
-                .stop()
-                .animate({"opacity": "0"});
-        });
+    
+    openDots: function() {
+        
+        if(TIMELINEAPP.locked){  
+            $("#lockDots").attr("src", "images/l%C3%A5s_lukket.png");
+        
+            $(".text").css({"opacity": "0"});
+           TIMELINEAPP.locked = false;
+            $(".dots").css("pointer-events", "auto");
+        }else{ // False
+            $("#lockDots").attr("src", "images/l%C3%A5s_%C3%A5pen.png");
+        
+            $(".text").css({"opacity": "1"});
+           TIMELINEAPP.locked = true;
+            $(".dots").css("pointer-events", "none");
+        }
+       
+        
+        
+    },
+
+    rainSound: function(){
+        if (TIMELINEAPP.scrollOffset > 200) {
+            $("#rainSound").prop("volume", 0.9);
+        } else if (TIMELINEAPP.scrollOffset > 100) {
+            $("#rainSound").prop("volume", 0.5);
+        } else {
+            $("#rainSound").prop("volume", 0.1);
+        }
+    },
+    dotAnimate: function () {
+            $(".dot").hover(function(){
+               $(this)
+                   .siblings(".text")
+                    .stop()
+                   .animate({"opacity": "1"});
+            }, function(){
+                $(this)
+                   .siblings(".text")
+                    .stop()
+                   .animate({"opacity": "0"});
+            });
+        
     },
     setTimer: function(){
       var TA = TIMELINEAPP;
@@ -193,17 +235,61 @@ var TIMELINEAPP = {
         TA.islandScrollValue -= 700;
       }
     },
-    rainSound: function(){
+    soundEffects: function(){
         var clock = $('#clock').html();
         
-        if (clock >= "17:36") {
-            $("#rainSound").prop("volume", 0.0);
-            $("#waveSound").prop("volume", 0.3);
-        } else if (clock >= "17:21") {
-            $("#rainSound").prop("volume", 0.3);
-        } else {
-            $("#rainSound").prop("volume", 0.1);
+        if (TIMELINEAPP.scrollOffset >= 20588){ //17:36
+            $("#rainSound").prop({"volume": 0.0});
+            $("#waveSound").prop({"volume": 0.5});
+            $("#volume2Btn").css({"opacity": 1});
+        }else if (TIMELINEAPP.scrollOffset >= 18534){ //17:21
+            $("#rainSound").prop({"volume": 0.5});
+            $("#volume1Btn").css({"opacity": 1});
+        }else{
+            $("#waveSound").prop({"volume": 0});
         }
+    },
+    
+    
+    /* If scroll så så mye legg til en dott og øk lyt
+        if offset > 20000
+            skru på lyd x
+            skru av lyd y
+        if offset > 18000
+            skru opp lyd y
+            vis dott 2
+     Hvis klikk på knapp, skru av lyd og fjern dotter
+        Lyd y blir 0
+        bilde byttes ut
+        alle dotter forsvinner
+     hvis klikk på knapp, skru på lyd og legg til dotter
+    
+    */
+    
+    
+    muteSounds: function(){
+        TIMELINEAPP.effects = false;
+        
+        $("#volumeBtn").css({"display": "none"});
+        $("#muteVolumeBtn").css({"display": "block"});
+
+        $("#volume1Btn").fadeOut(); //css({"opacity": 0});
+        $("#volume2Btn").fadeOut(); //css({"opacity": 0});
+
+        $("#rainSound").prop({"volume": 0.0});
+        $("#waveSound").prop({"volume": 0.0});
+    },
+    unmuteSounds: function(){
+        TIMELINEAPP.effects = true; 
+        
+        $("#volumeBtn").css({"display": "block"});
+        $("#muteVolumeBtn").css({"display": "none"});
+
+        $("#volume1Btn").fadeIn(); //css({"opacity": 0});
+        $("#volume2Btn").fadeIn(); //css({"opacity": 0});
+
+
+        $("#rainSound").prop({"volume": 0.1});
     },
     showMessages: function(){
       var clock = $('#clock').html();
