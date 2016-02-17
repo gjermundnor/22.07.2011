@@ -267,8 +267,7 @@ var TIMELINEAPP = {
         $("#volumeBtn").css({"display": "block"});
         $("#muteVolumeBtn").css({"display": "none"});
 
-        $("#volume1Btn").fadeIn(); 
-        $("#volume2Btn").fadeIn();
+        $("#volume1").fadeIn(); 
 
         $("#rainSound").prop({"volume": 0.1});
     },
