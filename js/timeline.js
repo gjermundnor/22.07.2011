@@ -283,7 +283,7 @@ var TIMELINEAPP = {
 
       if (TIMELINEAPP.scrollOffset >= 20588){ //17:36
           $("#rainSound").prop({"volume": 0.0});
-          $("#waveSound").prop({"volume": 0.4});
+          $("#waveSound").prop({"volume": 0.5});
       }else if (TIMELINEAPP.scrollOffset >= 18534){ //17:21
           $("#rainSound").prop({"volume": 0.4});
           $("#volume2").css({"opacity": 1});
