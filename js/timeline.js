@@ -388,20 +388,20 @@ var TIMELINEAPP = {
   }, // END setText
 
   ending: function(){
-
+    var TA = TIMELINEAPP;
     $('#endSection').fadeIn();
     $("body").css("overflow", "hidden");
 
     $('#endSectionText').append(
-      "<h1>Hei " + username + ", du har nå fått et innblikk i hvordan menneskene på Utøya opplevde sitasjonen, den 22. juli 2011.</h1>"
+      "<h1>Hei " + TA.username + ", du har nå fått et innblikk i hvordan menneskene på Utøya opplevde sitasjonen, den 22. juli 2011.</h1>"
       );
-    if(locationChoice == 'annet'){
+    if(TA.locationChoice == 'annet'){
       $('#endSectionText').append(
-      "<h3>Heldigvis var du et " + locationChoice + " sted og ble ikke direkte berørt av hendelsen.</h3>"
+      "<h3>Heldigvis var du et " + TA.locationChoice + " sted og ble ikke direkte berørt av hendelsen.</h3>"
       );
     }else{
       $('#endSectionText').append(
-      "<h3>Siden du befant deg på " + locationChoice + " denne dagen, håper vi du ikke ble fysisk skadet og at hverdagen din går som normalt.</h3>"
+      "<h3>Siden du befant deg på " + TA.locationChoice + " denne dagen, håper vi du ikke ble fysisk skadet og at hverdagen din går som normalt.</h3>"
       );
     }
 

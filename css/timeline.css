@@ -135,7 +135,7 @@ Derfor er bildet delt i 2 og lagt etterhverandre
     margin: auto;
 }
 /*END questionWrap*/
-#inputSection, #checkSection, #infoBoxSection, #introSection{
+#checkSection, #infoBoxSection, #introSection{
     display: none;
 }
 #infoTitle{
@@ -143,7 +143,6 @@ Derfor er bildet delt i 2 og lagt etterhverandre
 }
 #questionWrap{
     top: 0;
-    display: none;
 }
 #questionWrap, #infoBoxSection{
     position: fixed;
@@ -167,14 +166,11 @@ Derfor er bildet delt i 2 og lagt etterhverandre
     border-radius: 4px;
     color: white;
 }
-#questionWrap .universalBtn, #yourName{
+#questionWrap .universalBtn, #yourName, #addNameBtn, #goNextInfoBtn, #newStart{
     cursor: pointer;
 }
 #questionWrap input:focus{
     outline: none;
-}
-#inputSection{
-    display: none;
 }
 #inputSection, #checkSection{
     position: relative;
@@ -194,7 +190,7 @@ Derfor er bildet delt i 2 og lagt etterhverandre
 }
 #closeBoxBtn, #toTopBtn{
     width: 20px;
-    height: 20px;   
+    height: 20px;
 }
 #toTopBtn{
     opacity: 0;
