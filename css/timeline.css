@@ -190,17 +190,15 @@ Derfor er bildet delt i 2 og lagt etterhverandre
     bottom: 50px;
     left: 30px;
 }
-#infoBtn, #toTopBtn, #volumeBtn, #muteVolumeBtn, #volume1Btn, #volume2Btn{
+#infoBtn, #toTopBtn, #volumeBtn, #muteVolumeBtn, #volume1, #volume2{
     float: left;
+}
+#infoBtn, #volumeBtn, #closeBoxBtn, #toTopBtn{
+    cursor: pointer;
+    position: relative;
 }
 #closeBoxBtn, #toTopBtn{
     width: 40px;
-    cursor: pointer;
-    position: relative;
-}
-#infoBtn, #volumeBtn{
-    cursor: pointer;
-    position: relative;
 }
 #infoBtn{
     height: 40px;
@@ -211,8 +209,6 @@ Derfor er bildet delt i 2 og lagt etterhverandre
     width: 20px;
 }
 #toTopBtn{
-    cursor: pointer;
-    position: relative;
     margin-top: 10px;
     height: 20px;
     width: 20px;
