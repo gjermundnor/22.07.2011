@@ -113,9 +113,17 @@ Derfor er bildet delt i 2 og lagt etterhverandre
 @keyframes lightUp{
     0%{
         -webkit-box-shadow: 0 0 50px #FFF; /*Hvit*/
+        -moz-box-shadow: 0 0 50px #FFF; /*Hvit*/
+        -ms-box-shadow: 0 0 50px #FFF; /*Hvit*/
+        -o-box-shadow: 0 0 50px #FFF; /*Hvit*/
+        box-shadow: 0 0 50px #FFF; /*Hvit*/
     }
     100%{
         -webkit-box-shadow: 0 0 2px #FFF; /*Hvit*/
+        -moz-box-shadow: 0 0 2px #FFF; /*Hvit*/
+        -ms-box-shadow: 0 0 2px #FFF; /*Hvit*/
+        -o-box-shadow: 0 0 2px #FFF; /*Hvit*/
+        box-shadow: 0 0 2px #FFF; /*Hvit*/
     }
 }
 .text-box{
