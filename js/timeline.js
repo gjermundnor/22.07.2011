@@ -1,6 +1,6 @@
 $(document).ready(function () {
 
-  $(this).scrollTop(0); // Gjør at siden starter på toppen
+  TIMELINEAPP.scrollTop(); // Gjør at siden starter på toppen
   TIMELINEAPP.init();
 
 });
@@ -27,52 +27,51 @@ var TIMELINEAPP = {
   $openDots: null,
   $bodyHeight: null,
 
+  init: function(){
 
-    init: function(){
+      var TA = TIMELINEAPP;
 
-        var TA = TIMELINEAPP;
+      var setElements = function() {
+          TA.$dot1 = $("#dot1");
+          TA.$dot2 = $("#dot2");
+          TA.$dot3 = $("#dot3");
+          TA.$dot4 = $("#dot4");
+          TA.$dot5 = $("#dot5");
+          TA.$dot6 = $("#dot6");
+          TA.$text = $(".text");
+          TA.$lockDots = $("#lockDots");
+          TA.$bodyHeight = $('body').height();
 
-        var setElements = function() {
-            TA.$dot1 = $("#dot1");
-            TA.$dot2 = $("#dot2");
-            TA.$dot3 = $("#dot3");
-            TA.$dot4 = $("#dot4");
-            TA.$dot5 = $("#dot5");
-            TA.$dot6 = $("#dot6");
-            TA.$text = $(".text");
-            TA.$lockDots = $("#lockDots");
-            TA.$bodyHeight = $('body').height();
-
-        }();//END setElements
+      }();//END setElements
 
 
-       var setEvents = function () {
+     var setEvents = function () {
 
-          TIMELINEAPP.checkOffset();
-          TIMELINEAPP.scrollTopOnClick();
-          TIMELINEAPP.dragQuestion();
-          TIMELINEAPP.colorIsland();
-          TIMELINEAPP.scrollTopOnClick();
-          TIMELINEAPP.soundEffects();
-          TIMELINEAPP.dotAnimate();
+        TIMELINEAPP.checkOffset();
+        TIMELINEAPP.scrollTopOnClick();
+        TIMELINEAPP.dragQuestion();
+        TIMELINEAPP.colorIsland();
+        TIMELINEAPP.scrollTopOnClick();
+        TIMELINEAPP.soundEffects();
+        TIMELINEAPP.dotAnimate();
 
-        }();//END setEvents
+      }();//END setEvents
 
-        var clickEvent = function(){
+      var clickEvent = function(){
 
-          $('#addNameBtn').click( TIMELINEAPP.questionOne );
-          $('#goNextInfoBtn').click( TIMELINEAPP.questionTwo );
-          $('#startBtn').click( TIMELINEAPP.questionThree );
-          $("#toTopBtn").click( TIMELINEAPP.scrollTop );
-          $("#infoBtn").click( TIMELINEAPP.showInfoBox );
-          $("#closeBoxBtn").click( TIMELINEAPP.closeInfoBox );
-          $('#newStart').click( TIMELINEAPP.newStart );
-          $("#lockDots").click( TIMELINEAPP.openDots);
-          $('#volumeBtn').click( TIMELINEAPP.muteSounds );
-          $('#muteVolumeBtn').click( TIMELINEAPP.unmuteSounds );
+        $('#addNameBtn').click( TIMELINEAPP.questionOne );
+        $('#goNextInfoBtn').click( TIMELINEAPP.questionTwo );
+        $('#startBtn').click( TIMELINEAPP.questionThree );
+        $("#toTopBtn").click( TIMELINEAPP.scrollTop );
+        $("#infoBtn").click( TIMELINEAPP.showInfoBox );
+        $("#closeBoxBtn").click( TIMELINEAPP.closeInfoBox );
+        $('#newStart').click( TIMELINEAPP.newStart );
+        $("#lockDots").click( TIMELINEAPP.openDots);
+        $('#volumeBtn').click( TIMELINEAPP.muteSounds );
+        $('#muteVolumeBtn').click( TIMELINEAPP.unmuteSounds );
 
-        }();//END clickEvent
-        
+      }();//END clickEvent
+
     }, // END init
 
     //Funksjon med boolean som skifter låseikon ved klikk og endrer opacity på teksten
@@ -93,7 +92,7 @@ var TIMELINEAPP = {
         }
 
   }, // END openDots
-    
+
   checkOffset: function(){
     // Kaller på visse funkjsoner on scroll
     $(window).scroll(function(){
