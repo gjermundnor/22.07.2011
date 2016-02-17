@@ -1,3 +1,8 @@
+/*enkle eller doble fnutter
+Endre klasse på knapp
+Vise alt som skal vises
+Ikke lurt å blande position med margin*/
+
 $(document).ready(function () {
 
   TIMELINEAPP.scrollTop(); // Gjør at siden starter på toppen
@@ -315,7 +320,7 @@ var TIMELINEAPP = {
     $("#volume1").fadeIn();
     $("#rainSound").prop({"volume": 0.1});
 
-  },
+  }, // END unmuteSounds
 
   showMessages: function(){
 
