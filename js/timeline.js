@@ -14,6 +14,7 @@ var TIMELINEAPP = {
   islandScrollValue: 700, // Avstand fra toppen nå første island-event kjører
   effects: true, // Lydeffekter
   locked: false, // Om låsen er åpen eller lukket
+  runOnce: false,
 
   //Globale HTML-objects
   $dot1: null,
@@ -389,6 +390,8 @@ var TIMELINEAPP = {
 
   ending: function(){
     var TA = TIMELINEAPP;
+    if( TA.runOnce == true) return false;
+    TA.runOnce = true;
     $('#endSection').fadeIn();
     $("body").css("overflow", "hidden");
 
