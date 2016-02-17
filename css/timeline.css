@@ -148,7 +148,7 @@ Derfor er bildet delt i 2 og lagt etterhverandre
 }
 #questionWrap{
     top: 0;
-    display: block;
+    display: none;
 }
 #questionWrap, #infoBoxSection{
     position: fixed;
@@ -230,24 +230,25 @@ Derfor er bildet delt i 2 og lagt etterhverandre
     height: 25px;
     margin-top: 8px;
 }
-#volumeBtn, #muteVolumeBtn, #volume1Btn{
+#volumeBtn, #muteVolumeBtn, #volume1{
     margin-right: 1px;
 }
-#volume1Btn, #volume2Btn{
+#volume1, #volume2{
     border-radius: 50%;
     background-color: #adb2c9;
     position: relative;
-    opacity: 0;
+    float: left;
 }
-#volume1Btn{
+#volume1{
     width: 7px;
     height: 7px;
     margin-top: 16px;
 }
-#volume2Btn{
+#volume2{
     width: 10px;
     height: 10px;
     margin-top: 15px;
+    opacity: 0;
 }
 /* END buttons*/
 /* Draggable */
@@ -298,6 +299,7 @@ Derfor er bildet delt i 2 og lagt etterhverandre
 }
 .lines{
     width: 900px;
+    margin-bottom: -4px;
 }
 #endSection{
     position: fixed;

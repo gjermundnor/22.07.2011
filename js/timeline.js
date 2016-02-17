@@ -1,5 +1,6 @@
 $(document).ready(function () {
 
+    $(this).scrollTop(0);
     TIMELINEAPP.init();
 
 });
@@ -14,7 +15,7 @@ var TIMELINEAPP = {
     effects: true,
     locked: false,
 
-    //HTML-objects
+    //Globale HTML-objects
     $dot1: null,
     $dot2: null,
     $dot3: null,
@@ -22,8 +23,8 @@ var TIMELINEAPP = {
     $dot5: null,
     $dot6: null,
     $text: null,
-    $lockDots:null,
-    $openDots:null,
+    $lockDots: null,
+    $openDots: null,
     $bodyHeight: null,
 
     init: function(){
@@ -43,17 +44,17 @@ var TIMELINEAPP = {
 
         }();//END setElements
 
-        TIMELINEAPP.checkOffset();
-        TIMELINEAPP.outputMessages();
-        TIMELINEAPP.scrollTopOnClick();
-        TIMELINEAPP.dragQuestion();
-        TIMELINEAPP.colorIsland();
-        TIMELINEAPP.scrollTopOnClick();
-        TIMELINEAPP.soundEffects();
 
         var setEvents = function () {
 
-           TIMELINEAPP.dotAnimate();
+          TIMELINEAPP.checkOffset();
+          TIMELINEAPP.outputMessages();
+          TIMELINEAPP.scrollTopOnClick();
+          TIMELINEAPP.dragQuestion();
+          TIMELINEAPP.colorIsland();
+          TIMELINEAPP.scrollTopOnClick();
+          TIMELINEAPP.soundEffects();
+          TIMELINEAPP.dotAnimate();
 
         }();//END setEvents
 
@@ -75,6 +76,7 @@ var TIMELINEAPP = {
 
     }, // END init
     checkOffset: function(){
+      //
       $(window).scroll(function(){
         TIMELINEAPP.scrollOffset = $(window).scrollTop();
         TIMELINEAPP.scrollTopOnClick();
@@ -239,49 +241,28 @@ var TIMELINEAPP = {
       }
     },
     soundEffects: function(){
-        var clock = $('#clock').html();
 
         if (TIMELINEAPP.scrollOffset >= 20588){ //17:36
             $("#rainSound").prop({"volume": 0.0});
             $("#waveSound").prop({"volume": 0.5});
-            $("#volume2Btn").css({"opacity": 1});
         }else if (TIMELINEAPP.scrollOffset >= 18534){ //17:21
             $("#rainSound").prop({"volume": 0.5});
-            $("#volume1Btn").css({"opacity": 1});
+            $("#volume2").css({"opacity": 1});
         }else{
             $("#waveSound").prop({"volume": 0});
         }
     },
-
-
-    /* If scroll så så mye legg til en dott og øk lyt
-        if offset > 20000
-            skru på lyd x
-            skru av lyd y
-        if offset > 18000
-            skru opp lyd y
-            vis dott 2
-     Hvis klikk på knapp, skru av lyd og fjern dotter
-        Lyd y blir 0
-        bilde byttes ut
-        alle dotter forsvinner
-     hvis klikk på knapp, skru på lyd og legg til dotter
-
-    */
-
-
     muteSounds: function(){
         TIMELINEAPP.effects = false;
 
         $("#volumeBtn").css({"display": "none"});
         $("#muteVolumeBtn").css({"display": "block"});
 
-        $("#volume1Btn").fadeOut(); //css({"opacity": 0});
-        $("#volume2Btn").fadeOut(); //css({"opacity": 0});
+        $("#volume1").fadeOut();
+        $("#volume2").fadeOut();
 
         $("#rainSound").prop({"volume": 0.0});
         $("#waveSound").prop({"volume": 0.0});
-
     },
     unmuteSounds: function(){
         TIMELINEAPP.effects = true;
@@ -289,9 +270,8 @@ var TIMELINEAPP = {
         $("#volumeBtn").css({"display": "block"});
         $("#muteVolumeBtn").css({"display": "none"});
 
-        $("#volume1Btn").fadeIn(); //css({"opacity": 0});
-        $("#volume2Btn").fadeIn(); //css({"opacity": 0});
-
+        $("#volume1Btn").fadeIn(); 
+        $("#volume2Btn").fadeIn();
 
         $("#rainSound").prop({"volume": 0.1});
     },
@@ -323,7 +303,7 @@ var TIMELINEAPP = {
          else if( clock == '18:14') lightUp(22);
         else if( clock == '18:25' || clock == '18:26' || clock == '18:27' ) lightUp(23);
         else if( clock == '18:32' || clock == '18:33' || clock == '18:34' ) lightUp(24);
-        //else if( clock == '19:20') TIMELINEAPP.ending();
+        else if( clock == '19:20') TIMELINEAPP.ending();
         else removeEffects();
 
       function lightUp(x){
@@ -354,7 +334,7 @@ var TIMELINEAPP = {
           .append('<h3>' + TIMELINEMODULE.getMessage(x).message + '</h3>')
           .append('<h4>' + TIMELINEMODULE.getMessage(x).person + '</h4>')
       }
-    },
+    },/*END setText*/
     // if(15:49 || 15:50 || 15:51) lightBulb(1);
     // if(16:02 || 16:03 || 16:04) lightBulb(2);
 
@@ -365,6 +345,7 @@ var TIMELINEAPP = {
     */
     ending: function(){
       $('#endSection').fadeIn();
+      $("body").css("overflow", "hidden");
       $('#endSectionText').append(
         "<h1>Hei " + username + ", du har nå fått et innblikk i hvordan menneskene på Utøya opplevde sitasjonen, den 22. juli 2011.</h1>"
         );
@@ -377,7 +358,7 @@ var TIMELINEAPP = {
         "<h3>Siden du befant deg på " + locationChoice + " denne dagen, håper vi du ikke ble fysisk skadet og at hverdagen din går som normalt.</h3>"
         );
       }
-    },
+    },/* END ending*/
     newStart: function(){
       location.reload(true)
     }
