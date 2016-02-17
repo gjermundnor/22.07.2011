@@ -321,7 +321,7 @@ var TIMELINEAPP = {
     $("#volume1").fadeIn();
     $("#rainSound").prop({"volume": 0.1});
 
-  },
+  }, // END unmuteSounds
 
   showMessages: function(){
 
