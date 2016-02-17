@@ -90,6 +90,7 @@ var TIMELINEAPP = {
     },
 
 
+    //Funksjon som skifter låseikon ved klikk og endrer opacity på prikkene
     openDots: function() {
 
         if(TIMELINEAPP.locked){
@@ -108,7 +109,7 @@ var TIMELINEAPP = {
 
 
 
-    },
+    }, //End opendots
 
     rainSound: function(){
         if (TIMELINEAPP.scrollOffset > 200) {
@@ -119,6 +120,8 @@ var TIMELINEAPP = {
             $("#rainSound").prop("volume", 0.1);
         }
     },
+    
+    //Funksjon som viser sibling teksten til prikk som blir hovret
     dotAnimate: function () {
             $(".dot").hover(function(){
                $(this)
@@ -132,7 +135,7 @@ var TIMELINEAPP = {
                    .animate({"opacity": "0"});
             });
 
-    },
+    }, //End dotAnimate
     setTimer: function(){
       var TA = TIMELINEAPP;
       var startHoure = 15, startMinute = 50; // Starttid
