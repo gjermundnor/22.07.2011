@@ -48,7 +48,6 @@ var TIMELINEAPP = {
         var setEvents = function () {
 
           TIMELINEAPP.checkOffset();
-          TIMELINEAPP.outputMessages();
           TIMELINEAPP.scrollTopOnClick();
           TIMELINEAPP.dragQuestion();
           TIMELINEAPP.colorIsland();
@@ -71,47 +70,44 @@ var TIMELINEAPP = {
             $('#volumeBtn').click( TIMELINEAPP.muteSounds );
             $('#muteVolumeBtn').click( TIMELINEAPP.unmuteSounds );
 
-
         }();//END clickEvent
 
     }, // END init
     checkOffset: function(){
-      //
+      // Kaller på visse funkjsoner on scroll
       $(window).scroll(function(){
-        TIMELINEAPP.scrollOffset = $(window).scrollTop();
-        TIMELINEAPP.scrollTopOnClick();
-        if( TIMELINEAPP.effects == true ) TIMELINEAPP.soundEffects();
-        TIMELINEAPP.colorIsland();
-        TIMELINEAPP.setTimer();
-        TIMELINEAPP.showMessages();
 
-          console.log( TIMELINEAPP.scrollOffset);
+        TIMELINEAPP.scrollOffset = $(window).scrollTop(); // Endrer verdien til offset-variablen
+        TIMELINEAPP.scrollTopOnClick(); // Mulighet for å scrolle til toppen
+        if( TIMELINEAPP.effects == true ) TIMELINEAPP.soundEffects(); // Lydeffekter
+        TIMELINEAPP.colorIsland(); // Gir øya farge
+        TIMELINEAPP.setTimer(); // Setter klokka
+        TIMELINEAPP.showMessages(); // Viser meldinger
+
       }); // END scroll
-    },
+    }, // END checkOffset
 
 
-    //Funksjon som skifter låseikon ved klikk og endrer opacity på prikkene
+    //Funksjon med boolean som skifter låseikon ved klikk og endrer opacity på teksten
     openDots: function() {
 
-        if(TIMELINEAPP.locked){
-            $("#lockDots").attr("src", "images/l%C3%A5s_lukket.png");
+        if(TIMELINEAPP.locked){ // Hvis låsen er åpen
+          $("#lockDots").attr("src", "images/l%C3%A5s_lukket.png");
+          $(".text").css({"opacity": "0"});
+          TIMELINEAPP.locked = false;
+          $(".dots").css("pointer-events", "auto");
 
-            $(".text").css({"opacity": "0"});
-           TIMELINEAPP.locked = false;
-            $(".dots").css("pointer-events", "auto");
-        }else{ // False
-            $("#lockDots").attr("src", "images/l%C3%A5s_%C3%A5pen.png");
+        }else{ // Hvis låsen er lukket
+          $("#lockDots").attr("src", "images/l%C3%A5s_%C3%A5pen.png");
+          $(".text").css({"opacity": "1"});
+          TIMELINEAPP.locked = true;
+          $(".dots").css("pointer-events", "none");
+        } // END if
 
-            $(".text").css({"opacity": "1"});
-           TIMELINEAPP.locked = true;
-            $(".dots").css("pointer-events", "none");
-        }
-
-
-
-    }, //End opendots
+    }, // END opendots
 
     rainSound: function(){
+
         if (TIMELINEAPP.scrollOffset > 200) {
             $("#rainSound").prop("volume", 0.9);
         } else if (TIMELINEAPP.scrollOffset > 100) {
@@ -119,25 +115,32 @@ var TIMELINEAPP = {
         } else {
             $("#rainSound").prop("volume", 0.1);
         }
-    },
-    
+
+    }, // END rainSound
+
     //Funksjon som viser sibling teksten til prikk som blir hovret
     dotAnimate: function () {
-            $(".dot").hover(function(){
-               $(this)
-                   .siblings(".text")
-                    .stop()
-                   .animate({"opacity": "1"});
-            }, function(){
-                $(this)
-                   .siblings(".text")
-                    .stop()
-                   .animate({"opacity": "0"});
-            });
+
+      $(".dot").hover(function(){ // Mouseover
+        $(this)
+          .siblings(".text")
+          .stop()
+          .animate({"opacity": "1"});
+
+      }, function(){ // Mouseout
+        $(this)
+          .siblings(".text")
+          .stop()
+          .animate({"opacity": "0"});
+      }); // END hover
 
     }, //End dotAnimate
+
+    // Regner ut klokka basert på prosent skrollet mellom possisjon x og y
     setTimer: function(){
+
       var TA = TIMELINEAPP;
+
       var startHoure = 15, startMinute = 50; // Starttid
       var endHoure = 19, endMinute = 20; // Sluttid
       var currentHoure = 0, currentMinute = 0; // Tid på gitt punkt
@@ -162,75 +165,93 @@ var TIMELINEAPP = {
 
       $('#clock').text(currentHoure + ':'+ zero + currentMinute); // Printer ut klokken
 
-    },
-    outputMessages: function(){
-      var message = TIMELINEMODULE.getMessage(0).message;
-      var message2 = TIMELINEMODULE.getMessage(0).person;
-    },
+    }, // END setTimer - klokke
+
     questionOne: function(){
+
       var yourName = $('#inputNameField').val();
       $('#yourName').text(yourName);
       username = yourName;
       var that = $(this);
       if(yourName.length > 1) TIMELINEAPP.fadeInOutNextQuestion(that);
+
     },
+
     questionTwo: function(){
+
       var that = $(this);
       if(TIMELINEAPP.locationChoice != '0') TIMELINEAPP.fadeInOutNextQuestion(that);
+
     },
+
     questionThree: function(){
+
       $('#questionWrap').fadeOut(300);
       $('#introSection').fadeOut(300);
       $("html, body").animate({ scrollTop: 0}, 700);
-      //TIMELINEAPP.ending();
+
     },
+
     fadeInOutNextQuestion: function(that){
+
       that.parent().fadeOut(300, function(){
         $(this).next().fadeIn();
       });
-    },
-    dragQuestion: function(){
-      $('.drop').droppable({
-        tolerance: 'intersect',
-        drop: function(event, ui) {
-          var drop_p = $(this).offset();
-          var drag_p = ui.draggable.offset();
-          var left_end = drop_p.left - drag_p.left + 0;
-          var top_end = drop_p.top - drag_p.top + 0;
-          ui.draggable.animate({
-              top: '+=' + top_end,
-              left: '+=' + left_end
-          });
-          //console.log('dragged ' + ui.draggable.attr('id') + ' onto ' + $(this).find('input').val());
-          TIMELINEAPP.locationChoice = $(this).find('input').val();
-        }
-      });
 
-      $('#yourName').draggable({
+    },
+
+    dragQuestion: function(){
+
+      $('.drop').droppable({ // Jquery UI
+        tolerance: 'intersect',
+        drop: function(event, ui) { // Registrer fra hvor og til når du slipper.
+          var dropPos = $(this).offset();
+          var dragPos = ui.draggable.offset();
+          var leftEnd = dropPos.left - dragPos.left + 0;
+          var topEnd = dropPos.top - dragPos.top + 0;
+          ui.draggable.animate({
+              top: '+=' + topEnd,
+              left: '+=' + leftEnd
+          });
+          TIMELINEAPP.locationChoice = $(this).find('input').val(); // Finner verdien til valget til brukeren
+        }
+
+      }); // END droppable
+
+      $('#yourName').draggable({ // boksen brukeren skal dra
           revert: 'invalid',
           scroll: false,
           stack: "#yourName",
       });
-    },
+
+    }, // END dragQuestion
+
     scrollTopOnClick: function(){
+      // Mulig å klikke etter scrollet 4000px
       if (TIMELINEAPP.scrollOffset > 4000) {
         $("#toTopBtn").stop().css({"opacity": "1", "pointer-events": "auto"});
       } else {
           $("#toTopBtn").stop().css({"opacity": "0", "pointer-events": "none"});
       }
-    },
+
+    }, // END scrollTopOnClick
+
     scrollTop: function(){
-        $("html, body").animate({scrollTop: 0}, 700);
+        $("html, body").animate({scrollTop: 0}, 700); // Skrller til toppen
     },
+
     showInfoBox: function(){
-        $("#infoBoxSection").fadeIn(300);
+        $("#infoBoxSection").fadeIn(300); // informasjonsboks
     },
+
     closeInfoBox: function(){
-        $("#infoBoxSection").fadeOut(300);
+        $("#infoBoxSection").fadeOut(300); // Lukker informasjonsboksen
     },
-    colorIsland: function(){
+
+    colorIsland: function(){ // Farger øya gradvis rød
+
       var TA = TIMELINEAPP;
-      var persentage = (TA.scrollOffset / TA.$bodyHeight);
+      var persentage = (TA.scrollOffset / TA.$bodyHeight); // Regner ut prosent
 
       if( TA.islandScrollValue < TA.scrollOffset){
         $('#redIsland').css('opacity', persentage);
@@ -239,7 +260,9 @@ var TIMELINEAPP = {
         $('#redIsland').css('opacity', persentage);
         TA.islandScrollValue -= 700;
       }
-    },
+
+    }, // END colorIsland
+
     soundEffects: function(){
 
         if (TIMELINEAPP.scrollOffset >= 20588){ //17:36
@@ -251,33 +274,42 @@ var TIMELINEAPP = {
         }else{
             $("#waveSound").prop({"volume": 0});
         }
-    },
+    }, // END soundEffects
+
     muteSounds: function(){
-        TIMELINEAPP.effects = false;
 
-        $("#volumeBtn").css({"display": "none"});
-        $("#muteVolumeBtn").css({"display": "block"});
+      TIMELINEAPP.effects = false;
 
-        $("#volume1").fadeOut();
-        $("#volume2").fadeOut();
+      $("#volumeBtn").css({"display": "none"});
+      $("#muteVolumeBtn").css({"display": "block"});
 
-        $("#rainSound").prop({"volume": 0.0});
-        $("#waveSound").prop({"volume": 0.0});
-    },
+      $("#volume1").fadeOut();
+      $("#volume2").fadeOut();
+
+      $("#rainSound").prop({"volume": 0.0});
+      $("#waveSound").prop({"volume": 0.0});
+
+    }, // END muteSounds
+
     unmuteSounds: function(){
-        TIMELINEAPP.effects = true;
 
-        $("#volumeBtn").css({"display": "block"});
-        $("#muteVolumeBtn").css({"display": "none"});
+      TIMELINEAPP.effects = true;
 
-        $("#volume1Btn").fadeIn();
-        $("#volume2Btn").fadeIn();
+      $("#volumeBtn").css({"display": "block"});
+      $("#muteVolumeBtn").css({"display": "none"});
 
-        $("#rainSound").prop({"volume": 0.1});
-    },
+      $("#volume1Btn").fadeIn();
+      $("#volume2Btn").fadeIn();
+
+      $("#rainSound").prop({"volume": 0.1});
+
+    }, // END unmuteSounds
+
     showMessages: function(){
+
       var clock = $('#clock').html();
 
+      // Når de og de meldingene skal vises
       if( clock == '15:59' || clock == '16:00' || clock == '16:01' ) lightUp(0);
       else if( clock == '16:03' || clock == '16:04' || clock == '16:05' ) lightUp(1);
       else if( clock == '16:29' || clock == '16:30' || clock == '16:31' ) lightUp(2);
@@ -306,7 +338,8 @@ var TIMELINEAPP = {
       else if( clock == '19:20' || clock == '19:21') TIMELINEAPP.ending();
       else removeEffects();
 
-      function lightUp(x){
+      function lightUp(x){ // Tar i mot en verdi og sender videre
+
         $('#showTxtBtn').css({'pointer-events': 'auto', 'animation-name': 'lightUp'});
 
         var clicked = false;
@@ -320,24 +353,31 @@ var TIMELINEAPP = {
           }
 
         });
+
       }; // End lightbulb
-      function removeEffects(){
+
+      function removeEffects(){ // Fjerner lyseffekten
+
         $('#messages').text("");
         $('#showTxtBtn').removeAttr('style');
         $('#showTxtBtn').css('pointer-events', 'none');
+
       }; // End removeEffects
 
-      function setText(x){
+      function setText(x){ // Finner tekten og skriver den ut
+
         $('#messages')
           .text("")
           .append('<h2>' + TIMELINEMODULE.getMessage(x).event + '</h2>')
           .append('<h3>' + TIMELINEMODULE.getMessage(x).message + '</h3>')
           .append('<h4>' + TIMELINEMODULE.getMessage(x).person + '</h4>')
+
       }; // End setText
 
     }, // END setText
 
     ending: function(){
+
       $('#endSection').fadeIn();
       $("body").css("overflow", "hidden");
 
@@ -353,6 +393,7 @@ var TIMELINEAPP = {
         "<h3>Siden du befant deg på " + locationChoice + " denne dagen, håper vi du ikke ble fysisk skadet og at hverdagen din går som normalt.</h3>"
         );
       }
+
     }, // END ending
 
     newStart: function(){
