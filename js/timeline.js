@@ -187,7 +187,7 @@ var TIMELINEAPP = {
 
     var yourName = $('#inputNameField').val();
     $('#yourName').text(yourName);
-    username = yourName;
+    TIMELINEAPP.username = yourName;
     var that = $(this);
     if(yourName.length > 1) TIMELINEAPP.fadeInOutNextQuestion(that);
 
@@ -391,7 +391,6 @@ var TIMELINEAPP = {
   ending: function(){
     var TA = TIMELINEAPP;
     if( TA.runOnce == true) return false;
-    TA.runOnce = true;
     $('#endSection').fadeIn();
     $("body").css("overflow", "hidden");
 
@@ -408,6 +407,7 @@ var TIMELINEAPP = {
       );
     }
 
+    TA.runOnce = true;
   }, // END ending
 
   newStart: function(){
