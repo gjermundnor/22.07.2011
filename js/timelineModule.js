@@ -144,7 +144,7 @@ var TIMELINEMODULE = (function(){
         //18:14
             "event": "",
             "message": "«Så ble det stille. Jeg hørte bare vannet som traf steinene, og regndråper»",
-            "person": "– Prableen Kaur (18))",
+            "person": "– Prableen Kaur (18)",
         },
         {
 
@@ -156,7 +156,8 @@ var TIMELINEMODULE = (function(){
         {
 
         //18:34
-            "event": "Gjerningsmannen blir nå tatt, men ikke alle på øya vet det. og den neste timen er det mye usikkerhet og redsel fremdeles.",
+
+            "event": "«Gjerningsmannen blir nå tatt, men ikke alle på øya vet det. Og den neste timen er det mye usikkerhet og redsel fremdeles.»",
             "message": "",
             "person": "",
         }
