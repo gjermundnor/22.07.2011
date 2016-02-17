@@ -90,7 +90,7 @@ var TIMELINEAPP = {
     },
 
 
-    //Funksjon som skifter låseikon ved klikk og endrer opacity på prikkene
+    //Funksjon med boolean som skifter låseikon ved klikk og endrer opacity på teksten
     openDots: function() {
 
         if(TIMELINEAPP.locked){
@@ -136,6 +136,7 @@ var TIMELINEAPP = {
             });
 
     }, //End dotAnimate
+    
     setTimer: function(){
       var TA = TIMELINEAPP;
       var startHoure = 15, startMinute = 50; // Starttid
