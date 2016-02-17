@@ -45,7 +45,15 @@ Derfor er bildet delt i 2 og lagt etterhverandre
     margin-bottom: 400px;
     margin-top: 500px;
 }
-/* dotSection */
+/* fixedElements */
+#clockWrap{
+    position: fixed;
+    left: 30px;
+    top: 30px;
+}
+#clock{
+    font-size: 3em;
+}
 #dotSection{
     position: fixed;
     top: 30px;
@@ -86,6 +94,8 @@ Derfor er bildet delt i 2 og lagt etterhverandre
     position: fixed;
     cursor: pointer;
 }
+/*END fixedElements*/
+/* questionWrap */
 #showTxtBtn{
     width: 25px;
     height: 25px;
@@ -124,15 +134,7 @@ Derfor er bildet delt i 2 og lagt etterhverandre
     width: 600px;
     margin: auto;
 }
-/*END dotSection*/
-#clockWrap{
-    position: fixed;
-    left: 30px;
-    top: 30px;
-}
-#clock{
-    font-size: 3em;
-}
+/*END questionWrap*/
 #inputSection, #checkSection, #infoBoxSection, #introSection{
     display: none;
 }
