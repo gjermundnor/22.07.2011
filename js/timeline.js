@@ -1,5 +1,6 @@
 $(document).ready(function () {
 
+    $(this).scrollTop(0);
     TIMELINEAPP.init();
 
 });
@@ -14,7 +15,7 @@ var TIMELINEAPP = {
     effects: true,
     locked: false,
 
-    //HTML-objects
+    //Globale HTML-objects
     $dot1: null,
     $dot2: null,
     $dot3: null,
@@ -43,17 +44,17 @@ var TIMELINEAPP = {
 
         }();//END setElements
 
-        TIMELINEAPP.checkOffset();
-        TIMELINEAPP.outputMessages();
-        TIMELINEAPP.scrollTopOnClick();
-        TIMELINEAPP.dragQuestion();
-        TIMELINEAPP.colorIsland();
-        TIMELINEAPP.scrollTopOnClick();
-        TIMELINEAPP.soundEffects();
 
         var setEvents = function () {
 
-           TIMELINEAPP.dotAnimate();
+          TIMELINEAPP.checkOffset();
+          TIMELINEAPP.outputMessages();
+          TIMELINEAPP.scrollTopOnClick();
+          TIMELINEAPP.dragQuestion();
+          TIMELINEAPP.colorIsland();
+          TIMELINEAPP.scrollTopOnClick();
+          TIMELINEAPP.soundEffects();
+          TIMELINEAPP.dotAnimate();
 
         }();//END setEvents
 
@@ -75,6 +76,7 @@ var TIMELINEAPP = {
 
     }, // END init
     checkOffset: function(){
+      //
       $(window).scroll(function(){
         TIMELINEAPP.scrollOffset = $(window).scrollTop();
         TIMELINEAPP.scrollTopOnClick();
@@ -298,7 +300,7 @@ var TIMELINEAPP = {
          else if( clock == '18:14') lightUp(22);
         else if( clock == '18:25' || clock == '18:26' || clock == '18:27' ) lightUp(23);
         else if( clock == '18:32' || clock == '18:33' || clock == '18:34' ) lightUp(24);
-        //else if( clock == '19:20') TIMELINEAPP.ending();
+        else if( clock == '19:20') TIMELINEAPP.ending();
         else removeEffects();
 
       function lightUp(x){
@@ -340,6 +342,7 @@ var TIMELINEAPP = {
     */
     ending: function(){
       $('#endSection').fadeIn();
+      $("body").css("overflow", "hidden");
       $('#endSectionText').append(
         "<h1>Hei " + username + ", du har nå fått et innblikk i hvordan menneskene på Utøya opplevde sitasjonen, den 22. juli 2011.</h1>"
         );

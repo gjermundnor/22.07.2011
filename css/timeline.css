@@ -295,6 +295,7 @@ Derfor er bildet delt i 2 og lagt etterhverandre
 }
 .lines{
     width: 900px;
+    margin-bottom: -4px;
 }
 #endSection{
     position: fixed;

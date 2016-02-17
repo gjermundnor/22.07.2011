@@ -119,48 +119,49 @@ var TIMELINEMODULE = (function(){
             "person": "",
         },
         {
-        
+
         //18:04
             "event": "Den første sivile båten har startet redningsarbeidet og plukker opp fler av de som har lagt ut på svøm",
             "message": "",
             "person": "",
         },
         {
-        
+
         //18:09
             "event": "",
             "message": "«Vi som var rundt Pumpehuset var blitt enige om at det ikke lenger var lov å ringe til noen, bare sende meldinger – og bare hviske. Vi skulle ikke lage lyd.»",
             "person": "– Prableen Kaur (18)",
         },
         {
-        
+
         //18:11
             "event": "",
             "message": "«Etter en stund ser vi en mann som kommer ruslende bort fra siden. Da legger alle seg ned.Han stopper ved Pumpehuset og ser ned og sier “Hei, jeg er fra politiet. Jeg er her for å evakuere dere. Vi har en båt der borte.” Da en jente spør om han har legitimasjon begynner han å skyte.»",
             "person": "– Dana Barzingi (21)",
         },
         {
-        
+
         //18:14
             "event": "",
             "message": "«Så ble det stille. Jeg hørte bare vannet som traf steinene, og regndråper»",
             "person": "– Prableen Kaur (18)",
         },
         {
-        
+
         //18:27
             "event": "På sørspissen er nå 5 drept og 5 hardt skadde.",
             "message": "",
             "person": "",
         },
         {
-        
+
         //18:34
+
             "event": "«Gjerningsmannen blir nå tatt, men ikke alle på øya vet det. Og den neste timen er det mye usikkerhet og redsel fremdeles.»",
             "message": "",
             "person": "",
         }
-        
+
     ]};
 
     var getMessage = function(x){
