@@ -160,21 +160,21 @@ Derfor er bildet delt i 2 og lagt etterhverandre
     top: 50%;
     transform: translateY(-50%);
 }
-#questionWrap input{
+#questionWrap input, #newStart{
     padding: 10px 20px;
     background-color: transparent;
     border: 1px solid #FFF; /*Hvit*/
     border-radius: 4px;
     color: white;
 }
-#questionWrap .nextQuestion, #yourName{
+#questionWrap .universalBtn, #yourName{
     cursor: pointer;
 }
 #questionWrap input:focus{
     outline: none;
 }
 #inputSection{
-    display: block;
+    display: none;
 }
 #inputSection, #checkSection{
     position: relative;

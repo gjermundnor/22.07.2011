@@ -1,8 +1,3 @@
-/*enkle eller doble fnutter
-Endre klasse på knapp
-Vise alt som skal vises
-Ikke lurt å blande position med margin*/
-
 $(document).ready(function () {
 
   $(this).scrollTop(0); // Gjør at siden starter på toppen
@@ -49,7 +44,6 @@ var TIMELINEAPP = {
             TA.$bodyHeight = $('body').height();
 
         }();//END setElements
-
 
        var setEvents = function () {
 
@@ -289,9 +283,9 @@ var TIMELINEAPP = {
 
       if (TIMELINEAPP.scrollOffset >= 20588){ //17:36
           $("#rainSound").prop({"volume": 0.0});
-          $("#waveSound").prop({"volume": 0.5});
+          $("#waveSound").prop({"volume": 0.4});
       }else if (TIMELINEAPP.scrollOffset >= 18534){ //17:21
-          $("#rainSound").prop({"volume": 0.5});
+          $("#rainSound").prop({"volume": 0.4});
           $("#volume2").css({"opacity": 1});
       }else{
           $("#waveSound").prop({"volume": 0});
@@ -319,7 +313,7 @@ var TIMELINEAPP = {
     $("#volumeBtn").css({"display": "block"});
     $("#muteVolumeBtn").css({"display": "none"});
     $("#volume1").fadeIn();
-    $("#rainSound").prop({"volume": 0.1});
+    $("#rainSound").prop({"volume": 0.2});
 
   }, // END unmuteSounds
 
