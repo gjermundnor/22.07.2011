@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+    
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,118 +12,132 @@
     <link rel="stylesheet" type="text/css" href="css/jquery-ui.theme.min.css">
 
     <title>22.07.2011</title>
+    
 </head>
 
 <body>
 
-<div id="fixedElements">
-    <div id="clockWrap">
-        <div id="title">22.07.2011, Utøya</div>
-        <div id="clock"></div>
-    </div>
+    <div id="fixedElements">
+        
+        <div id="clockWrap">
+            <div id="title">22.07.2011, Utøya</div>
+            <div id="clock"></div>
+        </div> <!--End clockWrap-->
 
-    <div id="messagesWrap">
-        <div id="messages"></div>
-    </div>
+        <div id="messagesWrap">
+            <div id="messages"></div>
+        </div> <!--End messageWrap-->
 
-    <div id="dotSection">
+        <div id="dotSection">
 
-        <div class="dots">
-            <div class="dot" id="dot1"></div>
-            <div class="text">Redsel</div>
-        </div>
-        <div class="dots">
-            <div class="dot" id="dot2"></div>
-            <div class="text">Panikk</div>
-        </div>
-        <div class="dots">
-            <div class="dot" id="dot3"></div>
-            <div class="text">Forvirring</div>
-        </div>
-        <div class="dots">
-            <div class="dot" id="dot4"></div>
-            <div class="text">Usikkerhet</div>
-        </div>
-        <div class="dots">
-            <div class="dot" id="dot5"></div>
-            <div class="text">Trygghet</div>
-        </div>
-        <div class="dots">
-            <div class="dot" id="dot6"></div>
-            <div class="text">Håp</div>
-        </div>
+            <div class="dots">
+                <div class="dot" id="dot1"></div>
+                <div class="text">Redsel</div>
+            </div> <!--End dots-->
+            <div class="dots">
+                <div class="dot" id="dot2"></div>
+                <div class="text">Panikk</div>
+            </div> <!--End dots-->
+            <div class="dots">
+                <div class="dot" id="dot3"></div>
+                <div class="text">Forvirring</div>
+            </div> <!--End dots-->
+            <div class="dots">
+                <div class="dot" id="dot4"></div>
+                <div class="text">Usikkerhet</div>
+            </div> <!--End dots-->
+            <div class="dots">
+                <div class="dot" id="dot5"></div>
+                <div class="text">Trygghet</div>
+            </div> <!--End dots-->
+            <div class="dots">
+                <div class="dot" id="dot6"></div>
+                <div class="text">Håp</div>
+            </div> <!--End dots-->
 
+        </div><!--End dotSection-->
 
-    </div> End dotSection
+        <div id="lockDotsSection">
+            <img src="images/l%C3%A5s_lukket.png" id="lockDots" class="lockIcon">
+        </div><!--End lockDotsSection-->
 
-<div id="lockDotsSection">
-<img src="images/l%C3%A5s_lukket.png" id="lockDots" class="lockIcon">
-</div>
-
-
-
-    <div id="showTxtBtn"></div>
-</div><!-- END fixedElements -->
+        <div id="showTxtBtn"></div><!--End showTxtBtn-->
+        
+    </div><!-- End fixedElements -->
 
     <header id="questionWrap">
+        
         <div class="container">
 
             <section id="inputSection" class="question">
-                   <input id="inputNameField" placeholder="Ditt navn" type="text" autofocus>
-                   <input id="addNameBtn" class="nextQuestion" type="button" value="Legg til">
-            </section>
+                <input id="inputNameField" placeholder="Ditt navn" type="text" autofocus>
+                <input id="addNameBtn" class="nextQuestion" type="button" value="Legg til">
+            </section> <!--End inputSection-->
 
             <section id="checkSection" class="question">
                 <h3 id="questionTitle">Hvor var du da bomben smalt 22. Juli?</h3>
                 <div id="yourName">Ditt navn</div>
-                <br><br>
+                <br>
+                <br>
                 <div class="questionOptions">
                     <div class="option">Utøya</div>
-                    <label class="drop"><input type="checkbox" class="hide" value="utøya"></label>
-                </div>
+                    <label class="drop">
+                        <input type="checkbox" class="hide" value="utøya">
+                    </label>
+                </div> <!--End questionOptions-->
+                
                 <div class="questionOptions">
                     <div class="option">Regjeringskvartalet</div>
-                    <label class="drop"><input type="checkbox" class="hide" value="regjeringskvartalet"></label>
-                </div>
+                    <label class="drop">
+                        <input type="checkbox" class="hide" value="regjeringskvartalet">
+                    </label> 
+                </div> <!--End questionOptions-->
+                
                 <div class="questionOptions">
                     <div class="option">Annet</div>
-                    <label class="drop"><input type="checkbox" class="hide" value="annet"></label>
-                </div>
+                    <label class="drop">
+                        <input type="checkbox" class="hide" value="annet">
+                    </label>
+                </div> <!--End questionOptions-->
 
                 <input id="goNextInfoBtn" class="nextQuestion" type="button" value="Gå videre">
-           </section>
+                
+            </section> <!--End checkSection-->
 
-           <section id="introSection" class="text-box">
-               <h2>Utøya, 22.juli 2011</h2>
-               <p>Den lille øya blir denne ettermiddagen fylt til randen av store følelser. Denne tidslinjen er en tolkning av vår research og handler om i hvilken grad de største følelsene var tilstede i løpet av kvelden. Gjennom å bevege deg nedover tidslinjen går du i dypet av øya og kjenner på følelseskaoset som farget øya rød.</p>
-               <p>Når sirkelen på høyre side lyser, betyr det at den er klikkbar.</p>
-               <input id="startBtn" class="nextQuestion" type="button" value="Start reisen">
-           </section>
+            <section id="introSection" class="text-box">
+                <h2>Utøya, 22.juli 2011</h2>
+                <p>Den lille øya blir denne ettermiddagen fylt til randen av store følelser. Denne tidslinjen er en tolkning av vår research og handler om i hvilken grad de største følelsene var tilstede i løpet av kvelden. Gjennom å bevege deg nedover tidslinjen går du i dypet av øya og kjenner på følelseskaoset som farget øya rød.</p>
+                <p>Når sirkelen på høyre side lyser, betyr det at den er klikkbar.</p>
+                <input id="startBtn" class="nextQuestion" type="button" value="Start reisen">
+            </section><!--End introSection-->
 
-        </div><!-- END container -->
-   </header><!-- END header-->
+        </div><!-- End container -->
+        
+    </header><!-- End header questionWrap-->
 
-        <section id="infoBoxSection" class="text-box">
-            <div class="container">
-                    <h2 id="infoTitle">Info</h2>
-                    <p>Scroll nedover tidslinjen og opplev hendelsesforløpets følelseskaos. Klokken representerer tid og grafen med fargekodene representerer følelser. Når den lille sirkelen til høyre for midtfeltet begynner å lyse er den klikkbar, og inneholder personlige fortellinger og beskjeder tilknyttet til tidsperioden innenfor feltet. Følelsene er feflektert fra midten av siden og blir sterkere jo lengre ut de kommer. Midtfeltet som har Utøyas form avgenser spekteret. Treffer linjene ytterst på øya er følelsene på det sterkeste.</p>
-                <img src="images/closeIcon.png.png" id="closeBoxBtn" role="button">
-            </div><!-- END container -->
-        </section><!-- END infoBoxSection-->
+    <section id="infoBoxSection" class="text-box">
+        
+        <div class="container">
+            <h2 id="infoTitle">Info</h2>
+            <p>Scroll nedover tidslinjen og opplev hendelsesforløpets følelseskaos. Klokken representerer tid og grafen med fargekodene representerer følelser. Når den lille sirkelen til høyre for midtfeltet begynner å lyse er den klikkbar, og inneholder personlige fortellinger og beskjeder tilknyttet til tidsperioden innenfor feltet. Følelsene er feflektert fra midten av siden og blir sterkere jo lengre ut de kommer. Midtfeltet som har Utøyas form avgenser spekteret. Treffer linjene ytterst på øya er følelsene på det sterkeste.</p>
+            <img src="images/closeIcon.png.png" id="closeBoxBtn" role="button">
+        </div><!-- End container -->
+    
+    </section><!-- End infoBoxSection-->
 
     <div class="container">
 
         <section id="volumeSection">
-
-            <audio id="rainSound" control autoplay onloadstart="this.volume=0.1">
+            
+             <audio id="rainSound" control autoplay onloadstart="this.volume=0.1">
                 <source src="audio/rain.mp3" type="audio/mpeg">
-            </audio>
+            </audio> <!--End rainSound-->
 
             <audio id="waveSound" control autoplay onloadstart="this.volume=0">
                 <source src="audio/butterfly.mp3" type="audio/mpeg">
-            </audio>
-
-        </section><!-- END volumeSection-->
+            </audio> <!--End waveSound-->
+            
+        </section> <!-- End volumeSection-->
 
         <section id="buttonsSection">
             <img id="toTopBtn" src="images/upArrow.png" role="button">
@@ -131,30 +146,33 @@
             <img id="muteVolumeBtn" src="images/lyd_0.png" role="button">
             <div id="volume1"></div>
             <div id="volume2"></div>
-        </section><!-- END buttonsSection-->
+        </section><!-- End buttonsSection-->
 
         <section id="mainSection">
             <img class="island" id="blueIsland" src="images/island-blue.png" alt="">
             <img class="island" id="redIsland" src="images/island-red.png" alt="">
             <img class="lines" src="images/half-top-line.png" alt="Toppen av linjene">
             <img class="lines" src="images/half-bottom-line.png" alt="Toppen av linjene">
-
-        </section>
+        </section> <!-- End mainSection-->
 
         <footer id="endSection">
             <div class="container">
                 <div id="endSectionText"></div>
                 <input id="newStart" class="nextQuestion" type="button" value="Start på nytt">
             </div>
-        </footer>
+        </footer> <!--End endSection-->
 
-    </div><!-- END container -->
+    </div><!-- End container -->
 
-<!-- Javascript library -->
-<script src="js/jquery-1.11.3.js"></script><!-- jQuery -->
-<script src="http://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script><!-- Module pattern -->
-<script src="js/timelineModule.js"></script><!-- Module pattern -->
-<script src="js/timeline.js"></script><!-- Custom js/app script -->
+    <!-- Javascript library -->
+    <script src="js/jquery-1.11.3.js"></script>
+    <!-- jQuery -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+    <!-- Module pattern -->
+    <script src="js/timelineModule.js"></script>
+    <!-- Custom js/app script -->
+    <script src="js/timeline.js"></script>
+  
 
 </body>
 
