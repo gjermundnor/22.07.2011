@@ -1,3 +1,8 @@
+/*enkle eller doble fnutter
+Endre klasse på knapp
+Vise alt som skal vises
+Ikke lurt å blande position med margin*/
+
 $(document).ready(function () {
 
     $(this).scrollTop(0); // Gjør at siden starter på toppen
