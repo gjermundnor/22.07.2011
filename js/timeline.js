@@ -52,7 +52,7 @@ var TIMELINEAPP = {
         TIMELINEAPP.colorIsland();
         TIMELINEAPP.scrollTopOnClick();
         TIMELINEAPP.soundEffects();
-        TIMELINEAPP.dotAnimate();s
+        TIMELINEAPP.dotAnimate();
 
       }();//END setEvents
 
