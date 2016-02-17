@@ -1,6 +1,6 @@
 $(document).ready(function () {
 
-    $(this).scrollTop(0);
+    $(this).scrollTop(0); // Gjør at siden starter på toppen
     TIMELINEAPP.init();
 
 });
@@ -8,12 +8,12 @@ $(document).ready(function () {
 var TIMELINEAPP = {
 
     // Globale variabler
-    locationChoice: '0',
-    username: '',
-    scrollOffset: 0,
-    islandScrollValue: 700,
-    effects: true,
-    locked: false,
+    locationChoice: '0', // Valget av sted
+    username: '', // Navnet til brukeren
+    scrollOffset: 0, // Avstand fra toppen
+    islandScrollValue: 700, // Avstand fra toppen nå første island-event kjører
+    effects: true, // Lydeffekter
+    locked: false, // Om låsen er åpen eller lukket
 
     //Globale HTML-objects
     $dot1: null,
@@ -90,6 +90,7 @@ var TIMELINEAPP = {
     },
 
 
+    //Funksjon som skifter låseikon ved klikk og endrer opacity på prikkene
     openDots: function() {
 
         if(TIMELINEAPP.locked){
@@ -108,7 +109,7 @@ var TIMELINEAPP = {
 
 
 
-    },
+    }, //End opendots
 
     rainSound: function(){
         if (TIMELINEAPP.scrollOffset > 200) {
@@ -119,6 +120,8 @@ var TIMELINEAPP = {
             $("#rainSound").prop("volume", 0.1);
         }
     },
+    
+    //Funksjon som viser sibling teksten til prikk som blir hovret
     dotAnimate: function () {
             $(".dot").hover(function(){
                $(this)
@@ -132,7 +135,7 @@ var TIMELINEAPP = {
                    .animate({"opacity": "0"});
             });
 
-    },
+    }, //End dotAnimate
     setTimer: function(){
       var TA = TIMELINEAPP;
       var startHoure = 15, startMinute = 50; // Starttid
@@ -266,9 +269,7 @@ var TIMELINEAPP = {
 
         $("#volumeBtn").css({"display": "block"});
         $("#muteVolumeBtn").css({"display": "none"});
-
         $("#volume1").fadeIn(); 
-
         $("#rainSound").prop({"volume": 0.1});
     },
     showMessages: function(){
@@ -278,29 +279,29 @@ var TIMELINEAPP = {
       else if( clock == '16:03' || clock == '16:04' || clock == '16:05' ) lightUp(1);
       else if( clock == '16:29' || clock == '16:30' || clock == '16:31' ) lightUp(2);
       else if( clock == '16:55' || clock == '16:56' || clock == '16:57' ) lightUp(3);
-        else if( clock == '17:19' || clock == '17:20' || clock == '17:21' ) lightUp(4);
-        else if( clock == '17:23') lightUp(5);
-        else if( clock == '17:24') lightUp(6);
-        else if( clock == '17:25') lightUp(7);
-        else if( clock == '17:28') lightUp(8);
-        else if( clock == '17:32') lightUp(9);
-        else if( clock == '17:35') lightUp(10);
-        else if( clock == '17:37') lightUp(11);
-        else if( clock == '17:42') lightUp(12);
-        else if( clock == '17:43') lightUp(13);
-        else if( clock == '17:44') lightUp(14);
-        else if( clock == '17:45') lightUp(15);
-        else if( clock == '17:48') lightUp(16);
-        else if( clock == '17:51') lightUp(17);
-        else if( clock == '18:01' || clock == '18:02' || clock == '18:03' ) lightUp(18);
-        else if( clock == '18:04') lightUp(19);
-            else if( clock == '18:09') lightUp(20);
-         else if( clock == '18:11') lightUp(21);
-         else if( clock == '18:14') lightUp(22);
-        else if( clock == '18:25' || clock == '18:26' || clock == '18:27' ) lightUp(23);
-        else if( clock == '18:32' || clock == '18:33' || clock == '18:34' ) lightUp(24);
-        else if( clock == '19:20') TIMELINEAPP.ending();
-        else removeEffects();
+      else if( clock == '17:19' || clock == '17:20' || clock == '17:21' ) lightUp(4);
+      else if( clock == '17:23') lightUp(5);
+      else if( clock == '17:24') lightUp(6);
+      else if( clock == '17:25') lightUp(7);
+      else if( clock == '17:28') lightUp(8);
+      else if( clock == '17:32') lightUp(9);
+      else if( clock == '17:35') lightUp(10);
+      else if( clock == '17:37') lightUp(11);
+      else if( clock == '17:42') lightUp(12);
+      else if( clock == '17:43') lightUp(13);
+      else if( clock == '17:44') lightUp(14);
+      else if( clock == '17:45') lightUp(15);
+      else if( clock == '17:48') lightUp(16);
+      else if( clock == '17:51') lightUp(17);
+      else if( clock == '18:01' || clock == '18:02' || clock == '18:03' ) lightUp(18);
+      else if( clock == '18:04') lightUp(19);
+      else if( clock == '18:09') lightUp(20);
+      else if( clock == '18:11') lightUp(21);
+      else if( clock == '18:14') lightUp(22);
+      else if( clock == '18:25' || clock == '18:26' || clock == '18:27' ) lightUp(23);
+      else if( clock == '18:32' || clock == '18:33' || clock == '18:34' ) lightUp(24);
+      else if( clock == '19:20' || clock == '19:21') TIMELINEAPP.ending();
+      else removeEffects();
 
       function lightUp(x){
         $('#showTxtBtn').css({'pointer-events': 'auto', 'animation-name': 'lightUp'});
@@ -316,12 +317,12 @@ var TIMELINEAPP = {
           }
 
         });
-      }
+      }; // End lightbulb
       function removeEffects(){
         $('#messages').text("");
         $('#showTxtBtn').removeAttr('style');
         $('#showTxtBtn').css('pointer-events', 'none');
-      }
+      }; // End removeEffects
 
       function setText(x){
         $('#messages')
@@ -329,19 +330,14 @@ var TIMELINEAPP = {
           .append('<h2>' + TIMELINEMODULE.getMessage(x).event + '</h2>')
           .append('<h3>' + TIMELINEMODULE.getMessage(x).message + '</h3>')
           .append('<h4>' + TIMELINEMODULE.getMessage(x).person + '</h4>')
-      }
-    },/*END setText*/
-    // if(15:49 || 15:50 || 15:51) lightBulb(1);
-    // if(16:02 || 16:03 || 16:04) lightBulb(2);
+      }; // End setText
 
-    /* function: lightbulb(x){
-        // Fire css animation
-        // On click, .text(getMessage(x));
-    }
-    */
+    }, // END setText
+
     ending: function(){
       $('#endSection').fadeIn();
       $("body").css("overflow", "hidden");
+
       $('#endSectionText').append(
         "<h1>Hei " + username + ", du har nå fått et innblikk i hvordan menneskene på Utøya opplevde sitasjonen, den 22. juli 2011.</h1>"
         );
@@ -354,8 +350,10 @@ var TIMELINEAPP = {
         "<h3>Siden du befant deg på " + locationChoice + " denne dagen, håper vi du ikke ble fysisk skadet og at hverdagen din går som normalt.</h3>"
         );
       }
-    },/* END ending*/
+    }, // END ending
+
     newStart: function(){
-      location.reload(true)
-    }
+      location.reload(true); // Reloader siden
+    } // END newStart
+
 }; // END TIMELINEAPP
