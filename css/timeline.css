@@ -45,19 +45,27 @@ Derfor er bildet delt i 2 og lagt etterhverandre
     margin-bottom: 400px;
     margin-top: 500px;
 }
-#dot1{background-color: #00924c;}
-#dot2{background-color: #535738;}
-#dot3{background-color: #00a19a;}
-#dot4{background-color: #0073ad;}
-#dot5{background-color: #523f7b;}
-#dot6{background-color: #FFF;}
-
+/* fixedElements */
+#clockWrap{
+    position: fixed;
+    left: 30px;
+    top: 30px;
+}
+#clock{
+    font-size: 3em;
+}
 #dotSection{
     position: fixed;
     top: 30px;
     right: 30px;
     z-index: 1;
 }
+#dot1{background-color: #00924c;}
+#dot2{background-color: #535738;}
+#dot3{background-color: #00a19a;}
+#dot4{background-color: #0073ad;}
+#dot5{background-color: #523f7b;}
+#dot6{background-color: #FFF;}
 .dots{
     margin-bottom: 15px;
     clear: both;
@@ -67,8 +75,8 @@ Derfor er bildet delt i 2 og lagt etterhverandre
     float: right;
     width: 15px;
     height: 15px;
-    border-radius: 50%;
     cursor: pointer;
+    border-radius: 50%;
 }
 .text{
     float: left;
@@ -77,13 +85,6 @@ Derfor er bildet delt i 2 og lagt etterhverandre
     font-size: 0.8em;
     opacity: 0;
 }
-/*
-.dot{
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    margin-bottom: 15px;
-}*/
 .lockIcon{
     margin-right: 1px;
     width: 30px;
@@ -93,7 +94,8 @@ Derfor er bildet delt i 2 og lagt etterhverandre
     position: fixed;
     cursor: pointer;
 }
-
+/*END fixedElements*/
+/* questionWrap */
 #showTxtBtn{
     width: 25px;
     height: 25px;
@@ -132,14 +134,7 @@ Derfor er bildet delt i 2 og lagt etterhverandre
     width: 600px;
     margin: auto;
 }
-#clockWrap{
-    position: fixed;
-    left: 30px;
-    top: 30px;
-}
-#clock{
-    font-size: 3em;
-}
+/*END questionWrap*/
 #inputSection, #checkSection, #infoBoxSection, #introSection{
     display: none;
 }
@@ -190,33 +185,33 @@ Derfor er bildet delt i 2 og lagt etterhverandre
     bottom: 50px;
     left: 30px;
 }
-#infoBtn, #toTopBtn, #volumeBtn, #muteVolumeBtn, #volume1Btn, #volume2Btn{
+#infoBtn, #toTopBtn, #volumeBtn, #muteVolumeBtn, #volume1, #volume2{
     float: left;
 }
-#closeBoxBtn, #toTopBtn{
-    width: 40px;
+#infoBtn, #volumeBtn, #closeBoxBtn, #toTopBtn{
     cursor: pointer;
     position: relative;
 }
-#infoBtn, #volumeBtn{
-    cursor: pointer;
-    position: relative;
+#closeBoxBtn, #toTopBtn{
+    width: 20px;
+    height: 20px;   
+}
+#toTopBtn{
+    opacity: 0;
+    margin-top: 10px;
 }
 #infoBtn{
     height: 40px;
 }
 #closeBoxBtn{
     margin-top: 20px;
-    height: 20px;
-    width: 20px;
 }
-#toTopBtn{
-    cursor: pointer;
-    position: relative;
-    margin-top: 10px;
-    height: 20px;
-    width: 20px;
-    opacity: 0;
+#volumeBtn, #muteVolumeBtn{
+    height: 25px;
+    margin-top: 8px;
+}
+#volumeBtn, #muteVolumeBtn, #volume1{
+    margin-right: 1px;
 }
 #volumeBtn{
     width: 15px;
@@ -226,18 +221,10 @@ Derfor er bildet delt i 2 og lagt etterhverandre
     width: 24px;
     display: none;
 }
-#volumeBtn, #muteVolumeBtn{
-    height: 25px;
-    margin-top: 8px;
-}
-#volumeBtn, #muteVolumeBtn, #volume1{
-    margin-right: 1px;
-}
 #volume1, #volume2{
-    border-radius: 50%;
     background-color: #adb2c9;
     position: relative;
-    float: left;
+    border-radius: 50%;
 }
 #volume1{
     width: 7px;
@@ -301,6 +288,7 @@ Derfor er bildet delt i 2 og lagt etterhverandre
     width: 900px;
     margin-bottom: -4px;
 }
+/*Ending*/
 #endSection{
     position: fixed;
     z-index: 900;
@@ -319,3 +307,4 @@ Derfor er bildet delt i 2 og lagt etterhverandre
     top: 50%;
     transform: translateY(-50%);
 }
+/*END Ending*/
