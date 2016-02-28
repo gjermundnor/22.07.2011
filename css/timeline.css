@@ -129,6 +129,12 @@ Derfor er bildet delt i 2 og lagt etterhverandre
 .text-box{
     line-height: 2.5em;
 }
+.error-output{
+    height: 30px;
+    font-size: 0.8em;
+    color: #f15b54;
+    font-family: bitterRegular;
+}
 #messagesWrap{
     position: fixed;
     top: 50%;

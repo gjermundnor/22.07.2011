@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    
+
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,13 +12,13 @@
     <link rel="stylesheet" type="text/css" href="css/jquery-ui.theme.min.css">
 
     <title>22.07.2011</title>
-    
+
 </head>
 
 <body>
 
     <div id="fixedElements">
-        
+
         <div id="clockWrap">
             <div id="title">22.07.2011, Utøya</div>
             <div id="clock"></div>
@@ -62,19 +62,21 @@
         </div><!--End lockDotsSection-->
 
         <div id="showTxtBtn"></div><!--End showTxtBtn-->
-        
+
     </div><!-- End fixedElements -->
 
     <header id="questionWrap">
-        
+
         <div class="container">
 
             <section id="inputSection" class="question">
+                <div class="error-output"></div>
                 <input id="inputNameField" placeholder="Ditt navn" type="text" autofocus>
                 <input id="addNameBtn" class="nextQuestion" type="button" value="Legg til">
             </section> <!--End inputSection-->
 
             <section id="checkSection" class="question">
+                <div class="error-output"></div>
                 <h3 id="questionTitle">Hvor var du da bomben smalt 22. Juli?</h3>
                 <div id="yourName">Ditt navn</div>
                 <br>
@@ -85,14 +87,14 @@
                         <input type="checkbox" class="hide" value="utøya">
                     </label>
                 </div> <!--End questionOptions-->
-                
+
                 <div class="questionOptions">
                     <div class="option">Regjeringskvartalet</div>
                     <label class="drop">
                         <input type="checkbox" class="hide" value="regjeringskvartalet">
-                    </label> 
+                    </label>
                 </div> <!--End questionOptions-->
-                
+
                 <div class="questionOptions">
                     <div class="option">Annet</div>
                     <label class="drop">
@@ -101,7 +103,7 @@
                 </div> <!--End questionOptions-->
 
                 <input id="goNextInfoBtn" class="nextQuestion" type="button" value="Gå videre">
-                
+
             </section> <!--End checkSection-->
 
             <section id="introSection" class="text-box">
@@ -112,23 +114,23 @@
             </section><!--End introSection-->
 
         </div><!-- End container -->
-        
+
     </header><!-- End header questionWrap-->
 
     <section id="infoBoxSection" class="text-box">
-        
+
         <div class="container">
             <h2 id="infoTitle">Info</h2>
             <p>Scroll nedover tidslinjen og opplev hendelsesforløpets følelseskaos. Klokken representerer tid og grafen med fargekodene representerer følelser. Når den lille sirkelen til høyre for midtfeltet begynner å lyse er den klikkbar, og inneholder personlige fortellinger og beskjeder tilknyttet til tidsperioden innenfor feltet. Følelsene er feflektert fra midten av siden og blir sterkere jo lengre ut de kommer. Midtfeltet som har Utøyas form avgenser spekteret. Treffer linjene ytterst på øya er følelsene på det sterkeste.</p>
             <img src="images/closeIcon.png.png" id="closeBoxBtn" role="button">
         </div><!-- End container -->
-    
+
     </section><!-- End infoBoxSection-->
 
     <div class="container">
 
         <section id="volumeSection">
-            
+
              <audio id="rainSound" control autoplay loop onloadstart="this.volume=0.2">
                 <source src="audio/rain.mp3" type="audio/mpeg">
             </audio> <!--End rainSound-->
@@ -136,7 +138,7 @@
             <audio id="waveSound" control autoplay loop onloadstart="this.volume=0">
                 <source src="audio/waves.mp3" type="audio/mpeg">
             </audio> <!--End waveSound-->
-            
+
         </section> <!-- End volumeSection-->
 
         <section id="buttonsSection">
@@ -172,7 +174,7 @@
     <script src="js/timelineModule.js"></script>
     <!-- Custom js/app script -->
     <script src="js/timeline.js"></script>
-  
+
 
 </body>
 

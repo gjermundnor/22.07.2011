@@ -189,14 +189,20 @@ var TIMELINEAPP = {
     $('#yourName').text(yourName);
     TIMELINEAPP.username = yourName;
     var that = $(this);
-    if(yourName.length > 1) TIMELINEAPP.fadeInOutNextQuestion(that);
+    if(yourName.length > 1){
+      TIMELINEAPP.fadeInOutNextQuestion(that);
+      $('.error-output').text('');
+    } else $('.error-output').text('Navnet må bestå av 2 eller flere bokstaver.')
 
   },
 
   questionTwo: function(){
 
     var that = $(this);
-    if(TIMELINEAPP.locationChoice != '0') TIMELINEAPP.fadeInOutNextQuestion(that);
+    if(TIMELINEAPP.locationChoice != '0'){
+      $('.error-output').text('');
+      TIMELINEAPP.fadeInOutNextQuestion(that);
+    } else $('.error-output').text('Vennligst dra navnet ditt til en av boksene.');
 
   },
 
