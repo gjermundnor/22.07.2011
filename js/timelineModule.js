@@ -13,7 +13,7 @@ var TIMELINEMODULE = (function(){
         {
             //16:04
             "event": "",
-            "message": "«Vi er jo på Utøya - en øde øy... Vi er trygge, vi!»",
+            "message": "«Vi er jo på Utøya, en øde øy... Vi er trygge, vi!»",
             "person": ""
         },
         {
@@ -25,7 +25,7 @@ var TIMELINEMODULE = (function(){
         {
             //16:57
             "event": "",
-            "message": "«Faktisk er vi veldig heldige som er på øya, for båten ligger på vår side, og nå skal den over og hente og hente Politiet som skal sikre øya. Han skal hjelpe oss.»",
+            "message": "«Faktisk er vi veldig heldige som er på øya, for båten ligger på vår side, og nå skal den over og hente politiet, som skal sikre øya. Han skal hjelpe oss.»",
             "person": "SMS til mamma fra Marta Svendsen (16)"
         },
         {
@@ -62,25 +62,25 @@ var TIMELINEMODULE = (function(){
             //17:35
             "event": "",
             "message": "«Våpendesperado løs på Utøya, flere skutt!»",
-            "person": "- SMS til Gry Larsen fra Eskil Pedersen (27), Auf leder"
+            "person": "SMS til Gry Larsen fra Eskil Pedersen (27), Auf leder"
         },
         {
             //17:35
             "event": "Andre prøver å komme seg ned til det kalde vannet for å gjemme seg eller forsøke og svømme mot land",
-            "message": "«Alle løper i forskjellige retninger. Vi løper opp skrenten og ned på Kjærlighetsstien. Etterhvert kommer han. Først hører jeg skudd komme nærmere, så skritt ved hodet mitt. Han skyter én etter én, og tref er meg i hodet. Alt blir svart.»",
+            "message": "«Alle løper i forskjellige retninger. Vi løper opp skrenten og ned på Kjærlighetsstien. Etterhvert kommer han. Først hører jeg skudd komme nærmere, så skritt ved hodet mitt. Han skyter én etter én, og treffer meg i hodet. Alt blir svart.»",
             "person": "- Marte Fevang Smith (17)"
         },
         {
             //17:37
             "event": "",
-            "message": "«Folk gjemmer seg i alle sprekkene i berget langs kysten, nede ved vannet er det folk og bak store og små steiner er det folk. Det er fult av folk. Overalt. Når han kommer og begynner å skyte kan man høre at folk både hopper og detter ned. Noen landet i vannet, men de fleste landet rett på stein.»",
+            "message": "«Folk gjemmer seg i alle sprekkene i berget langs kysten. Nede ved vannet er det folk og bak store og små steiner er det folk. Det er fult av folk. Overalt. Når han kommer og begynner å skyte kan man høre at folk både hopper og detter ned. Noen landet i vannet, men de fleste landet rett på steinene.»",
             "person": "– Tonje Brenna (23)",
         },
         {
             //17:42
             "event": "",
             "message": "«Mamma, si til politiet at de må skynte seg. Folk dør her!»",
-            "person": "SMS til mamma fra Julie bremnes (16)",
+            "person": "SMS til mamma fra Julie Bremnes (16)",
         },
         {
             //17:43
@@ -92,25 +92,25 @@ var TIMELINEMODULE = (function(){
             //17:44
             "event": "",
             "message": "«Jeg hører han tar i dørhåndtaket, så krabber jeg litt unna døra og da smeller det. 2 skudd.»",
-            "person": "Even Kleppen (32)",
+            "person": "- Even Kleppen (32)",
         },
         {
             //17:45
             "event": "",
-            "message": "«jeg sitter i skolestua! han har nettopp skutt 2 skudd utenifra, men ingen truffet. tror han har gått»",
+            "message": "«Jeg sitter i skolestua! Han har nettopp skutt 2 skudd utenifra, men ingen truffet. Tror han har gått»",
             "person": "SMS fra Aud Helen W. Øyen (23)",
         },
          {
             //17:48
             "event": "",
-            "message": "«Vi greide å ro båten Reiulf ut fra brygga ca 100 meter før han kom ned til brygga og skøyt direkte mot oss. Ingen ble truf et, så han ga opp og gikk tilbake mot øya»",
-            "person": "Eivind Rindal (23)",
+            "message": "«Vi greide å ro båten Reiulf ut fra brygga, ca 100 meter, før han kom ned til brygga og skøyt direkte mot oss. Ingen ble truf et, så han ga opp og gikk tilbake mot øya»",
+            "person": "- Eivind Rindal (23)",
         },
         {
         //17:51
             "event": "Politiet gir beskjed til de som kommer gjennom på telefon fra øya at de er på vei på alle mulige måter. Land, vann og luft.",
-            "message": "«Jeg hører at skuddene kommer nærmere. Jeg tenker det er nå eller aldri, nå må jeg bare svømme. Så la vi på svøm. Hele øya lyste opp i et oransje skjær så kom det skudd mot oss i vannet.»",
-            "person": "Mari Aaby West (25)",
+            "message": "«Jeg hører at skuddene kommer nærmere. Jeg tenker det er nå eller aldri, nå må jeg bare svømme. Så la vi på svøm. Hele øya lyste opp i et oransje skjær, så kom det skudd mot oss i vannet.»",
+            "person": "- Mari Aaby West (25)",
         },
         {
         //18:02
@@ -121,7 +121,7 @@ var TIMELINEMODULE = (function(){
         {
 
         //18:04
-            "event": "Den første sivile båten har startet redningsarbeidet og plukker opp fler av de som har lagt ut på svøm",
+            "event": "Den første sivile båten har startet redningsarbeidet og plukker opp flere av de som har lagt ut på svøm",
             "message": "",
             "person": "",
         },

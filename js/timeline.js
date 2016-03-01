@@ -401,7 +401,7 @@ var TIMELINEAPP = {
     $("body").css("overflow", "hidden");
 
     $('#endSectionText').append(
-      "<h1>Hei " + TA.username + ", du har nå fått et innblikk i hvordan menneskene på Utøya opplevde sitasjonen, den 22. juli 2011.</h1>"
+      "<h1>Hei " + TA.username + ", du har nå fått et innblikk i hvordan menneskene på Utøya opplevde sitasjonen den 22. juli 2011.</h1>"
       );
     if(TA.locationChoice == 'annet'){
       $('#endSectionText').append(
